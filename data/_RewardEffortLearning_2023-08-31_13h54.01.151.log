@@ -1,0 +1,160 @@
+8.4426 	DATA 	Mouse: Left button down, pos=(453,571)
+8.5425 	DATA 	Mouse:  Left button up, pos=(453,571)
+8.6907 	WARNING 	Couldn't measure a consistent frame rate!
+  - Is your graphics card set to sync to vertical blank?
+  - Are you running other processes on your computer?
+
+8.6916 	EXP 	Created window1 = Window(allowGUI=True, allowStencil=False, autoLog=True, backendConf=UNKNOWN, backgroundFit=<method-wrapper '__getattribute__' of attributeSetter object at 0x7f82933e89d0>, backgroundImage=<method-wrapper '__getattribute__' of attributeSetter object at 0x7f82933e8970>, bitsMode=UNKNOWN, blendMode='avg', bpc=(8, 8, 8), color=array([-1.    , -1.    , -0.2471]), colorSpace='rgb', depthBits=8, fullscr=<method-wrapper '__getattribute__' of attributeSetter object at 0x7f82933e87f0>, gamma=None, gammaErrorPolicy='raise', lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor object at 0x7f8298ab0700>, multiSample=False, name='window1', numSamples=2, pos=[240.0, 150.0], screen=0, size=array([1440,  900]), stencilBits=0, stereo=False, units='norm', useFBO=True, useRetina=False, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+8.6919 	EXP 	window1: mouseVisible = True
+8.6919 	EXP 	window1: backgroundImage = ''
+8.6919 	EXP 	window1: backgroundFit = 'cover'
+8.6921 	EXP 	window1: mouseVisible = True
+8.6921 	EXP 	window1: Attempting to measure frame rate of screen (0) ...
+8.6921 	EXP 	window1: recordFrameIntervals = False
+8.7943 	EXP 	window1: recordFrameIntervals = True
+9.9424 	WARNING 	Couldn't measure a consistent frame rate!
+  - Is your graphics card set to sync to vertical blank?
+  - Are you running other processes on your computer?
+
+9.9908 	WARNING 	launchHubServer: If using the iohub mouse or eyetracker devices, fullScr should be True.
+12.3729 	EXP 	Created instrText = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, languageStyle='LTR', name='instrText', opacity=1.0, ori=0, pos=array([0. , 0.3]), rgb=UNKNOWN, text=str(...), units='norm', win=Window(...), wrapWidth=1)
+12.3953 	EXP 	window1: mouseVisible = True
+12.4263 	EXP 	Created reward = Slider(__class__=<class 'psychopy.visual.slider.Slider'>, autoDraw=False, autoLog=True, borderColor=None, color=None, colorSpace='rgb', depth=0, fillColor=None, flip=False, font='Arial', granularity=1.0, labelColor=None, labelHeight=0.1, labelWrapWidth=None, labels=None, lineColor=None, markerColor=None, name='reward', opacity=None, ori=0.0, pos=array([ 0. , -0.4]), readOnly=False, self=UNKNOWN, size=array([1. , 0.1]), startValue=None, style='rating', styleTweaks=[], ticks=array([1, 2, 3, 4, 5, 6, 7]), units='norm', win=Window(...))
+12.4451 	EXP 	Created text_rewardRating = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.15, italic=False, languageStyle='LTR', name='text_rewardRating', opacity=1.0, ori=0.0, pos=array([0. , 0.5]), rgb=UNKNOWN, text=str(...), units='norm', win=Window(...), wrapWidth=1)
+12.4551 	EXP 	Created text_rewardRating_2 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-2.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, languageStyle='LTR', name='text_rewardRating_2', opacity=1.0, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text=str(...), units='norm', win=Window(...), wrapWidth=1)
+12.4816 	EXP 	Created coins_little_2 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-4.0, flipHoriz=False, flipVert=False, image='image1.png', interpolate=True, mask=None, maskParams=None, name='coins_little_2', opacity=1.0, ori=0.0, pos=array([-0.6, -0.4]), size=array([0.1, 0.1]), texRes=128.0, units='norm', win=Window(...))
+12.6107 	EXP 	Created coins_many_2 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-5.0, flipHoriz=False, flipVert=False, image='image7.png', interpolate=True, mask=None, maskParams=None, name='coins_many_2', opacity=1.0, ori=0.0, pos=array([ 0.7 , -0.35]), size=array([0.3, 0.3]), texRes=128.0, units='norm', win=Window(...))
+12.6181 	EXP 	window1: mouseVisible = True
+12.6468 	EXP 	Created effort = Slider(__class__=<class 'psychopy.visual.slider.Slider'>, autoDraw=False, autoLog=True, borderColor=None, color=None, colorSpace='rgb', depth=0, fillColor=None, flip=False, font='Arial', granularity=1.0, labelColor=None, labelHeight=0.1, labelWrapWidth=None, labels=None, lineColor=None, markerColor=None, name='effort', opacity=None, ori=0.0, pos=array([ 0. , -0.4]), readOnly=False, self=UNKNOWN, size=array([1. , 0.1]), startValue=None, style='rating', styleTweaks=[], ticks=array([1, 2, 3, 4, 5]), units='norm', win=Window(...))
+12.6564 	EXP 	Created text_effortRating_3 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.15, italic=False, languageStyle='LTR', name='text_effortRating_3', opacity=1.0, ori=0.0, pos=array([0. , 0.5]), rgb=UNKNOWN, text=str(...), units='norm', win=Window(...), wrapWidth=1)
+12.6615 	EXP 	Created text_effortRating_4 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-2.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, languageStyle='LTR', name='text_effortRating_4', opacity=1.0, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text=str(...), units='norm', win=Window(...), wrapWidth=1)
+12.6796 	EXP 	Created fuel_empty = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-4.0, flipHoriz=False, flipVert=False, image='default.png', interpolate=True, mask=None, maskParams=None, name='fuel_empty', opacity=1.0, ori=0.0, pos=array([-0.7, -0.3]), size=array([0.3, 0.5]), texRes=128.0, units='norm', win=Window(...))
+14.2565 	EXP 	Created fuel_full = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-5.0, flipHoriz=False, flipVert=False, image='fuelShipFull-01.png', interpolate=True, mask=None, maskParams=None, name='fuel_full', opacity=1.0, ori=0.0, pos=array([ 0.7, -0.3]), size=array([0.34, 0.5 ]), texRes=128.0, units='norm', win=Window(...))
+14.2657 	EXP 	Created text2_2 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.5, italic=False, languageStyle='LTR', name='text2_2', opacity=1.0, ori=0, pos=array([0., 0.]), rgb=UNKNOWN, text='+', units='norm', win=Window(...), wrapWidth=1)
+14.2675 	EXP 	Created text_6 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, languageStyle='LTR', name='text_6', opacity=1.0, ori=0, pos=array([0. , 0.5]), rgb=UNKNOWN, text='', units='norm', win=Window(...), wrapWidth=1)
+15.5706 	EXP 	Created tank = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-4.0, flipHoriz=False, flipVert=False, image='TankOnlyEmpt-01.png', interpolate=True, mask=None, maskParams=None, name='tank', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([1.5, 2. ]), texRes=128.0, units='norm', win=Window(...))
+15.5736 	EXP 	Created barBody = Rect(__class__=<class 'psychopy.visual.rect.Rect'>, anchor=('center', 'bottom'), autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace='rgb', contrast=None, depth=-5.0, fillColor=array([-0.6627451 , -0.06666667, -0.51372549]), fillColorSpace='rgb', fillRGB=array([-0.6627451 , -0.06666667, -0.51372549]), interpolate=True, lineColor=array([-0.6627451 , -0.06666667, -0.51372549]), lineColorSpace='rgb', lineRGB=array([-0.6627451 , -0.06666667, -0.51372549]), lineWidth=1, name='barBody', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([1., 1.]), units='norm', vertices=ndarray(...), win=Window(...))
+15.5754 	EXP 	Created background = Rect(__class__=<class 'psychopy.visual.rect.Rect'>, anchor=('center', 'bottom'), autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace='rgb', contrast=None, depth=-6.0, fillColor=array([1, 1, 1]), fillColorSpace='rgb', fillRGB=array([1, 1, 1]), interpolate=True, lineColor=array([-1., -1., -1.]), lineColorSpace='rgb', lineRGB=array([-1, -1, -1]), lineWidth=2, name='background', opacity=1.0, ori=0.0, pos=array([ 0. , -0.3]), size=array([0.15, 0.55]), units='norm', vertices=ndarray(...), win=Window(...))
+15.5771 	EXP 	Created feedbackMsg = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoDraw=False, autoLog=True, bold=False, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, languageStyle='LTR', name='feedbackMsg', opacity=1.0, ori=0, pos=array([0., 0.]), rgb=UNKNOWN, text='', units='norm', win=Window(...), wrapWidth=1)
+15.5992 	EXP 	Created image_rubies = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-2.0, flipHoriz=False, flipVert=False, image='default.png', interpolate=True, mask=None, maskParams=None, name='image_rubies', opacity=1.0, ori=0.0, pos=array([ 0. , -0.4]), size=array([0.3, 0.3]), texRes=128.0, units='norm', win=Window(...))
+15.6617 	EXP 	Created image_shipCrash = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-3.0, flipHoriz=False, flipVert=False, image='crashedShip.png', interpolate=True, mask=None, maskParams=None, name='image_shipCrash', opacity=1.0, ori=0.0, pos=array([ 0.7, -0.5]), size=array([0.6, 0.7]), texRes=128.0, units='norm', win=Window(...))
+15.7017 	EXP 	Created image_shipFull = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, anchor=('center', 'center'), autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-4.0, flipHoriz=False, flipVert=False, image='fullShip.png', interpolate=True, mask=None, maskParams=None, name='image_shipFull', opacity=1.0, ori=0.0, pos=array([0.7, 0.5]), size=array([0.6, 0.7]), texRes=128.0, units='norm', win=Window(...))
+15.7175 	WARNING 	t of last frame was 5775.27ms (=1/0)
+15.7175 	EXP 	reward: autoLog = True
+15.7175 	EXP 	reward: markerPos = None
+15.7175 	EXP 	reward: styleTweaks = []
+15.7175 	EXP 	reward: styleTweaks = []
+15.7175 	EXP 	reward: styleTweaks = []
+15.7175 	EXP 	reward: styleTweaks = []
+15.7175 	EXP 	reward: contrast = 1.0
+15.7175 	EXP 	reward: autoLog = True
+15.7175 	EXP 	effort: autoLog = True
+15.7175 	EXP 	effort: markerPos = None
+15.7175 	EXP 	effort: styleTweaks = []
+15.7175 	EXP 	effort: styleTweaks = []
+15.7175 	EXP 	effort: styleTweaks = []
+15.7175 	EXP 	effort: styleTweaks = []
+15.7175 	EXP 	effort: contrast = 1.0
+15.7175 	EXP 	effort: autoLog = True
+15.7175 	EXP 	instrText: autoDraw = True
+16.4937 	EXP 	Imported trialTypes.xlsx as conditions, 60 conditions, 5 params
+16.4949 	EXP 	Created sequence: sequential, trialTypes=60, nReps=1, seed=None
+16.4952 	EXP 	New trial (rep=0, index=0): {'Points': 3, 'FeedbackText1': 'You reached the planet, you get 3 rubies!', 'FeedbackText2': 'You did not have enough battery to reach the planet and missed 3 rubies!', 'stimFile': 'image3.png', 'effLevel': 50}
+16.5218 	DATA 	Keypress: return
+16.5304 	WARNING 	t of last frame was 70.19ms (=1/14)
+16.5304 	EXP 	instrText: autoDraw = False
+16.5304 	EXP 	reward: markerPos = None
+16.5304 	EXP 	reward: markerPos = None
+16.5304 	EXP 	text_rewardRating: autoDraw = True
+16.5304 	EXP 	text_rewardRating_2: autoDraw = True
+16.5304 	EXP 	coins_little_2: autoDraw = True
+16.5304 	EXP 	coins_many_2: autoDraw = True
+16.5574 	WARNING 	t of last frame was 27.00ms (=1/37)
+16.5574 	EXP 	reward: autoDraw = True
+17.9910 	WARNING 	t of last frame was 28.68ms (=1/34)
+18.5987 	DATA 	Mouse: Left button down, pos=(510,259)
+18.6112 	EXP 	reward: markerPos = 2.25
+18.6241 	EXP 	reward: markerPos = 2.25
+18.6373 	EXP 	reward: markerPos = 2.25
+18.6491 	EXP 	reward: markerPos = 2.25
+18.6630 	EXP 	reward: markerPos = 2.25
+18.6879 	WARNING 	Multiple dropped frames have occurred - I'll stop bothering you about them!
+18.6879 	EXP 	reward: markerPos = 2.25
+18.7002 	EXP 	reward: markerPos = 2.25
+18.7099 	DATA 	Mouse:  Left button up, pos=(510,259)
+18.7126 	EXP 	reward: markerPos = 2.25
+18.7243 	EXP 	reward: markerPos = 2.0
+19.3787 	DATA 	Keypress: return
+19.4164 	EXP 	reward: autoDraw = False
+19.4164 	EXP 	text_rewardRating: autoDraw = False
+19.4164 	EXP 	text_rewardRating_2: autoDraw = False
+19.4164 	EXP 	coins_little_2: autoDraw = False
+19.4164 	EXP 	coins_many_2: autoDraw = False
+19.4164 	EXP 	effort: markerPos = None
+19.4164 	EXP 	effort: markerPos = None
+19.4164 	EXP 	fuel_empty: image = 'fuelShipEmpty-01.png'
+19.4164 	EXP 	text_effortRating_3: autoDraw = True
+19.4164 	EXP 	text_effortRating_4: autoDraw = True
+19.4164 	EXP 	fuel_empty: autoDraw = True
+19.4164 	EXP 	fuel_full: autoDraw = True
+19.4317 	EXP 	effort: autoDraw = True
+20.4485 	DATA 	Mouse: Left button down, pos=(916,274)
+20.4602 	EXP 	effort: markerPos = 4.088888888888889
+20.4728 	EXP 	effort: markerPos = 4.088888888888889
+20.4845 	EXP 	effort: markerPos = 4.088888888888889
+20.4961 	EXP 	effort: markerPos = 4.088888888888889
+20.5227 	EXP 	effort: markerPos = 4.088888888888889
+20.5239 	DATA 	Mouse:  Left button up, pos=(916,274)
+20.5400 	EXP 	effort: markerPos = 4.0
+21.1170 	DATA 	Keypress: return
+21.1345 	EXP 	effort: autoDraw = False
+21.1345 	EXP 	text_effortRating_3: autoDraw = False
+21.1345 	EXP 	text_effortRating_4: autoDraw = False
+21.1345 	EXP 	fuel_empty: autoDraw = False
+21.1345 	EXP 	fuel_full: autoDraw = False
+21.1345 	EXP 	text2_2: autoDraw = True
+22.1488 	EXP 	text2_2: autoDraw = False
+22.1488 	EXP 	text2_2: autoDraw = False
+22.1488 	EXP 	text_6: height = 0.1
+22.1488 	EXP 	text_6: height = 0.1
+22.1488 	EXP 	text_6: height = 0.1
+22.1488 	EXP 	text_6: text = 'Power up!\n'
+22.1488 	EXP 	text_6: autoDraw = True
+22.1488 	EXP 	tank: autoDraw = True
+22.1488 	EXP 	barBody: autoDraw = True
+22.1488 	EXP 	background: autoDraw = True
+23.0209 	DATA 	Keypress: space
+23.2763 	DATA 	Keypress: space
+23.4760 	DATA 	Keypress: space
+23.6983 	DATA 	Keypress: space
+24.4444 	DATA 	Keypress: space
+24.6222 	DATA 	Keypress: space
+24.7545 	DATA 	Keypress: space
+24.8836 	DATA 	Keypress: space
+25.0126 	DATA 	Keypress: space
+25.1294 	DATA 	Keypress: space
+25.2696 	DATA 	Keypress: space
+25.4125 	DATA 	Keypress: space
+25.5476 	DATA 	Keypress: space
+25.6826 	DATA 	Keypress: space
+25.8175 	DATA 	Keypress: space
+25.9633 	DATA 	Keypress: space
+26.1019 	DATA 	Keypress: space
+26.2466 	DATA 	Keypress: space
+26.3873 	DATA 	Keypress: space
+26.5242 	DATA 	Keypress: space
+32.1890 	EXP 	text_6: autoDraw = False
+32.1890 	EXP 	tank: autoDraw = False
+32.1890 	EXP 	barBody: autoDraw = False
+32.1890 	EXP 	background: autoDraw = False
+32.1890 	EXP 	feedbackMsg: height = 0.1
+32.1890 	EXP 	feedbackMsg: height = 0.1
+32.1890 	EXP 	feedbackMsg: height = 0.1
+32.1890 	EXP 	feedbackMsg: text = 'You did not have enough battery to reach the planet and missed 3 rubies!'
+32.1890 	EXP 	image_rubies: image = 'image3.png'
+32.1890 	EXP 	feedbackMsg: autoDraw = True
+32.1890 	EXP 	image_rubies: autoDraw = True
+35.1931 	EXP 	feedbackMsg: autoDraw = False
+35.1931 	EXP 	image_rubies: autoDraw = False
+36.8626 	DATA 	Keypress: escape
+37.4946 	EXP 	window1: mouseVisible = True

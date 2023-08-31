@@ -1,0 +1,21 @@
+21.9304 	WARNING 	Couldn't measure a consistent frame rate!
+  - Is your graphics card set to sync to vertical blank?
+  - Are you running other processes on your computer?
+
+21.9312 	EXP 	Created window1 = Window(allowGUI=True, allowStencil=False, autoLog=True, backendConf=UNKNOWN, backgroundFit=<method-wrapper '__getattribute__' of attributeSetter object at 0x7f8911444a30>, backgroundImage=<method-wrapper '__getattribute__' of attributeSetter object at 0x7f89114449d0>, bitsMode=UNKNOWN, blendMode='avg', bpc=(8, 8, 8), color=array([-1.    , -1.    , -0.2471]), colorSpace='rgb', depthBits=8, fullscr=<method-wrapper '__getattribute__' of attributeSetter object at 0x7f8911444850>, gamma=None, gammaErrorPolicy='raise', lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor object at 0x7f8916b30760>, multiSample=False, name='window1', numSamples=2, pos=[240.0, 150.0], screen=0, size=array([1440,  900]), stencilBits=0, stereo=False, units='norm', useFBO=True, useRetina=False, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+21.9315 	EXP 	window1: mouseVisible = True
+21.9315 	EXP 	window1: backgroundImage = ''
+21.9316 	EXP 	window1: backgroundFit = 'cover'
+21.9316 	EXP 	window1: mouseVisible = True
+21.9317 	EXP 	window1: Attempting to measure frame rate of screen (0) ...
+21.9317 	EXP 	window1: recordFrameIntervals = False
+22.0357 	EXP 	window1: recordFrameIntervals = True
+22.2045 	DATA 	Mouse: Left button down, pos=(480,552)
+22.3358 	DATA 	Mouse:  Left button up, pos=(480,552)
+23.0045 	WARNING 	t of last frame was 21.03ms (=1/47)
+23.2219 	WARNING 	Couldn't measure a consistent frame rate!
+  - Is your graphics card set to sync to vertical blank?
+  - Are you running other processes on your computer?
+
+23.2695 	WARNING 	launchHubServer: If using the iohub mouse or eyetracker devices, fullScr should be True.
+23.3817 	EXP 	window1: mouseVisible = True
