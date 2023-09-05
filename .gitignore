@@ -23,3 +23,5 @@ TestResults.xml
 *.png
 *.csv
 *.ai
+*.log
+*.psydat
