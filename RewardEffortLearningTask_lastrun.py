@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2023.1.3),
-    on Tue Sep  5 13:59:22 2023
+    on Wed Sep  6 15:24:43 2023
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -157,6 +157,20 @@ treshLine = visual.Line(
     ori=0.0, pos=[0,0], anchor='center',
     lineWidth=4.0,     colorSpace='rgb',  lineColor='red', fillColor='red',
     opacity=None, depth=-8.0, interpolate=True)
+
+# --- Initialize components for Routine "practice_feedback" ---
+# Run 'Begin Experiment' code from checkAchieved_pract
+feedbackText=""
+feedbackTime=3
+
+
+feedbackMsg_pract = visual.TextStim(win=win, name='feedbackMsg_pract',
+    text='',
+    font='Arial',
+    pos=[0, 0], height=0.1, wrapWidth=None, ori=0, 
+    color='white', colorSpace='rgb', opacity=1, 
+    languageStyle='LTR',
+    depth=-1.0);
 
 # --- Initialize components for Routine "Instructions" ---
 # Run 'Begin Experiment' code from initMainTrials
@@ -441,7 +455,7 @@ thisExp.nextEntry()
 routineTimer.reset()
 
 # set up handler to look after randomisation of conditions etc
-practicetrials = data.TrialHandler(nReps=1.0, method='random', 
+practicetrials = data.TrialHandler(nReps=1.0, method='sequential', 
     extraInfo=expInfo, originPath=-1,
     trialList=data.importConditions('pract1.xlsx'),
     seed=None, name='practicetrials')
@@ -462,13 +476,12 @@ for thisPracticetrial in practicetrials:
     # --- Prepare to start Routine "practice" ---
     continueRoutine = True
     # update component parameters for each repeat
-    pract_text.setText('Power up!\n')
+    pract_text.setText('Power up and try to reach the red bar!\n')
     # Run 'Begin Routine' code from CheckKeys_2
     #reset round score to 0
     rscore = 0
     winE=rscore+1
     npumps=0
-    eTresh=effTresh
     maxPumps=practPumps#max presses to complete a trial
     key_sequence = []  # List to store the key sequence ('z' followed by 'p')
     achieved = 0
@@ -477,14 +490,14 @@ for thisPracticetrial in practicetrials:
     batterySize=0.00
     achieved=False
     nPumps=0
-    batterySizeIncr = batteryMaxSize/100
+    batterySizeIncr = batteryMaxSize/30
     
     # Run 'Begin Routine' code from countdownEasy_3
     if not countdownStarted:
         countdownClock = core.CountdownTimer(5)
         countdownStarted = True
     #7 second timer
-    treshLine.setPos([0, eTresh])
+    treshLine.setPos([0, effTresh])
     # keep track of which components have finished
     practiceComponents = [pract_text, tank_2, background_4, background_2, barBody_2, treshLine]
     for thisComponent in practiceComponents:
@@ -546,17 +559,15 @@ for thisPracticetrial in practicetrials:
                 npumps += 1
                 key_sequence = []  # Reset the key sequence
         
-            # Check if the desired number of pumps has been reached
-            if npumps >= maxPumps:
-                achieved = True
-        
+        if (-0.5+ batterySize >=effTresh):
+             achieved = True
         # Run 'Each Frame' code from barSize_2
         batterySize=npumps*batterySizeIncr
         # Run 'Each Frame' code from countdownEasy_3
         timeRemaining = countdownClock.getTime()
         
-        if timeRemaining <= 0.0:
-            continueRoutine = False # end this trial immediately
+        if timeRemaining <= 0.0 or (-0.5+ batterySize >=effTresh):
+            continueRoutine = False  # End this trial immediately
             countdownStarted = False
         
         # *tank_2* updates
@@ -685,8 +696,9 @@ for thisPracticetrial in practicetrials:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
     # Run 'End Routine' code from CheckKeys_2
-    if npumps>=maxPumps:
+    if (-0.5+ batterySize >=effTresh):
        rscore=rscore+1
+       achieved= True
     
     #add current round score to total score
     tscore += rscore
@@ -696,6 +708,101 @@ for thisPracticetrial in practicetrials:
     # Run 'End Routine' code from countdownEasy_3
     countdownStarted = False
     # the Routine "practice" was not non-slip safe, so reset the non-slip timer
+    routineTimer.reset()
+    
+    # --- Prepare to start Routine "practice_feedback" ---
+    continueRoutine = True
+    # update component parameters for each repeat
+    # Run 'Begin Routine' code from checkAchieved_pract
+    if achieved==True:
+        feedbackText= 'Well done you reached the treshold!'
+        crashShow=0
+    else:
+        feedbackText= 'Not quite there yet. Add a bit more power!'
+        crashShow=1
+    feedbackMsg_pract.setText(feedbackText)
+    # keep track of which components have finished
+    practice_feedbackComponents = [feedbackMsg_pract]
+    for thisComponent in practice_feedbackComponents:
+        thisComponent.tStart = None
+        thisComponent.tStop = None
+        thisComponent.tStartRefresh = None
+        thisComponent.tStopRefresh = None
+        if hasattr(thisComponent, 'status'):
+            thisComponent.status = NOT_STARTED
+    # reset timers
+    t = 0
+    _timeToFirstFrame = win.getFutureFlipTime(clock="now")
+    frameN = -1
+    
+    # --- Run Routine "practice_feedback" ---
+    routineForceEnded = not continueRoutine
+    while continueRoutine:
+        # get current time
+        t = routineTimer.getTime()
+        tThisFlip = win.getFutureFlipTime(clock=routineTimer)
+        tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+        frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+        # update/draw components on each frame
+        
+        # *feedbackMsg_pract* updates
+        
+        # if feedbackMsg_pract is starting this frame...
+        if feedbackMsg_pract.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            feedbackMsg_pract.frameNStart = frameN  # exact frame index
+            feedbackMsg_pract.tStart = t  # local t and not account for scr refresh
+            feedbackMsg_pract.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(feedbackMsg_pract, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'feedbackMsg_pract.started')
+            # update status
+            feedbackMsg_pract.status = STARTED
+            feedbackMsg_pract.setAutoDraw(True)
+        
+        # if feedbackMsg_pract is active this frame...
+        if feedbackMsg_pract.status == STARTED:
+            # update params
+            pass
+        
+        # if feedbackMsg_pract is stopping this frame...
+        if feedbackMsg_pract.status == STARTED:
+            # is it time to stop? (based on global clock, using actual start)
+            if tThisFlipGlobal > feedbackMsg_pract.tStartRefresh + feedbackTime-frameTolerance:
+                # keep track of stop time/frame for later
+                feedbackMsg_pract.tStop = t  # not accounting for scr refresh
+                feedbackMsg_pract.frameNStop = frameN  # exact frame index
+                # add timestamp to datafile
+                thisExp.timestampOnFlip(win, 'feedbackMsg_pract.stopped')
+                # update status
+                feedbackMsg_pract.status = FINISHED
+                feedbackMsg_pract.setAutoDraw(False)
+        
+        # check for quit (typically the Esc key)
+        if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
+            core.quit()
+            if eyetracker:
+                eyetracker.setConnectionState(False)
+        
+        # check if all components have finished
+        if not continueRoutine:  # a component has requested a forced-end of Routine
+            routineForceEnded = True
+            break
+        continueRoutine = False  # will revert to True if at least one component still running
+        for thisComponent in practice_feedbackComponents:
+            if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                continueRoutine = True
+                break  # at least one component has not yet finished
+        
+        # refresh the screen
+        if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+            win.flip()
+    
+    # --- Ending Routine "practice_feedback" ---
+    for thisComponent in practice_feedbackComponents:
+        if hasattr(thisComponent, "setAutoDraw"):
+            thisComponent.setAutoDraw(False)
+    # the Routine "practice_feedback" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
     thisExp.nextEntry()
     
