@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2023.1.3),
-    on Wed Sep  6 15:24:43 2023
+    on Thu Sep  7 18:16:02 2023
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -119,12 +119,16 @@ pract_text = visual.TextStim(win=win, name='pract_text',
     color='white', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=0.0);
+# Run 'Begin Experiment' code from countdownEasy_3
+countdownStarted = False
+timeAvailable = 5
+# Run 'Begin Experiment' code from CheckKeys_2
+max_press = []  # Initialize max_press
+
 # Run 'Begin Experiment' code from barSize_2
 batterySize=0.00
 batteryMaxSize=0.55
 #eTresh=0.1
-# Run 'Begin Experiment' code from countdownEasy_3
-countdownStarted = False
 tank_2 = visual.ImageStim(
     win=win,
     name='tank_2', 
@@ -477,6 +481,11 @@ for thisPracticetrial in practicetrials:
     continueRoutine = True
     # update component parameters for each repeat
     pract_text.setText('Power up and try to reach the red bar!\n')
+    # Run 'Begin Routine' code from countdownEasy_3
+    if not countdownStarted:
+        countdownClock = core.CountdownTimer(timeAvailable)
+        countdownStarted = True
+    #7 second timer
     # Run 'Begin Routine' code from CheckKeys_2
     #reset round score to 0
     rscore = 0
@@ -485,6 +494,9 @@ for thisPracticetrial in practicetrials:
     maxPumps=practPumps#max presses to complete a trial
     key_sequence = []  # List to store the key sequence ('z' followed by 'p')
     achieved = 0
+    
+    loop_start_time = core.Clock()
+    
     # Run 'Begin Routine' code from barSize_2
     #balloon image's starting size
     batterySize=0.00
@@ -492,11 +504,6 @@ for thisPracticetrial in practicetrials:
     nPumps=0
     batterySizeIncr = batteryMaxSize/30
     
-    # Run 'Begin Routine' code from countdownEasy_3
-    if not countdownStarted:
-        countdownClock = core.CountdownTimer(5)
-        countdownStarted = True
-    #7 second timer
     treshLine.setPos([0, effTresh])
     # keep track of which components have finished
     practiceComponents = [pract_text, tank_2, background_4, background_2, barBody_2, treshLine]
@@ -541,6 +548,12 @@ for thisPracticetrial in practicetrials:
         if pract_text.status == STARTED:
             # update params
             pass
+        # Run 'Each Frame' code from countdownEasy_3
+        timeRemaining = countdownClock.getTime()
+        
+        if timeRemaining <= 0.0 or (-0.5+ batterySize >=effTresh):
+            continueRoutine = False  # End this trial immediately
+            countdownStarted = False
         # Run 'Each Frame' code from CheckKeys_2
         # Check for key presses
         keys = event.getKeys()
@@ -563,12 +576,6 @@ for thisPracticetrial in practicetrials:
              achieved = True
         # Run 'Each Frame' code from barSize_2
         batterySize=npumps*batterySizeIncr
-        # Run 'Each Frame' code from countdownEasy_3
-        timeRemaining = countdownClock.getTime()
-        
-        if timeRemaining <= 0.0 or (-0.5+ batterySize >=effTresh):
-            continueRoutine = False  # End this trial immediately
-            countdownStarted = False
         
         # *tank_2* updates
         
@@ -695,18 +702,28 @@ for thisPracticetrial in practicetrials:
     for thisComponent in practiceComponents:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
+    # Run 'End Routine' code from countdownEasy_3
+    countdownStarted = False
     # Run 'End Routine' code from CheckKeys_2
     if (-0.5+ batterySize >=effTresh):
        rscore=rscore+1
        achieved= True
-    
+               
     #add current round score to total score
     tscore += rscore
+    npumps_pSec = npumps/t
+    
+    #if npumps_pSec > max_press:
+      # max_press = npumps_pSec
+    
+    max_press.append(npumps/t)
+    
     
     practicetrials.addData('# of presses', npumps)
     practicetrials.addData('trial score', rscore)
-    # Run 'End Routine' code from countdownEasy_3
-    countdownStarted = False
+    practicetrials.addData('treshold', effTresh)
+    practicetrials.addData('max_press', max_press)
+    practicetrials.addData('trial_duration', t) 
     # the Routine "practice" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
     
@@ -1452,6 +1469,8 @@ for thisMaintask in maintask:
     maxPumps=effLevel#max presses to complete a trial
     key_sequence = []  # List to store the key sequence ('z' followed by 'p')
     achieved = 0
+    
+    print("Trial Duration:", max_press)
     # Run 'Begin Routine' code from barSize
     #balloon image's starting size
     batterySize=0.00
