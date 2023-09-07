@@ -227,6 +227,23 @@
         <Param val="128" valType="num" updates="constant" name="texture resolution"/>
         <Param val="from exp settings" valType="str" updates="None" name="units"/>
       </ImageComponent>
+      <CodeComponent name="get_rating_2" plugin="None">
+        <Param val="reward_ratings = []" valType="extendedCode" updates="constant" name="Before Experiment"/>
+        <Param val="reward_ratings = [];&amp;#10;" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Begin Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="Auto-&gt;JS" valType="str" updates="None" name="Code Type"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Each Frame"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Each JS Frame"/>
+        <Param val="" valType="extendedCode" updates="constant" name="End Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="End JS Experiment"/>
+        <Param val="rewscale_value = reward.getRating();&amp;#10;console.log(&quot;Scale Value:&quot;, rewscale_value);&amp;#10;reward_ratings.push(rewscale_value);&amp;#10;" valType="extendedCode" updates="constant" name="End JS Routine"/>
+        <Param val="rewscale_value = reward.getRating()&amp;#10;print(&quot;Scale Value:&quot;, rewscale_value)&amp;#10;reward_ratings.append(rewscale_value)" valType="extendedCode" updates="constant" name="End Routine"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="get_rating_2" valType="code" updates="None" name="name"/>
+      </CodeComponent>
     </Routine>
     <Routine name="main_trial">
       <TextComponent name="text_6" plugin="None">
@@ -641,6 +658,23 @@
         <Param val="128" valType="num" updates="constant" name="texture resolution"/>
         <Param val="from exp settings" valType="str" updates="None" name="units"/>
       </ImageComponent>
+      <CodeComponent name="get_rating" plugin="None">
+        <Param val="effort_ratings = []" valType="extendedCode" updates="constant" name="Before Experiment"/>
+        <Param val="effort_ratings = [];&amp;#10;" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Begin Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="Auto-&gt;JS" valType="str" updates="None" name="Code Type"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Each Frame"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Each JS Frame"/>
+        <Param val="" valType="extendedCode" updates="constant" name="End Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="End JS Experiment"/>
+        <Param val="effscale_value = effort.getRating();&amp;#10;console.log(&quot;Scale Value:&quot;, effscale_value);&amp;#10;effort_ratings.push(effscale_value);&amp;#10;" valType="extendedCode" updates="constant" name="End JS Routine"/>
+        <Param val="effscale_value = effort.getRating()&amp;#10;print(&quot;Scale Value:&quot;, effscale_value)&amp;#10;effort_ratings.append(effscale_value)" valType="extendedCode" updates="constant" name="End Routine"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="get_rating" valType="code" updates="None" name="name"/>
+      </CodeComponent>
     </Routine>
     <Routine name="reward_rating_2">
       <SliderComponent name="reward_2" plugin="None">

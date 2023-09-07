@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2023.1.3),
-    on Thu Sep  7 18:16:02 2023
+    on Thu Sep  7 18:45:47 2023
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -33,6 +33,10 @@ import sys  # to get file system encoding
 import psychopy.iohub as io
 from psychopy.hardware import keyboard
 
+# Run 'Before Experiment' code from get_rating_2
+reward_ratings = []
+# Run 'Before Experiment' code from get_rating
+effort_ratings = []
 
 
 # Ensure that relative paths start from the same directory as this script
@@ -124,7 +128,7 @@ countdownStarted = False
 timeAvailable = 5
 # Run 'Begin Experiment' code from CheckKeys_2
 max_press = []  # Initialize max_press
-
+max_press_pSec = -1
 # Run 'Begin Experiment' code from barSize_2
 batterySize=0.00
 batteryMaxSize=0.55
@@ -717,7 +721,7 @@ for thisPracticetrial in practicetrials:
       # max_press = npumps_pSec
     
     max_press.append(npumps/t)
-    
+    max_press_pSec = max(max_press)
     
     practicetrials.addData('# of presses', npumps)
     practicetrials.addData('trial score', rscore)
@@ -1168,6 +1172,10 @@ for thisMaintask in maintask:
     if login_reward.keys != None:  # we had a response
         maintask.addData('login_reward.rt', login_reward.rt)
         maintask.addData('login_reward.duration', login_reward.duration)
+    # Run 'End Routine' code from get_rating_2
+    rewscale_value = reward.getRating()
+    print("Scale Value:", rewscale_value)
+    reward_ratings.append(rewscale_value)
     # the Routine "reward_rating" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
     
@@ -1364,6 +1372,10 @@ for thisMaintask in maintask:
     if effort_reward_2.keys != None:  # we had a response
         maintask.addData('effort_reward_2.rt', effort_reward_2.rt)
         maintask.addData('effort_reward_2.duration', effort_reward_2.duration)
+    # Run 'End Routine' code from get_rating
+    effscale_value = effort.getRating()
+    print("Scale Value:", effscale_value)
+    effort_ratings.append(effscale_value)
     # the Routine "effort_rating" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
     
@@ -1470,7 +1482,7 @@ for thisMaintask in maintask:
     key_sequence = []  # List to store the key sequence ('z' followed by 'p')
     achieved = 0
     
-    print("Trial Duration:", max_press)
+    print("Max press per sec:", max_press_pSec)
     # Run 'Begin Routine' code from barSize
     #balloon image's starting size
     batterySize=0.00
