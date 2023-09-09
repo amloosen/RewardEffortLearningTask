@@ -274,17 +274,17 @@
       <CodeComponent name="CheckKeys" plugin="None">
         <Param val="" valType="extendedCode" updates="constant" name="Before Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
-        <Param val="" valType="extendedCode" updates="constant" name="Begin Experiment"/>
-        <Param val="" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
-        <Param val="rscore = 0;&amp;#10;winE = (rscore + 1);&amp;#10;npumps = 0;&amp;#10;maxPumps = effLevel;&amp;#10;key_sequence = [];&amp;#10;achieved = 0;&amp;#10;console.log(&quot;Max press per sec:&quot;, max_press_pSec);&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
-        <Param val="#reset round score to 0&amp;#10;rscore = 0&amp;#10;winE=rscore+1&amp;#10;npumps=0&amp;#10;maxPumps=effLevel#max presses to complete a trial&amp;#10;key_sequence = []  # List to store the key sequence ('z' followed by 'p')&amp;#10;achieved = 0&amp;#10;&amp;#10;print(&quot;Max press per sec:&quot;, max_press_pSec)" valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="max_press_pSec = max_press_pSec_pract" valType="extendedCode" updates="constant" name="Begin Experiment"/>
+        <Param val="max_press_pSec = max_press_pSec_pract;&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
+        <Param val="rscore = 0;&amp;#10;winE = (rscore + 1);&amp;#10;npumps = 0;&amp;#10;maxPumps = effLevel;&amp;#10;key_sequence = [];&amp;#10;achieved = 0;&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
+        <Param val="#reset round score to 0&amp;#10;rscore = 0&amp;#10;winE=rscore+1&amp;#10;npumps=0&amp;#10;maxPumps=effLevel#max presses to complete a trial&amp;#10;key_sequence = []  # List to store the key sequence ('z' followed by 'p')&amp;#10;achieved = 0&amp;#10;" valType="extendedCode" updates="constant" name="Begin Routine"/>
         <Param val="Auto-&gt;JS" valType="str" updates="None" name="Code Type"/>
         <Param val="# Check for key presses&amp;#10;keys = event.getKeys()&amp;#10;&amp;#10;if keys:&amp;#10;    key_pressed = keys[0]&amp;#10;&amp;#10;    # Check if the key pressed is 'z' and it's the first key in the sequence&amp;#10;    if key_pressed == 'z' and not key_sequence:&amp;#10;        key_sequence.append(key_pressed)&amp;#10;    # Check if the key pressed is 'p' and 'z' was pressed before it&amp;#10;    elif key_pressed == 'p' and 'z' in key_sequence:&amp;#10;        key_sequence.append(key_pressed)&amp;#10;    # If the sequence is complete ('z' followed by 'p'), increase the size of the shape&amp;#10;    if key_sequence == ['z', 'p']:&amp;#10;        npumps += 1&amp;#10;        key_sequence = []  # Reset the key sequence&amp;#10;&amp;#10;    # Check if the desired number of pumps has been reached&amp;#10;    if npumps &gt;= maxPumps:&amp;#10;        achieved = True&amp;#10;" valType="extendedCode" updates="constant" name="Each Frame"/>
         <Param val="var _pj;&amp;#10;function _pj_snippets(container) {&amp;#10;    function in_es6(left, right) {&amp;#10;        if (((right instanceof Array) || ((typeof right) === &quot;string&quot;))) {&amp;#10;            return (right.indexOf(left) &gt; (- 1));&amp;#10;        } else {&amp;#10;            if (((right instanceof Map) || (right instanceof Set) || (right instanceof WeakMap) || (right instanceof WeakSet))) {&amp;#10;                return right.has(left);&amp;#10;            } else {&amp;#10;                return (left in right);&amp;#10;            }&amp;#10;        }&amp;#10;    }&amp;#10;    container[&quot;in_es6&quot;] = in_es6;&amp;#10;    return container;&amp;#10;}&amp;#10;_pj = {};&amp;#10;_pj_snippets(_pj);&amp;#10;keys = psychoJS.eventManager.getKeys();&amp;#10;if (keys) {&amp;#10;    key_pressed = keys[0];&amp;#10;    if (((key_pressed === &quot;z&quot;) &amp;&amp; (! key_sequence))) {&amp;#10;        key_sequence.push(key_pressed);&amp;#10;    } else {&amp;#10;        if (((key_pressed === &quot;p&quot;) &amp;&amp; _pj.in_es6(&quot;z&quot;, key_sequence))) {&amp;#10;            key_sequence.push(key_pressed);&amp;#10;        }&amp;#10;    }&amp;#10;    if ((key_sequence === [&quot;z&quot;, &quot;p&quot;])) {&amp;#10;        npumps += 1;&amp;#10;        key_sequence = [];&amp;#10;    }&amp;#10;    if ((npumps &gt;= maxPumps)) {&amp;#10;        achieved = true;&amp;#10;    }&amp;#10;}&amp;#10;" valType="extendedCode" updates="constant" name="Each JS Frame"/>
         <Param val="" valType="extendedCode" updates="constant" name="End Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="End JS Experiment"/>
-        <Param val="if ((npumps &gt;= maxPumps)) {&amp;#10;    rscore = (rscore + 1);&amp;#10;}&amp;#10;tscore += rscore;&amp;#10;maintask.addData(&quot;# of presses&quot;, npumps);&amp;#10;maintask.addData(&quot;trial score&quot;, rscore);&amp;#10;" valType="extendedCode" updates="constant" name="End JS Routine"/>
-        <Param val="if npumps&gt;=maxPumps:&amp;#10;   rscore=rscore+1&amp;#10;&amp;#10;#add current round score to total score&amp;#10;tscore += rscore&amp;#10;&amp;#10;maintask.addData('# of presses', npumps)&amp;#10;maintask.addData('trial score', rscore)" valType="extendedCode" updates="constant" name="End Routine"/>
+        <Param val="if ((npumps &gt;= maxPumps)) {&amp;#10;    rscore = (rscore + 1);&amp;#10;}&amp;#10;tscore += rscore;&amp;#10;npumps_pSec = (npumps / t);&amp;#10;max_press.push((npumps / t));&amp;#10;max_press_pSec = Math.max(max_press);&amp;#10;practicetrials.addData(&quot;treshold&quot;, effTresh);&amp;#10;practicetrials.addData(&quot;max_press&quot;, max_press);&amp;#10;practicetrials.addData(&quot;trial_duration&quot;, t);&amp;#10;maintask.addData(&quot;# of presses&quot;, npumps);&amp;#10;maintask.addData(&quot;trial score&quot;, rscore);&amp;#10;" valType="extendedCode" updates="constant" name="End JS Routine"/>
+        <Param val="if npumps&gt;=maxPumps:&amp;#10;   rscore=rscore+1&amp;#10;&amp;#10;#add current round score to total score&amp;#10;tscore += rscore&amp;#10;&amp;#10;&amp;#10;npumps_pSec = npumps/t&amp;#10;max_press.append(npumps/t)&amp;#10;max_press_pSec = max(max_press)&amp;#10;&amp;#10;practicetrials.addData('treshold', effTresh)&amp;#10;practicetrials.addData('max_press', max_press)&amp;#10;practicetrials.addData('trial_duration', t) &amp;#10;maintask.addData('# of presses', npumps)&amp;#10;maintask.addData('trial score', rscore)" valType="extendedCode" updates="constant" name="End Routine"/>
         <Param val="False" valType="bool" updates="None" name="disabled"/>
         <Param val="CheckKeys" valType="code" updates="None" name="name"/>
       </CodeComponent>
@@ -293,8 +293,8 @@
         <Param val="" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
         <Param val="batterySize=0.00&amp;#10;batteryMaxSize=0.55" valType="extendedCode" updates="constant" name="Begin Experiment"/>
         <Param val="batterySize = 0.0;&amp;#10;batteryMaxSize = 0.55;&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
-        <Param val="batterySize = 0.0;&amp;#10;achieved = false;&amp;#10;nPumps = 0;&amp;#10;batterySizeIncr = (batteryMaxSize / 100);&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
-        <Param val="#balloon image's starting size&amp;#10;batterySize=0.00&amp;#10;achieved=False&amp;#10;nPumps=0&amp;#10;batterySizeIncr = batteryMaxSize/100" valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="batterySize = 0.0;&amp;#10;achieved = false;&amp;#10;nPumps = 0;&amp;#10;batterySizeIncr = (batteryMaxSize / (max_press_pSec * timeAvailable));&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
+        <Param val="#balloon image's starting size&amp;#10;batterySize=0.00&amp;#10;achieved=False&amp;#10;nPumps=0&amp;#10;batterySizeIncr = batteryMaxSize/(max_press_pSec*timeAvailable)&amp;#10;" valType="extendedCode" updates="constant" name="Begin Routine"/>
         <Param val="Auto-&gt;JS" valType="str" updates="None" name="Code Type"/>
         <Param val="batterySize=npumps*batterySizeIncr" valType="extendedCode" updates="constant" name="Each Frame"/>
         <Param val="batterySize = (npumps * batterySizeIncr);&amp;#10;" valType="extendedCode" updates="constant" name="Each JS Frame"/>
@@ -311,7 +311,7 @@
         <Param val="countdownStarted = False" valType="extendedCode" updates="constant" name="Begin Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
-        <Param val="if not countdownStarted:&amp;#10;    countdownClock = core.CountdownTimer(5)&amp;#10;    countdownStarted = True&amp;#10;#7 second timer" valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="if not countdownStarted:&amp;#10;    countdownClock = core.CountdownTimer(timeAvailable)&amp;#10;    countdownStarted = True&amp;#10;#7 second timer" valType="extendedCode" updates="constant" name="Begin Routine"/>
         <Param val="Py" valType="str" updates="None" name="Code Type"/>
         <Param val="timeRemaining = countdownClock.getTime()&amp;#10;&amp;#10;if timeRemaining &lt;= 0.0:&amp;#10;    continueRoutine = False # end this trial immediately&amp;#10;    countdownStarted = False" valType="extendedCode" updates="constant" name="Each Frame"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each JS Frame"/>
@@ -474,7 +474,7 @@
         <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
         <Param val="" valType="code" updates="constant" name="stopVal"/>
         <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
-        <Param val="Choose Your Task:&amp;#10;&amp;#10;Probability of win:&amp;#10;&amp;#10;Press A for Easy Task&amp;#10;1 point" valType="str" updates="constant" name="text"/>
+        <Param val="[Placeholder Intro Video&amp;#10;]" valType="str" updates="constant" name="text"/>
         <Param val="from exp settings" valType="str" updates="None" name="units"/>
         <Param val="" valType="code" updates="constant" name="wrapWidth"/>
       </TextComponent>
@@ -909,7 +909,7 @@
       </ImageComponent>
     </Routine>
     <Routine name="practice_instructions">
-      <TextComponent name="text_2" plugin="None">
+      <TextComponent name="practice_intro_text1" plugin="None">
         <Param val="white" valType="color" updates="constant" name="color"/>
         <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
         <Param val="1" valType="num" updates="constant" name="contrast"/>
@@ -919,10 +919,10 @@
         <Param val="Arial" valType="str" updates="constant" name="font"/>
         <Param val="LTR" valType="str" updates="None" name="languageStyle"/>
         <Param val="0.1" valType="num" updates="constant" name="letterHeight"/>
-        <Param val="text_2" valType="code" updates="None" name="name"/>
+        <Param val="practice_intro_text1" valType="code" updates="None" name="name"/>
         <Param val="" valType="num" updates="constant" name="opacity"/>
         <Param val="0" valType="num" updates="constant" name="ori"/>
-        <Param val="(0, 0)" valType="list" updates="constant" name="pos"/>
+        <Param val="(0, 0.55)" valType="list" updates="constant" name="pos"/>
         <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
         <Param val="" valType="code" updates="None" name="startEstim"/>
         <Param val="time (s)" valType="str" updates="None" name="startType"/>
@@ -930,7 +930,57 @@
         <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
         <Param val="" valType="code" updates="constant" name="stopVal"/>
         <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
-        <Param val="On the next screen you will see a fuel tank with a red line.&amp;#10;&amp;#10;Press the ''z'' then ''p'' keys as fast as you can to reach the red bar.&amp;#10;&amp;#10;You will have 5 seconds.&amp;#10;&amp;#10;Press ENTER to Start!" valType="str" updates="constant" name="text"/>
+        <Param val="On the next screen you will see a fuel tank with a red line." valType="str" updates="constant" name="text"/>
+        <Param val="from exp settings" valType="str" updates="None" name="units"/>
+        <Param val="" valType="num" updates="constant" name="wrapWidth"/>
+      </TextComponent>
+      <MovieComponent name="example_tank_rec" plugin="None">
+        <Param val="False" valType="bool" updates="None" name="No audio"/>
+        <Param val="center" valType="str" updates="constant" name="anchor"/>
+        <Param val="ffpyplayer" valType="str" updates="None" name="backend"/>
+        <Param val="1" valType="num" updates="constant" name="contrast"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="False" valType="bool" updates="constant" name="forceEndRoutine"/>
+        <Param val="True" valType="bool" updates="None" name="loop"/>
+        <Param val="example_tank.mov" valType="file" updates="constant" name="movie"/>
+        <Param val="example_tank_rec" valType="code" updates="None" name="name"/>
+        <Param val="" valType="num" updates="constant" name="opacity"/>
+        <Param val="0" valType="num" updates="constant" name="ori"/>
+        <Param val="(0, 0.15)" valType="list" updates="constant" name="pos"/>
+        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="(0.1, 0.5)" valType="list" updates="constant" name="size"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="0.1" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="" valType="code" updates="constant" name="stopVal"/>
+        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
+        <Param val="from exp settings" valType="str" updates="None" name="units"/>
+        <Param val="1" valType="num" updates="None" name="volume"/>
+      </MovieComponent>
+      <TextComponent name="practice_intro_text2" plugin="None">
+        <Param val="white" valType="color" updates="constant" name="color"/>
+        <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
+        <Param val="1" valType="num" updates="constant" name="contrast"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="None" valType="str" updates="constant" name="flip"/>
+        <Param val="Arial" valType="str" updates="constant" name="font"/>
+        <Param val="LTR" valType="str" updates="None" name="languageStyle"/>
+        <Param val="0.1" valType="num" updates="constant" name="letterHeight"/>
+        <Param val="practice_intro_text2" valType="code" updates="None" name="name"/>
+        <Param val="" valType="num" updates="constant" name="opacity"/>
+        <Param val="0" valType="num" updates="constant" name="ori"/>
+        <Param val="(0, -0.30)" valType="list" updates="constant" name="pos"/>
+        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="0.0" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="" valType="code" updates="constant" name="stopVal"/>
+        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
+        <Param val="&amp;#10;&amp;#10;&amp;#10;Press the ''z'' then ''p'' keys as fast as you can to reach the red bar.&amp;#10;&amp;#10;You will have 5 seconds.&amp;#10;&amp;#10;Press ENTER to Start!" valType="str" updates="constant" name="text"/>
         <Param val="from exp settings" valType="str" updates="None" name="units"/>
         <Param val="" valType="num" updates="constant" name="wrapWidth"/>
       </TextComponent>
@@ -986,7 +1036,7 @@
         <Param val="countdownStarted = False&amp;#10;timeAvailable = 5" valType="extendedCode" updates="constant" name="Begin Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
-        <Param val="if not countdownStarted:&amp;#10;    countdownClock = core.CountdownTimer(timeAvailable)&amp;#10;    countdownStarted = True&amp;#10;#7 second timer" valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="if not countdownStarted:&amp;#10;    countdownClock = core.CountdownTimer(timeAvailable)&amp;#10;    countdownStarted = True" valType="extendedCode" updates="constant" name="Begin Routine"/>
         <Param val="Py" valType="str" updates="None" name="Code Type"/>
         <Param val="timeRemaining = countdownClock.getTime()&amp;#10;&amp;#10;if timeRemaining &lt;= 0.0 or (-0.5+ batterySize &gt;=effTresh):&amp;#10;    continueRoutine = False  # End this trial immediately&amp;#10;    countdownStarted = False" valType="extendedCode" updates="constant" name="Each Frame"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each JS Frame"/>
@@ -1000,27 +1050,27 @@
       <CodeComponent name="CheckKeys_2" plugin="None">
         <Param val="" valType="extendedCode" updates="constant" name="Before Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
-        <Param val="max_press = []  # Initialize max_press&amp;#10;max_press_pSec = -1" valType="extendedCode" updates="constant" name="Begin Experiment"/>
-        <Param val="max_press = [];&amp;#10;max_press_pSec = (- 1);&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
+        <Param val="max_press_pract = []  # Initialize max_press&amp;#10;max_press_pSec_pract = -1" valType="extendedCode" updates="constant" name="Begin Experiment"/>
+        <Param val="max_press_pract = [];&amp;#10;max_press_pSec_pract = (- 1);&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
         <Param val="rscore = 0;&amp;#10;winE = (rscore + 1);&amp;#10;npumps = 0;&amp;#10;maxPumps = practPumps;&amp;#10;key_sequence = [];&amp;#10;achieved = 0;&amp;#10;loop_start_time = new core.Clock();&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
-        <Param val="#reset round score to 0&amp;#10;rscore = 0&amp;#10;winE=rscore+1&amp;#10;npumps=0&amp;#10;maxPumps=practPumps#max presses to complete a trial&amp;#10;key_sequence = []  # List to store the key sequence ('z' followed by 'p')&amp;#10;achieved = 0&amp;#10;&amp;#10;loop_start_time = core.Clock()&amp;#10;" valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="#reset round score to 0&amp;#10;rscore = 0&amp;#10;winE = rscore+1&amp;#10;npumps = 0&amp;#10;maxPumps = practPumps#max presses to complete a trial&amp;#10;key_sequence = []  # List to store the key sequence ('z' followed by 'p')&amp;#10;achieved = 0&amp;#10;&amp;#10;loop_start_time = core.Clock()&amp;#10;" valType="extendedCode" updates="constant" name="Begin Routine"/>
         <Param val="Auto-&gt;JS" valType="str" updates="None" name="Code Type"/>
-        <Param val="# Check for key presses&amp;#10;keys = event.getKeys()&amp;#10;&amp;#10;if keys:&amp;#10;    key_pressed = keys[0]&amp;#10;&amp;#10;    # Check if the key pressed is 'z' and it's the first key in the sequence&amp;#10;    if key_pressed == 'z' and not key_sequence:&amp;#10;        key_sequence.append(key_pressed)&amp;#10;    # Check if the key pressed is 'p' and 'z' was pressed before it&amp;#10;    elif key_pressed == 'p' and 'z' in key_sequence:&amp;#10;        key_sequence.append(key_pressed)&amp;#10;    # If the sequence is complete ('z' followed by 'p'), increase the size of the shape&amp;#10;    if key_sequence == ['z', 'p']:&amp;#10;        npumps += 1&amp;#10;        key_sequence = []  # Reset the key sequence&amp;#10;&amp;#10;if (-0.5+ batterySize &gt;=effTresh):&amp;#10;     achieved = True" valType="extendedCode" updates="constant" name="Each Frame"/>
+        <Param val="# Check for key presses&amp;#10;keys = event.getKeys()&amp;#10;&amp;#10;if keys:&amp;#10;    key_pressed = keys[0]&amp;#10;&amp;#10;    # Check if the key pressed is 'z' and it's the first key in the sequence&amp;#10;    if key_pressed == 'z' and not key_sequence:&amp;#10;        key_sequence.append(key_pressed)&amp;#10;    # Check if the key pressed is 'p' and 'z' was pressed before it&amp;#10;    elif key_pressed == 'p' and 'z' in key_sequence:&amp;#10;        key_sequence.append(key_pressed)&amp;#10;    # If the sequence is complete ('z' followed by 'p'), increase the size of the shape&amp;#10;    if key_sequence == ['z', 'p']:&amp;#10;        npumps += 1&amp;#10;        key_sequence = []  # Reset the key sequence&amp;#10;&amp;#10;if (-0.5+batterySize &gt;= effTresh):&amp;#10;     achieved = True" valType="extendedCode" updates="constant" name="Each Frame"/>
         <Param val="var _pj;&amp;#10;function _pj_snippets(container) {&amp;#10;    function in_es6(left, right) {&amp;#10;        if (((right instanceof Array) || ((typeof right) === &quot;string&quot;))) {&amp;#10;            return (right.indexOf(left) &gt; (- 1));&amp;#10;        } else {&amp;#10;            if (((right instanceof Map) || (right instanceof Set) || (right instanceof WeakMap) || (right instanceof WeakSet))) {&amp;#10;                return right.has(left);&amp;#10;            } else {&amp;#10;                return (left in right);&amp;#10;            }&amp;#10;        }&amp;#10;    }&amp;#10;    container[&quot;in_es6&quot;] = in_es6;&amp;#10;    return container;&amp;#10;}&amp;#10;_pj = {};&amp;#10;_pj_snippets(_pj);&amp;#10;keys = psychoJS.eventManager.getKeys();&amp;#10;if (keys) {&amp;#10;    key_pressed = keys[0];&amp;#10;    if (((key_pressed === &quot;z&quot;) &amp;&amp; (! key_sequence))) {&amp;#10;        key_sequence.push(key_pressed);&amp;#10;    } else {&amp;#10;        if (((key_pressed === &quot;p&quot;) &amp;&amp; _pj.in_es6(&quot;z&quot;, key_sequence))) {&amp;#10;            key_sequence.push(key_pressed);&amp;#10;        }&amp;#10;    }&amp;#10;    if ((key_sequence === [&quot;z&quot;, &quot;p&quot;])) {&amp;#10;        npumps += 1;&amp;#10;        key_sequence = [];&amp;#10;    }&amp;#10;}&amp;#10;if ((((- 0.5) + batterySize) &gt;= effTresh)) {&amp;#10;    achieved = true;&amp;#10;}&amp;#10;" valType="extendedCode" updates="constant" name="Each JS Frame"/>
         <Param val="" valType="extendedCode" updates="constant" name="End Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="End JS Experiment"/>
-        <Param val="if ((((- 0.5) + batterySize) &gt;= effTresh)) {&amp;#10;    rscore = (rscore + 1);&amp;#10;    achieved = true;&amp;#10;}&amp;#10;tscore += rscore;&amp;#10;npumps_pSec = (npumps / t);&amp;#10;max_press.push((npumps / t));&amp;#10;max_press_pSec = Math.max(max_press);&amp;#10;practicetrials.addData(&quot;# of presses&quot;, npumps);&amp;#10;practicetrials.addData(&quot;trial score&quot;, rscore);&amp;#10;practicetrials.addData(&quot;treshold&quot;, effTresh);&amp;#10;practicetrials.addData(&quot;max_press&quot;, max_press);&amp;#10;practicetrials.addData(&quot;trial_duration&quot;, t);&amp;#10;" valType="extendedCode" updates="constant" name="End JS Routine"/>
-        <Param val="if (-0.5+ batterySize &gt;=effTresh):&amp;#10;   rscore=rscore+1&amp;#10;   achieved= True&amp;#10;           &amp;#10;#add current round score to total score&amp;#10;tscore += rscore&amp;#10;npumps_pSec = npumps/t&amp;#10;&amp;#10;#if npumps_pSec &gt; max_press:&amp;#10;  # max_press = npumps_pSec&amp;#10;&amp;#10;max_press.append(npumps/t)&amp;#10;max_press_pSec = max(max_press)&amp;#10;&amp;#10;practicetrials.addData('# of presses', npumps)&amp;#10;practicetrials.addData('trial score', rscore)&amp;#10;practicetrials.addData('treshold', effTresh)&amp;#10;practicetrials.addData('max_press', max_press)&amp;#10;practicetrials.addData('trial_duration', t) " valType="extendedCode" updates="constant" name="End Routine"/>
+        <Param val="if ((((- 0.5) + batterySize) &gt;= effTresh)) {&amp;#10;    rscore = (rscore + 1);&amp;#10;    achieved = true;&amp;#10;}&amp;#10;tscore += rscore;&amp;#10;npumps_pSec = (npumps / t);&amp;#10;max_press_pract.push((npumps / t));&amp;#10;max_press_pSec_pract = Math.max(max_press_pract);&amp;#10;practicetrials.addData(&quot;# of presses&quot;, npumps);&amp;#10;practicetrials.addData(&quot;trial score&quot;, rscore);&amp;#10;practicetrials.addData(&quot;treshold&quot;, effTresh);&amp;#10;practicetrials.addData(&quot;max_press_pract&quot;, max_press_pract);&amp;#10;practicetrials.addData(&quot;trial_duration&quot;, t);&amp;#10;" valType="extendedCode" updates="constant" name="End JS Routine"/>
+        <Param val="if (-0.5+ batterySize &gt;=effTresh):&amp;#10;   rscore=rscore+1&amp;#10;   achieved= True&amp;#10;           &amp;#10;#add current round score to total score&amp;#10;tscore += rscore&amp;#10;&amp;#10;npumps_pSec = npumps/t&amp;#10;max_press_pract.append(npumps/t)&amp;#10;max_press_pSec_pract = max(max_press_pract)&amp;#10;&amp;#10;practicetrials.addData('# of presses', npumps)&amp;#10;practicetrials.addData('trial score', rscore)&amp;#10;practicetrials.addData('treshold', effTresh)&amp;#10;practicetrials.addData('max_press_pract', max_press_pract)&amp;#10;practicetrials.addData('trial_duration', t) " valType="extendedCode" updates="constant" name="End Routine"/>
         <Param val="False" valType="bool" updates="None" name="disabled"/>
         <Param val="CheckKeys_2" valType="code" updates="None" name="name"/>
       </CodeComponent>
       <CodeComponent name="barSize_2" plugin="None">
         <Param val="" valType="extendedCode" updates="constant" name="Before Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
-        <Param val="batterySize=0.00&amp;#10;batteryMaxSize=0.55&amp;#10;#eTresh=0.1" valType="extendedCode" updates="constant" name="Begin Experiment"/>
+        <Param val="batterySize=0.00&amp;#10;batteryMaxSize=0.55&amp;#10;" valType="extendedCode" updates="constant" name="Begin Experiment"/>
         <Param val="batterySize = 0.0;&amp;#10;batteryMaxSize = 0.55;&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
-        <Param val="batterySize = 0.0;&amp;#10;achieved = false;&amp;#10;nPumps = 0;&amp;#10;batterySizeIncr = (batteryMaxSize / 30);&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
-        <Param val="#balloon image's starting size&amp;#10;batterySize=0.00&amp;#10;achieved=False&amp;#10;nPumps=0&amp;#10;batterySizeIncr = batteryMaxSize/30&amp;#10;" valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="batterySize = 0.0;&amp;#10;achieved = false;&amp;#10;nPumps = 0;&amp;#10;batterySizeIncr = (batteryMaxSize / 50);&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
+        <Param val="batterySize=0.00&amp;#10;achieved=False&amp;#10;nPumps=0&amp;#10;batterySizeIncr = batteryMaxSize/50&amp;#10;" valType="extendedCode" updates="constant" name="Begin Routine"/>
         <Param val="Auto-&gt;JS" valType="str" updates="None" name="Code Type"/>
         <Param val="batterySize=npumps*batterySizeIncr" valType="extendedCode" updates="constant" name="Each Frame"/>
         <Param val="batterySize = (npumps * batterySizeIncr);&amp;#10;" valType="extendedCode" updates="constant" name="Each JS Frame"/>
@@ -1087,7 +1137,7 @@
         <Param val="from exp settings" valType="str" updates="None" name="units"/>
         <Param val="" valType="list" updates="constant" name="vertices"/>
       </PolygonComponent>
-      <PolygonComponent name="background_2" plugin="None">
+      <PolygonComponent name="background_outline" plugin="None">
         <Param val="bottom-center" valType="str" updates="constant" name="anchor"/>
         <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
         <Param val="1" valType="num" updates="constant" name="contrast"/>
@@ -1100,7 +1150,7 @@
         <Param val="rgb" valType="str" updates="constant" name="lineColorSpace"/>
         <Param val="2" valType="code" updates="constant" name="lineWidth"/>
         <Param val="4" valType="int" updates="constant" name="nVertices"/>
-        <Param val="background_2" valType="code" updates="None" name="name"/>
+        <Param val="background_outline" valType="code" updates="None" name="name"/>
         <Param val="1" valType="code" updates="constant" name="opacity"/>
         <Param val="0" valType="code" updates="constant" name="ori"/>
         <Param val="[0, -0.5]" valType="list" updates="constant" name="pos"/>
@@ -1222,11 +1272,11 @@
     <Routine name="practice_instructions"/>
     <LoopInitiator loopType="TrialHandler" name="practicetrials">
       <Param name="Selected rows" updates="None" val="" valType="str"/>
-      <Param name="conditions" updates="None" val="[{'practPumps': 25, 'effTresh': -0.36}, {'practPumps': 50, 'effTresh': -0.22}, {'practPumps': 75, 'effTresh': -0.09}]" valType="str"/>
+      <Param name="conditions" updates="None" val="[{'practPumps': 25, 'effTresh': -0.36}, {'practPumps': 50, 'effTresh': -0.22}, {'practPumps': 75, 'effTresh': -0.09}, {'practPumps': 100, 'effTresh': 0.05}, {'practPumps': 25, 'effTresh': -0.36}, {'practPumps': 50, 'effTresh': -0.22}, {'practPumps': 75, 'effTresh': -0.09}, {'practPumps': 100, 'effTresh': 0.05}]" valType="str"/>
       <Param name="conditionsFile" updates="None" val="pract1.xlsx" valType="file"/>
       <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
       <Param name="isTrials" updates="None" val="True" valType="bool"/>
-      <Param name="loopType" updates="None" val="sequential" valType="str"/>
+      <Param name="loopType" updates="None" val="random" valType="str"/>
       <Param name="nReps" updates="None" val="1" valType="num"/>
       <Param name="name" updates="None" val="practicetrials" valType="code"/>
       <Param name="random seed" updates="None" val="" valType="code"/>

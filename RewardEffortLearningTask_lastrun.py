@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2023.1.3),
-    on Thu Sep  7 18:45:47 2023
+    on Sat Sep  9 15:29:34 2023
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -106,13 +106,28 @@ eyetracker = None
 defaultKeyboard = keyboard.Keyboard(backend='iohub')
 
 # --- Initialize components for Routine "practice_instructions" ---
-text_2 = visual.TextStim(win=win, name='text_2',
-    text="On the next screen you will see a fuel tank with a red line.\n\nPress the ''z'' then ''p'' keys as fast as you can to reach the red bar.\n\nYou will have 5 seconds.\n\nPress ENTER to Start!",
+practice_intro_text1 = visual.TextStim(win=win, name='practice_intro_text1',
+    text='On the next screen you will see a fuel tank with a red line.',
     font='Arial',
-    pos=(0, 0), height=0.1, wrapWidth=None, ori=0.0, 
+    pos=(0, 0.55), height=0.1, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=0.0);
+example_tank_rec = visual.MovieStim(
+    win, name='example_tank_rec',
+    filename='example_tank.mov', movieLib='ffpyplayer',
+    loop=True, volume=1.0, noAudio=False,
+    pos=(0, 0.15), size=(0.1, 0.5), units=win.units,
+    ori=0.0, anchor='center',opacity=None, contrast=1.0,
+    depth=-1
+)
+practice_intro_text2 = visual.TextStim(win=win, name='practice_intro_text2',
+    text="\n\n\nPress the ''z'' then ''p'' keys as fast as you can to reach the red bar.\n\nYou will have 5 seconds.\n\nPress ENTER to Start!",
+    font='Arial',
+    pos=(0, -0.30), height=0.1, wrapWidth=None, ori=0.0, 
+    color='white', colorSpace='rgb', opacity=None, 
+    languageStyle='LTR',
+    depth=-2.0);
 practice_start = keyboard.Keyboard()
 
 # --- Initialize components for Routine "practice" ---
@@ -127,12 +142,12 @@ pract_text = visual.TextStim(win=win, name='pract_text',
 countdownStarted = False
 timeAvailable = 5
 # Run 'Begin Experiment' code from CheckKeys_2
-max_press = []  # Initialize max_press
-max_press_pSec = -1
+max_press_pract = []  # Initialize max_press
+max_press_pSec_pract = -1
 # Run 'Begin Experiment' code from barSize_2
 batterySize=0.00
 batteryMaxSize=0.55
-#eTresh=0.1
+
 tank_2 = visual.ImageStim(
     win=win,
     name='tank_2', 
@@ -147,8 +162,8 @@ background_4 = visual.Rect(
     ori=0, pos=[-0.5, -0.5], anchor='bottom-center',
     lineWidth=2,     colorSpace='rgb',  lineColor='0.0902, -1.0000, -1.0000', fillColor='0.0902, -1.0000, -1.0000',
     opacity=1, depth=-5.0, interpolate=True)
-background_2 = visual.Rect(
-    win=win, name='background_2',
+background_outline = visual.Rect(
+    win=win, name='background_outline',
     width=[0.15, batteryMaxSize][0], height=[0.15, batteryMaxSize][1],
     ori=0, pos=[0, -0.5], anchor='bottom-center',
     lineWidth=2,     colorSpace='rgb',  lineColor=[-1,-1,-1], fillColor=[1.0000, 1.0000, 1.0000],
@@ -192,7 +207,7 @@ rscore = 0
 #total score
 tscore = 0
 instrText = visual.TextStim(win=win, name='instrText',
-    text='Choose Your Task:\n\nProbability of win:\n\nPress A for Easy Task\n1 point',
+    text='[Placeholder Intro Video\n]',
     font='Arial',
     pos=[0, .3], height=0.1, wrapWidth=None, ori=0, 
     color='white', colorSpace='rgb', opacity=1, 
@@ -297,6 +312,8 @@ text_6 = visual.TextStim(win=win, name='text_6',
     color='white', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=0.0);
+# Run 'Begin Experiment' code from CheckKeys
+max_press_pSec = max_press_pSec_pract
 # Run 'Begin Experiment' code from barSize
 batterySize=0.00
 batteryMaxSize=0.55
@@ -356,7 +373,7 @@ practice_start.keys = []
 practice_start.rt = []
 _practice_start_allKeys = []
 # keep track of which components have finished
-practice_instructionsComponents = [text_2, practice_start]
+practice_instructionsComponents = [practice_intro_text1, example_tank_rec, practice_intro_text2, practice_start]
 for thisComponent in practice_instructionsComponents:
     thisComponent.tStart = None
     thisComponent.tStop = None
@@ -379,23 +396,59 @@ while continueRoutine:
     frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
     # update/draw components on each frame
     
-    # *text_2* updates
+    # *practice_intro_text1* updates
     
-    # if text_2 is starting this frame...
-    if text_2.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+    # if practice_intro_text1 is starting this frame...
+    if practice_intro_text1.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
         # keep track of start time/frame for later
-        text_2.frameNStart = frameN  # exact frame index
-        text_2.tStart = t  # local t and not account for scr refresh
-        text_2.tStartRefresh = tThisFlipGlobal  # on global time
-        win.timeOnFlip(text_2, 'tStartRefresh')  # time at next scr refresh
+        practice_intro_text1.frameNStart = frameN  # exact frame index
+        practice_intro_text1.tStart = t  # local t and not account for scr refresh
+        practice_intro_text1.tStartRefresh = tThisFlipGlobal  # on global time
+        win.timeOnFlip(practice_intro_text1, 'tStartRefresh')  # time at next scr refresh
         # add timestamp to datafile
-        thisExp.timestampOnFlip(win, 'text_2.started')
+        thisExp.timestampOnFlip(win, 'practice_intro_text1.started')
         # update status
-        text_2.status = STARTED
-        text_2.setAutoDraw(True)
+        practice_intro_text1.status = STARTED
+        practice_intro_text1.setAutoDraw(True)
     
-    # if text_2 is active this frame...
-    if text_2.status == STARTED:
+    # if practice_intro_text1 is active this frame...
+    if practice_intro_text1.status == STARTED:
+        # update params
+        pass
+    
+    # *example_tank_rec* updates
+    
+    # if example_tank_rec is starting this frame...
+    if example_tank_rec.status == NOT_STARTED and tThisFlip >= 0.1-frameTolerance:
+        # keep track of start time/frame for later
+        example_tank_rec.frameNStart = frameN  # exact frame index
+        example_tank_rec.tStart = t  # local t and not account for scr refresh
+        example_tank_rec.tStartRefresh = tThisFlipGlobal  # on global time
+        win.timeOnFlip(example_tank_rec, 'tStartRefresh')  # time at next scr refresh
+        # add timestamp to datafile
+        thisExp.timestampOnFlip(win, 'example_tank_rec.started')
+        # update status
+        example_tank_rec.status = STARTED
+        example_tank_rec.setAutoDraw(True)
+        example_tank_rec.play()
+    
+    # *practice_intro_text2* updates
+    
+    # if practice_intro_text2 is starting this frame...
+    if practice_intro_text2.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+        # keep track of start time/frame for later
+        practice_intro_text2.frameNStart = frameN  # exact frame index
+        practice_intro_text2.tStart = t  # local t and not account for scr refresh
+        practice_intro_text2.tStartRefresh = tThisFlipGlobal  # on global time
+        win.timeOnFlip(practice_intro_text2, 'tStartRefresh')  # time at next scr refresh
+        # add timestamp to datafile
+        thisExp.timestampOnFlip(win, 'practice_intro_text2.started')
+        # update status
+        practice_intro_text2.status = STARTED
+        practice_intro_text2.setAutoDraw(True)
+    
+    # if practice_intro_text2 is active this frame...
+    if practice_intro_text2.status == STARTED:
         # update params
         pass
     
@@ -451,6 +504,7 @@ while continueRoutine:
 for thisComponent in practice_instructionsComponents:
     if hasattr(thisComponent, "setAutoDraw"):
         thisComponent.setAutoDraw(False)
+example_tank_rec.stop()
 # check responses
 if practice_start.keys in ['', [], None]:  # No response was made
     practice_start.keys = None
@@ -463,7 +517,7 @@ thisExp.nextEntry()
 routineTimer.reset()
 
 # set up handler to look after randomisation of conditions etc
-practicetrials = data.TrialHandler(nReps=1.0, method='sequential', 
+practicetrials = data.TrialHandler(nReps=1.0, method='random', 
     extraInfo=expInfo, originPath=-1,
     trialList=data.importConditions('pract1.xlsx'),
     seed=None, name='practicetrials')
@@ -489,28 +543,26 @@ for thisPracticetrial in practicetrials:
     if not countdownStarted:
         countdownClock = core.CountdownTimer(timeAvailable)
         countdownStarted = True
-    #7 second timer
     # Run 'Begin Routine' code from CheckKeys_2
     #reset round score to 0
     rscore = 0
-    winE=rscore+1
-    npumps=0
-    maxPumps=practPumps#max presses to complete a trial
+    winE = rscore+1
+    npumps = 0
+    maxPumps = practPumps#max presses to complete a trial
     key_sequence = []  # List to store the key sequence ('z' followed by 'p')
     achieved = 0
     
     loop_start_time = core.Clock()
     
     # Run 'Begin Routine' code from barSize_2
-    #balloon image's starting size
     batterySize=0.00
     achieved=False
     nPumps=0
-    batterySizeIncr = batteryMaxSize/30
+    batterySizeIncr = batteryMaxSize/50
     
     treshLine.setPos([0, effTresh])
     # keep track of which components have finished
-    practiceComponents = [pract_text, tank_2, background_4, background_2, barBody_2, treshLine]
+    practiceComponents = [pract_text, tank_2, background_4, background_outline, barBody_2, treshLine]
     for thisComponent in practiceComponents:
         thisComponent.tStart = None
         thisComponent.tStop = None
@@ -576,7 +628,7 @@ for thisPracticetrial in practicetrials:
                 npumps += 1
                 key_sequence = []  # Reset the key sequence
         
-        if (-0.5+ batterySize >=effTresh):
+        if (-0.5+batterySize >= effTresh):
              achieved = True
         # Run 'Each Frame' code from barSize_2
         batterySize=npumps*batterySizeIncr
@@ -621,23 +673,23 @@ for thisPracticetrial in practicetrials:
             # update params
             pass
         
-        # *background_2* updates
+        # *background_outline* updates
         
-        # if background_2 is starting this frame...
-        if background_2.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+        # if background_outline is starting this frame...
+        if background_outline.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
             # keep track of start time/frame for later
-            background_2.frameNStart = frameN  # exact frame index
-            background_2.tStart = t  # local t and not account for scr refresh
-            background_2.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(background_2, 'tStartRefresh')  # time at next scr refresh
+            background_outline.frameNStart = frameN  # exact frame index
+            background_outline.tStart = t  # local t and not account for scr refresh
+            background_outline.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(background_outline, 'tStartRefresh')  # time at next scr refresh
             # add timestamp to datafile
-            thisExp.timestampOnFlip(win, 'background_2.started')
+            thisExp.timestampOnFlip(win, 'background_outline.started')
             # update status
-            background_2.status = STARTED
-            background_2.setAutoDraw(True)
+            background_outline.status = STARTED
+            background_outline.setAutoDraw(True)
         
-        # if background_2 is active this frame...
-        if background_2.status == STARTED:
+        # if background_outline is active this frame...
+        if background_outline.status == STARTED:
             # update params
             pass
         
@@ -715,18 +767,15 @@ for thisPracticetrial in practicetrials:
                
     #add current round score to total score
     tscore += rscore
+    
     npumps_pSec = npumps/t
-    
-    #if npumps_pSec > max_press:
-      # max_press = npumps_pSec
-    
-    max_press.append(npumps/t)
-    max_press_pSec = max(max_press)
+    max_press_pract.append(npumps/t)
+    max_press_pSec_pract = max(max_press_pract)
     
     practicetrials.addData('# of presses', npumps)
     practicetrials.addData('trial score', rscore)
     practicetrials.addData('treshold', effTresh)
-    practicetrials.addData('max_press', max_press)
+    practicetrials.addData('max_press_pract', max_press_pract)
     practicetrials.addData('trial_duration', t) 
     # the Routine "practice" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
@@ -1482,16 +1531,16 @@ for thisMaintask in maintask:
     key_sequence = []  # List to store the key sequence ('z' followed by 'p')
     achieved = 0
     
-    print("Max press per sec:", max_press_pSec)
     # Run 'Begin Routine' code from barSize
     #balloon image's starting size
     batterySize=0.00
     achieved=False
     nPumps=0
-    batterySizeIncr = batteryMaxSize/100
+    batterySizeIncr = batteryMaxSize/(max_press_pSec*timeAvailable)
+    
     # Run 'Begin Routine' code from countdownEasy
     if not countdownStarted:
-        countdownClock = core.CountdownTimer(5)
+        countdownClock = core.CountdownTimer(timeAvailable)
         countdownStarted = True
     #7 second timer
     # keep track of which components have finished
@@ -1660,6 +1709,14 @@ for thisMaintask in maintask:
     #add current round score to total score
     tscore += rscore
     
+    
+    npumps_pSec = npumps/t
+    max_press.append(npumps/t)
+    max_press_pSec = max(max_press)
+    
+    practicetrials.addData('treshold', effTresh)
+    practicetrials.addData('max_press', max_press)
+    practicetrials.addData('trial_duration', t) 
     maintask.addData('# of presses', npumps)
     maintask.addData('trial score', rscore)
     # Run 'End Routine' code from countdownEasy
