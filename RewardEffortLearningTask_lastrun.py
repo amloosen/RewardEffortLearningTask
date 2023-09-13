@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2023.1.3),
-    on Sat Sep  9 15:29:34 2023
+    on Wed Sep 13 15:10:31 2023
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -33,10 +33,6 @@ import sys  # to get file system encoding
 import psychopy.iohub as io
 from psychopy.hardware import keyboard
 
-# Run 'Before Experiment' code from get_rating_2
-reward_ratings = []
-# Run 'Before Experiment' code from get_rating
-effort_ratings = []
 
 
 # Ensure that relative paths start from the same directory as this script
@@ -138,12 +134,15 @@ pract_text = visual.TextStim(win=win, name='pract_text',
     color='white', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=0.0);
-# Run 'Begin Experiment' code from countdownEasy_3
-countdownStarted = False
-timeAvailable = 5
 # Run 'Begin Experiment' code from CheckKeys_2
 max_press_pract = []  # Initialize max_press
 max_press_pSec_pract = -1
+
+# Run 'Begin Experiment' code from countdownEasy_3
+countdownStarted = False
+timeAvailable = 5
+
+
 # Run 'Begin Experiment' code from barSize_2
 batterySize=0.00
 batteryMaxSize=0.55
@@ -180,6 +179,12 @@ treshLine = visual.Line(
     ori=0.0, pos=[0,0], anchor='center',
     lineWidth=4.0,     colorSpace='rgb',  lineColor='red', fillColor='red',
     opacity=None, depth=-8.0, interpolate=True)
+photodiode_pr1 = visual.ShapeStim(
+    win=win, name='photodiode_pr1', vertices=None,
+    size=(0.45, 0.45),
+    ori=0.0, pos=(-1,-1), anchor='bottom-left',
+    lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='black',
+    opacity=None, depth=-9.0, interpolate=True)
 
 # --- Initialize components for Routine "practice_feedback" ---
 # Run 'Begin Experiment' code from checkAchieved_pract
@@ -194,26 +199,27 @@ feedbackMsg_pract = visual.TextStim(win=win, name='feedbackMsg_pract',
     color='white', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-1.0);
+photodiode_pr2 = visual.ShapeStim(
+    win=win, name='photodiode_pr2', vertices=None,
+    size=(0.45, 0.45),
+    ori=0.0, pos=(-1,-1), anchor='bottom-left',
+    lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor='white',
+    opacity=None, depth=-2.0, interpolate=True)
 
 # --- Initialize components for Routine "Instructions" ---
-# Run 'Begin Experiment' code from initMainTrials
-#Effort and Reward Learning Task
-#organized and developed for Psychopy by AL 08/25/23
-
-from psychopy import visual
-#initialize scoring variables
-#round score
-rscore = 0
-#total score
-tscore = 0
 instrText = visual.TextStim(win=win, name='instrText',
     text='[Placeholder Intro Video\n]',
     font='Arial',
     pos=[0, .3], height=0.1, wrapWidth=None, ori=0, 
     color='white', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
-    depth=-1.0);
+    depth=0.0);
 trial_select = keyboard.Keyboard()
+# Run 'Begin Experiment' code from init_mainexp
+rscore = 0
+#total score
+tscore = 0
+
 
 # --- Initialize components for Routine "reward_rating" ---
 reward = visual.Slider(win=win, name='reward',
@@ -254,6 +260,29 @@ coins_many_2 = visual.ImageStim(
     color=[1,1,1], colorSpace='rgb', opacity=None,
     flipHoriz=False, flipVert=False,
     texRes=128.0, interpolate=True, depth=-5.0)
+# Run 'Begin Experiment' code from get_rating_2
+reward_ratings = []
+photodiode_r1 = visual.ShapeStim(
+    win=win, name='photodiode_r1', vertices=None,
+    size=(0.45, 0.45),
+    ori=0.0, pos=(-1,-1), anchor='bottom-left',
+    lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='black',
+    opacity=None, depth=-7.0, interpolate=True)
+
+# --- Initialize components for Routine "cross" ---
+text2_2 = visual.TextStim(win=win, name='text2_2',
+    text='+',
+    font='Arial',
+    pos=[0, 0], height=0.5, wrapWidth=None, ori=0, 
+    color='white', colorSpace='rgb', opacity=1, 
+    languageStyle='LTR',
+    depth=0.0);
+photodiode_fix1 = visual.ShapeStim(
+    win=win, name='photodiode_fix1', vertices=None,
+    size=(0.45, 0.45),
+    ori=0.0, pos=(-1,-1), anchor='bottom-left',
+    lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor='white',
+    opacity=None, depth=-1.0, interpolate=True)
 
 # --- Initialize components for Routine "effort_rating" ---
 effort = visual.Slider(win=win, name='effort',
@@ -282,7 +311,7 @@ fuel_empty = visual.ImageStim(
     win=win,
     name='fuel_empty', 
     image='default.png', mask=None, anchor='center',
-    ori=0.0, pos=(-0.7, -0.3), size=(0.3,0.5),
+    ori=0.0, pos=(-0.7, -0.3), size=(0.2,0.4),
     color=[1,1,1], colorSpace='rgb', opacity=None,
     flipHoriz=False, flipVert=False,
     texRes=128.0, interpolate=True, depth=-4.0)
@@ -294,6 +323,14 @@ fuel_full = visual.ImageStim(
     color=[1,1,1], colorSpace='rgb', opacity=None,
     flipHoriz=False, flipVert=False,
     texRes=128.0, interpolate=True, depth=-5.0)
+# Run 'Begin Experiment' code from get_rating
+effort_ratings = []
+photodiode_r1_2 = visual.ShapeStim(
+    win=win, name='photodiode_r1_2', vertices=None,
+    size=(0.45, 0.45),
+    ori=0.0, pos=(-1,-1), anchor='bottom-left',
+    lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='black',
+    opacity=None, depth=-7.0, interpolate=True)
 
 # --- Initialize components for Routine "cross" ---
 text2_2 = visual.TextStim(win=win, name='text2_2',
@@ -303,6 +340,12 @@ text2_2 = visual.TextStim(win=win, name='text2_2',
     color='white', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=0.0);
+photodiode_fix1 = visual.ShapeStim(
+    win=win, name='photodiode_fix1', vertices=None,
+    size=(0.45, 0.45),
+    ori=0.0, pos=(-1,-1), anchor='bottom-left',
+    lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor='white',
+    opacity=None, depth=-1.0, interpolate=True)
 
 # --- Initialize components for Routine "main_trial" ---
 text_6 = visual.TextStim(win=win, name='text_6',
@@ -312,8 +355,6 @@ text_6 = visual.TextStim(win=win, name='text_6',
     color='white', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=0.0);
-# Run 'Begin Experiment' code from CheckKeys
-max_press_pSec = max_press_pSec_pract
 # Run 'Begin Experiment' code from barSize
 batterySize=0.00
 batteryMaxSize=0.55
@@ -339,6 +380,27 @@ barBody = visual.Rect(
     ori=0, pos=[0,0], anchor='bottom-center',
     lineWidth=1,     colorSpace='rgb',  lineColor="'#2b773e'", fillColor="'#2b773e'",
     opacity=1, depth=-6.0, interpolate=True)
+photodiode_mt1 = visual.ShapeStim(
+    win=win, name='photodiode_mt1', vertices=None,
+    size=(0.45, 0.45),
+    ori=0.0, pos=(-1,-1), anchor='bottom-left',
+    lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='black',
+    opacity=None, depth=-7.0, interpolate=True)
+
+# --- Initialize components for Routine "cross" ---
+text2_2 = visual.TextStim(win=win, name='text2_2',
+    text='+',
+    font='Arial',
+    pos=[0, 0], height=0.5, wrapWidth=None, ori=0, 
+    color='white', colorSpace='rgb', opacity=1, 
+    languageStyle='LTR',
+    depth=0.0);
+photodiode_fix1 = visual.ShapeStim(
+    win=win, name='photodiode_fix1', vertices=None,
+    size=(0.45, 0.45),
+    ori=0.0, pos=(-1,-1), anchor='bottom-left',
+    lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor='white',
+    opacity=None, depth=-1.0, interpolate=True)
 
 # --- Initialize components for Routine "Feedback_2" ---
 # Run 'Begin Experiment' code from checkAchieved
@@ -361,6 +423,12 @@ image_rubies = visual.ImageStim(
     color=[1,1,1], colorSpace='rgb', opacity=None,
     flipHoriz=False, flipVert=False,
     texRes=128.0, interpolate=True, depth=-2.0)
+photodiode_ft1 = visual.ShapeStim(
+    win=win, name='photodiode_ft1', vertices=None,
+    size=(0.45, 0.45),
+    ori=0.0, pos=(-1,-1), anchor='bottom-left',
+    lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor='white',
+    opacity=None, depth=-3.0, interpolate=True)
 
 # Create some handy timers
 globalClock = core.Clock()  # to track the time since experiment started
@@ -517,7 +585,7 @@ thisExp.nextEntry()
 routineTimer.reset()
 
 # set up handler to look after randomisation of conditions etc
-practicetrials = data.TrialHandler(nReps=1.0, method='random', 
+practicetrials = data.TrialHandler(nReps=1.0, method='sequential', 
     extraInfo=expInfo, originPath=-1,
     trialList=data.importConditions('pract1.xlsx'),
     seed=None, name='practicetrials')
@@ -539,30 +607,28 @@ for thisPracticetrial in practicetrials:
     continueRoutine = True
     # update component parameters for each repeat
     pract_text.setText('Power up and try to reach the red bar!\n')
-    # Run 'Begin Routine' code from countdownEasy_3
-    if not countdownStarted:
-        countdownClock = core.CountdownTimer(timeAvailable)
-        countdownStarted = True
     # Run 'Begin Routine' code from CheckKeys_2
     #reset round score to 0
     rscore = 0
-    winE = rscore+1
     npumps = 0
-    maxPumps = practPumps#max presses to complete a trial
+    maxPumps = practPumps #max presses to complete a trial
     key_sequence = []  # List to store the key sequence ('z' followed by 'p')
     achieved = 0
+    firstPump = False
     
-    loop_start_time = core.Clock()
-    
+    # Run 'Begin Routine' code from countdownEasy_3
+    if not countdownStarted:
+            countdownClock = core.CountdownTimer(timeAvailable)
+            countdownStarted = True
     # Run 'Begin Routine' code from barSize_2
     batterySize=0.00
     achieved=False
     nPumps=0
-    batterySizeIncr = batteryMaxSize/50
+    batterySizeIncr = batteryMaxSize/30
     
     treshLine.setPos([0, effTresh])
     # keep track of which components have finished
-    practiceComponents = [pract_text, tank_2, background_4, background_outline, barBody_2, treshLine]
+    practiceComponents = [pract_text, tank_2, background_4, background_outline, barBody_2, treshLine, photodiode_pr1]
     for thisComponent in practiceComponents:
         thisComponent.tStart = None
         thisComponent.tStop = None
@@ -604,12 +670,6 @@ for thisPracticetrial in practicetrials:
         if pract_text.status == STARTED:
             # update params
             pass
-        # Run 'Each Frame' code from countdownEasy_3
-        timeRemaining = countdownClock.getTime()
-        
-        if timeRemaining <= 0.0 or (-0.5+ batterySize >=effTresh):
-            continueRoutine = False  # End this trial immediately
-            countdownStarted = False
         # Run 'Each Frame' code from CheckKeys_2
         # Check for key presses
         keys = event.getKeys()
@@ -626,10 +686,19 @@ for thisPracticetrial in practicetrials:
             # If the sequence is complete ('z' followed by 'p'), increase the size of the shape
             if key_sequence == ['z', 'p']:
                 npumps += 1
-                key_sequence = []  # Reset the key sequence
+                key_sequence = []  
+                if practicetrials.thisN == 0:
+                    firstPump = True # Reset the key sequence
         
         if (-0.5+batterySize >= effTresh):
              achieved = True
+             rscore = rscore+1
+        # Run 'Each Frame' code from countdownEasy_3
+        timeRemaining = countdownClock.getTime()
+        
+        if timeRemaining <= 0.0 or (-0.5+ batterySize >=effTresh):
+            continueRoutine = False  # End this trial immediately
+            countdownStarted = False
         # Run 'Each Frame' code from barSize_2
         batterySize=npumps*batterySizeIncr
         
@@ -734,6 +803,26 @@ for thisPracticetrial in practicetrials:
             # update params
             pass
         
+        # *photodiode_pr1* updates
+        
+        # if photodiode_pr1 is starting this frame...
+        if photodiode_pr1.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            photodiode_pr1.frameNStart = frameN  # exact frame index
+            photodiode_pr1.tStart = t  # local t and not account for scr refresh
+            photodiode_pr1.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(photodiode_pr1, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'photodiode_pr1.started')
+            # update status
+            photodiode_pr1.status = STARTED
+            photodiode_pr1.setAutoDraw(True)
+        
+        # if photodiode_pr1 is active this frame...
+        if photodiode_pr1.status == STARTED:
+            # update params
+            pass
+        
         # check for quit (typically the Esc key)
         if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
             core.quit()
@@ -758,18 +847,12 @@ for thisPracticetrial in practicetrials:
     for thisComponent in practiceComponents:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
-    # Run 'End Routine' code from countdownEasy_3
-    countdownStarted = False
     # Run 'End Routine' code from CheckKeys_2
-    if (-0.5+ batterySize >=effTresh):
-       rscore=rscore+1
-       achieved= True
-               
     #add current round score to total score
     tscore += rscore
     
     npumps_pSec = npumps/t
-    max_press_pract.append(npumps/t)
+    max_press_pract.append(npumps_pSec)
     max_press_pSec_pract = max(max_press_pract)
     
     practicetrials.addData('# of presses', npumps)
@@ -777,6 +860,9 @@ for thisPracticetrial in practicetrials:
     practicetrials.addData('treshold', effTresh)
     practicetrials.addData('max_press_pract', max_press_pract)
     practicetrials.addData('trial_duration', t) 
+    practicetrials.addData('max_press_pSec_pract',max_press_pSec_pract)
+    # Run 'End Routine' code from countdownEasy_3
+    countdownStarted = False
     # the Routine "practice" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
     
@@ -786,13 +872,13 @@ for thisPracticetrial in practicetrials:
     # Run 'Begin Routine' code from checkAchieved_pract
     if achieved==True:
         feedbackText= 'Well done you reached the treshold!'
-        crashShow=0
+        
     else:
         feedbackText= 'Not quite there yet. Add a bit more power!'
-        crashShow=1
+        
     feedbackMsg_pract.setText(feedbackText)
     # keep track of which components have finished
-    practice_feedbackComponents = [feedbackMsg_pract]
+    practice_feedbackComponents = [feedbackMsg_pract, photodiode_pr2]
     for thisComponent in practice_feedbackComponents:
         thisComponent.tStart = None
         thisComponent.tStop = None
@@ -848,6 +934,39 @@ for thisPracticetrial in practicetrials:
                 feedbackMsg_pract.status = FINISHED
                 feedbackMsg_pract.setAutoDraw(False)
         
+        # *photodiode_pr2* updates
+        
+        # if photodiode_pr2 is starting this frame...
+        if photodiode_pr2.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            photodiode_pr2.frameNStart = frameN  # exact frame index
+            photodiode_pr2.tStart = t  # local t and not account for scr refresh
+            photodiode_pr2.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(photodiode_pr2, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'photodiode_pr2.started')
+            # update status
+            photodiode_pr2.status = STARTED
+            photodiode_pr2.setAutoDraw(True)
+        
+        # if photodiode_pr2 is active this frame...
+        if photodiode_pr2.status == STARTED:
+            # update params
+            pass
+        
+        # if photodiode_pr2 is stopping this frame...
+        if photodiode_pr2.status == STARTED:
+            # is it time to stop? (based on global clock, using actual start)
+            if tThisFlipGlobal > photodiode_pr2.tStartRefresh + feedbackTime-frameTolerance:
+                # keep track of stop time/frame for later
+                photodiode_pr2.tStop = t  # not accounting for scr refresh
+                photodiode_pr2.frameNStop = frameN  # exact frame index
+                # add timestamp to datafile
+                thisExp.timestampOnFlip(win, 'photodiode_pr2.stopped')
+                # update status
+                photodiode_pr2.status = FINISHED
+                photodiode_pr2.setAutoDraw(False)
+        
         # check for quit (typically the Esc key)
         if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
             core.quit()
@@ -882,12 +1001,6 @@ for thisPracticetrial in practicetrials:
 # --- Prepare to start Routine "Instructions" ---
 continueRoutine = True
 # update component parameters for each repeat
-# Run 'Begin Routine' code from initMainTrials
-
-if not countdownStarted:
-    countdownClock = core.CountdownTimer(5)
-    countdownStarted = True
-#5 second timer
 trial_select.keys = []
 trial_select.rt = []
 _trial_select_allKeys = []
@@ -914,12 +1027,6 @@ while continueRoutine:
     tThisFlipGlobal = win.getFutureFlipTime(clock=None)
     frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
     # update/draw components on each frame
-    # Run 'Each Frame' code from initMainTrials
-    timeRemaining = countdownClock.getTime()
-    
-    if timeRemaining <= 0.0:
-        continueRoutine = False
-        countdownStarted = False
     
     # *instrText* updates
     
@@ -993,12 +1100,6 @@ while continueRoutine:
 for thisComponent in InstructionsComponents:
     if hasattr(thisComponent, "setAutoDraw"):
         thisComponent.setAutoDraw(False)
-# Run 'End Routine' code from initMainTrials
-#Press A for easy, B for hard, otherwise chosen randomly after 5 secs
-#if trial_select=='a': 
-nRepsA=1
-nRepsB=0
-countdownStarted = False
 # check responses
 if trial_select.keys in ['', [], None]:  # No response was made
     trial_select.keys = None
@@ -1037,7 +1138,7 @@ for thisMaintask in maintask:
     login_reward.rt = []
     _login_reward_allKeys = []
     # keep track of which components have finished
-    reward_ratingComponents = [reward, text_rewardRating, text_rewardRating_2, login_reward, coins_little_2, coins_many_2]
+    reward_ratingComponents = [reward, text_rewardRating, text_rewardRating_2, login_reward, coins_little_2, coins_many_2, photodiode_r1]
     for thisComponent in reward_ratingComponents:
         thisComponent.tStart = None
         thisComponent.tStop = None
@@ -1188,6 +1289,26 @@ for thisMaintask in maintask:
             # update params
             pass
         
+        # *photodiode_r1* updates
+        
+        # if photodiode_r1 is starting this frame...
+        if photodiode_r1.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            photodiode_r1.frameNStart = frameN  # exact frame index
+            photodiode_r1.tStart = t  # local t and not account for scr refresh
+            photodiode_r1.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(photodiode_r1, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'photodiode_r1.started')
+            # update status
+            photodiode_r1.status = STARTED
+            photodiode_r1.setAutoDraw(True)
+        
+        # if photodiode_r1 is active this frame...
+        if photodiode_r1.status == STARTED:
+            # update params
+            pass
+        
         # check for quit (typically the Esc key)
         if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
             core.quit()
@@ -1223,9 +1344,115 @@ for thisMaintask in maintask:
         maintask.addData('login_reward.duration', login_reward.duration)
     # Run 'End Routine' code from get_rating_2
     rewscale_value = reward.getRating()
-    print("Scale Value:", rewscale_value)
     reward_ratings.append(rewscale_value)
     # the Routine "reward_rating" was not non-slip safe, so reset the non-slip timer
+    routineTimer.reset()
+    
+    # --- Prepare to start Routine "cross" ---
+    continueRoutine = True
+    # update component parameters for each repeat
+    # keep track of which components have finished
+    crossComponents = [text2_2, photodiode_fix1]
+    for thisComponent in crossComponents:
+        thisComponent.tStart = None
+        thisComponent.tStop = None
+        thisComponent.tStartRefresh = None
+        thisComponent.tStopRefresh = None
+        if hasattr(thisComponent, 'status'):
+            thisComponent.status = NOT_STARTED
+    # reset timers
+    t = 0
+    _timeToFirstFrame = win.getFutureFlipTime(clock="now")
+    frameN = -1
+    
+    # --- Run Routine "cross" ---
+    routineForceEnded = not continueRoutine
+    while continueRoutine:
+        # get current time
+        t = routineTimer.getTime()
+        tThisFlip = win.getFutureFlipTime(clock=routineTimer)
+        tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+        frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+        # update/draw components on each frame
+        
+        # *text2_2* updates
+        
+        # if text2_2 is starting this frame...
+        if text2_2.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            text2_2.frameNStart = frameN  # exact frame index
+            text2_2.tStart = t  # local t and not account for scr refresh
+            text2_2.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(text2_2, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'text2_2.started')
+            # update status
+            text2_2.status = STARTED
+            text2_2.setAutoDraw(True)
+        
+        # if text2_2 is active this frame...
+        if text2_2.status == STARTED:
+            # update params
+            pass
+        
+        # if text2_2 is stopping this frame...
+        if text2_2.status == STARTED:
+            # is it time to stop? (based on global clock, using actual start)
+            if tThisFlipGlobal > text2_2.tStartRefresh + 1.0-frameTolerance:
+                # keep track of stop time/frame for later
+                text2_2.tStop = t  # not accounting for scr refresh
+                text2_2.frameNStop = frameN  # exact frame index
+                # add timestamp to datafile
+                thisExp.timestampOnFlip(win, 'text2_2.stopped')
+                # update status
+                text2_2.status = FINISHED
+                text2_2.setAutoDraw(False)
+        
+        # *photodiode_fix1* updates
+        
+        # if photodiode_fix1 is starting this frame...
+        if photodiode_fix1.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            photodiode_fix1.frameNStart = frameN  # exact frame index
+            photodiode_fix1.tStart = t  # local t and not account for scr refresh
+            photodiode_fix1.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(photodiode_fix1, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'photodiode_fix1.started')
+            # update status
+            photodiode_fix1.status = STARTED
+            photodiode_fix1.setAutoDraw(True)
+        
+        # if photodiode_fix1 is active this frame...
+        if photodiode_fix1.status == STARTED:
+            # update params
+            pass
+        
+        # check for quit (typically the Esc key)
+        if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
+            core.quit()
+            if eyetracker:
+                eyetracker.setConnectionState(False)
+        
+        # check if all components have finished
+        if not continueRoutine:  # a component has requested a forced-end of Routine
+            routineForceEnded = True
+            break
+        continueRoutine = False  # will revert to True if at least one component still running
+        for thisComponent in crossComponents:
+            if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                continueRoutine = True
+                break  # at least one component has not yet finished
+        
+        # refresh the screen
+        if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+            win.flip()
+    
+    # --- Ending Routine "cross" ---
+    for thisComponent in crossComponents:
+        if hasattr(thisComponent, "setAutoDraw"):
+            thisComponent.setAutoDraw(False)
+    # the Routine "cross" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
     
     # --- Prepare to start Routine "effort_rating" ---
@@ -1235,9 +1462,9 @@ for thisMaintask in maintask:
     effort_reward_2.keys = []
     effort_reward_2.rt = []
     _effort_reward_2_allKeys = []
-    fuel_empty.setImage('fuelShipEmpty-01.png')
+    fuel_empty.setImage('fuelShipWhite.png')
     # keep track of which components have finished
-    effort_ratingComponents = [effort, text_effortRating_3, text_effortRating_4, effort_reward_2, fuel_empty, fuel_full]
+    effort_ratingComponents = [effort, text_effortRating_3, text_effortRating_4, effort_reward_2, fuel_empty, fuel_full, photodiode_r1_2]
     for thisComponent in effort_ratingComponents:
         thisComponent.tStart = None
         thisComponent.tStop = None
@@ -1388,6 +1615,26 @@ for thisMaintask in maintask:
             # update params
             pass
         
+        # *photodiode_r1_2* updates
+        
+        # if photodiode_r1_2 is starting this frame...
+        if photodiode_r1_2.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            photodiode_r1_2.frameNStart = frameN  # exact frame index
+            photodiode_r1_2.tStart = t  # local t and not account for scr refresh
+            photodiode_r1_2.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(photodiode_r1_2, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'photodiode_r1_2.started')
+            # update status
+            photodiode_r1_2.status = STARTED
+            photodiode_r1_2.setAutoDraw(True)
+        
+        # if photodiode_r1_2 is active this frame...
+        if photodiode_r1_2.status == STARTED:
+            # update params
+            pass
+        
         # check for quit (typically the Esc key)
         if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
             core.quit()
@@ -1423,7 +1670,6 @@ for thisMaintask in maintask:
         maintask.addData('effort_reward_2.duration', effort_reward_2.duration)
     # Run 'End Routine' code from get_rating
     effscale_value = effort.getRating()
-    print("Scale Value:", effscale_value)
     effort_ratings.append(effscale_value)
     # the Routine "effort_rating" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
@@ -1432,7 +1678,7 @@ for thisMaintask in maintask:
     continueRoutine = True
     # update component parameters for each repeat
     # keep track of which components have finished
-    crossComponents = [text2_2]
+    crossComponents = [text2_2, photodiode_fix1]
     for thisComponent in crossComponents:
         thisComponent.tStart = None
         thisComponent.tStop = None
@@ -1447,7 +1693,7 @@ for thisMaintask in maintask:
     
     # --- Run Routine "cross" ---
     routineForceEnded = not continueRoutine
-    while continueRoutine and routineTimer.getTime() < 1.0:
+    while continueRoutine:
         # get current time
         t = routineTimer.getTime()
         tThisFlip = win.getFutureFlipTime(clock=routineTimer)
@@ -1488,6 +1734,26 @@ for thisMaintask in maintask:
                 text2_2.status = FINISHED
                 text2_2.setAutoDraw(False)
         
+        # *photodiode_fix1* updates
+        
+        # if photodiode_fix1 is starting this frame...
+        if photodiode_fix1.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            photodiode_fix1.frameNStart = frameN  # exact frame index
+            photodiode_fix1.tStart = t  # local t and not account for scr refresh
+            photodiode_fix1.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(photodiode_fix1, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'photodiode_fix1.started')
+            # update status
+            photodiode_fix1.status = STARTED
+            photodiode_fix1.setAutoDraw(True)
+        
+        # if photodiode_fix1 is active this frame...
+        if photodiode_fix1.status == STARTED:
+            # update params
+            pass
+        
         # check for quit (typically the Esc key)
         if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
             core.quit()
@@ -1512,11 +1778,8 @@ for thisMaintask in maintask:
     for thisComponent in crossComponents:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
-    # using non-slip timing so subtract the expected duration of this Routine (unless ended on request)
-    if routineForceEnded:
-        routineTimer.reset()
-    else:
-        routineTimer.addTime(-1.000000)
+    # the Routine "cross" was not non-slip safe, so reset the non-slip timer
+    routineTimer.reset()
     
     # --- Prepare to start Routine "main_trial" ---
     continueRoutine = True
@@ -1525,11 +1788,18 @@ for thisMaintask in maintask:
     # Run 'Begin Routine' code from CheckKeys
     #reset round score to 0
     rscore = 0
-    winE=rscore+1
-    npumps=0
-    maxPumps=effLevel#max presses to complete a trial
-    key_sequence = []  # List to store the key sequence ('z' followed by 'p')
+    winE = rscore+1
+    npumps = 0
+    maxPumps = effLevel
+    key_sequence = [] # List to store the key sequence ('z' followed by 'p')
     achieved = 0
+    
+    if maintask.thisN == 0:
+        if max_press_pSec_pract == 0:
+            max_press_pSec = 4
+        else:
+            max_press_pSec = round(max_press_pSec_pract)  # Round to the nearest integer
+        npumps_pSec = [0]
     
     # Run 'Begin Routine' code from barSize
     #balloon image's starting size
@@ -1542,9 +1812,8 @@ for thisMaintask in maintask:
     if not countdownStarted:
         countdownClock = core.CountdownTimer(timeAvailable)
         countdownStarted = True
-    #7 second timer
     # keep track of which components have finished
-    main_trialComponents = [text_6, tank, background, barBody]
+    main_trialComponents = [text_6, tank, background, barBody, photodiode_mt1]
     for thisComponent in main_trialComponents:
         thisComponent.tStart = None
         thisComponent.tStop = None
@@ -1596,17 +1865,16 @@ for thisMaintask in maintask:
             # Check if the key pressed is 'z' and it's the first key in the sequence
             if key_pressed == 'z' and not key_sequence:
                 key_sequence.append(key_pressed)
+                
             # Check if the key pressed is 'p' and 'z' was pressed before it
             elif key_pressed == 'p' and 'z' in key_sequence:
                 key_sequence.append(key_pressed)
+                
             # If the sequence is complete ('z' followed by 'p'), increase the size of the shape
             if key_sequence == ['z', 'p']:
                 npumps += 1
                 key_sequence = []  # Reset the key sequence
         
-            # Check if the desired number of pumps has been reached
-            if npumps >= maxPumps:
-                achieved = True
         
         # Run 'Each Frame' code from barSize
         batterySize=npumps*batterySizeIncr
@@ -1678,6 +1946,26 @@ for thisMaintask in maintask:
             barBody.setPos([0, -0.5], log=False)
             barBody.setSize([.15, batterySize], log=False)
         
+        # *photodiode_mt1* updates
+        
+        # if photodiode_mt1 is starting this frame...
+        if photodiode_mt1.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            photodiode_mt1.frameNStart = frameN  # exact frame index
+            photodiode_mt1.tStart = t  # local t and not account for scr refresh
+            photodiode_mt1.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(photodiode_mt1, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'photodiode_mt1.started')
+            # update status
+            photodiode_mt1.status = STARTED
+            photodiode_mt1.setAutoDraw(True)
+        
+        # if photodiode_mt1 is active this frame...
+        if photodiode_mt1.status == STARTED:
+            # update params
+            pass
+        
         # check for quit (typically the Esc key)
         if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
             core.quit()
@@ -1703,25 +1991,141 @@ for thisMaintask in maintask:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
     # Run 'End Routine' code from CheckKeys
-    if npumps>=maxPumps:
-       rscore=rscore+1
+    # Check if the desired number of pumps has been reached
+    if (npumps / max_press_pSec) * 100 >= maxPumps:
+        achieved = True
+        rscore += 1
     
-    #add current round score to total score
+    # Add current round score to the total score
     tscore += rscore
     
+    npumps_pSec.append(npumps / t)
     
-    npumps_pSec = npumps/t
-    max_press.append(npumps/t)
-    max_press_pSec = max(max_press)
+    print(max_press_pSec)
+    print(npumps_pSec[-1])
     
-    practicetrials.addData('treshold', effTresh)
-    practicetrials.addData('max_press', max_press)
-    practicetrials.addData('trial_duration', t) 
+    if max_press_pSec < npumps_pSec[-1]:
+        max_press_pSec = npumps_pSec[-1]
+        print('new max:', max_press_pSec)  # Added a comma to separate the string and variable
+    
+    # Save data
+    maintask.addData('threshold', effTresh)  # Corrected 'treshold' to 'threshold'
+    maintask.addData('npumps_pSec', npumps_pSec)
+    maintask.addData('trial_duration', t)
     maintask.addData('# of presses', npumps)
     maintask.addData('trial score', rscore)
+    maintask.addData('achieved', achieved)
+    
     # Run 'End Routine' code from countdownEasy
     countdownStarted = False
     # the Routine "main_trial" was not non-slip safe, so reset the non-slip timer
+    routineTimer.reset()
+    
+    # --- Prepare to start Routine "cross" ---
+    continueRoutine = True
+    # update component parameters for each repeat
+    # keep track of which components have finished
+    crossComponents = [text2_2, photodiode_fix1]
+    for thisComponent in crossComponents:
+        thisComponent.tStart = None
+        thisComponent.tStop = None
+        thisComponent.tStartRefresh = None
+        thisComponent.tStopRefresh = None
+        if hasattr(thisComponent, 'status'):
+            thisComponent.status = NOT_STARTED
+    # reset timers
+    t = 0
+    _timeToFirstFrame = win.getFutureFlipTime(clock="now")
+    frameN = -1
+    
+    # --- Run Routine "cross" ---
+    routineForceEnded = not continueRoutine
+    while continueRoutine:
+        # get current time
+        t = routineTimer.getTime()
+        tThisFlip = win.getFutureFlipTime(clock=routineTimer)
+        tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+        frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+        # update/draw components on each frame
+        
+        # *text2_2* updates
+        
+        # if text2_2 is starting this frame...
+        if text2_2.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            text2_2.frameNStart = frameN  # exact frame index
+            text2_2.tStart = t  # local t and not account for scr refresh
+            text2_2.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(text2_2, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'text2_2.started')
+            # update status
+            text2_2.status = STARTED
+            text2_2.setAutoDraw(True)
+        
+        # if text2_2 is active this frame...
+        if text2_2.status == STARTED:
+            # update params
+            pass
+        
+        # if text2_2 is stopping this frame...
+        if text2_2.status == STARTED:
+            # is it time to stop? (based on global clock, using actual start)
+            if tThisFlipGlobal > text2_2.tStartRefresh + 1.0-frameTolerance:
+                # keep track of stop time/frame for later
+                text2_2.tStop = t  # not accounting for scr refresh
+                text2_2.frameNStop = frameN  # exact frame index
+                # add timestamp to datafile
+                thisExp.timestampOnFlip(win, 'text2_2.stopped')
+                # update status
+                text2_2.status = FINISHED
+                text2_2.setAutoDraw(False)
+        
+        # *photodiode_fix1* updates
+        
+        # if photodiode_fix1 is starting this frame...
+        if photodiode_fix1.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            photodiode_fix1.frameNStart = frameN  # exact frame index
+            photodiode_fix1.tStart = t  # local t and not account for scr refresh
+            photodiode_fix1.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(photodiode_fix1, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'photodiode_fix1.started')
+            # update status
+            photodiode_fix1.status = STARTED
+            photodiode_fix1.setAutoDraw(True)
+        
+        # if photodiode_fix1 is active this frame...
+        if photodiode_fix1.status == STARTED:
+            # update params
+            pass
+        
+        # check for quit (typically the Esc key)
+        if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
+            core.quit()
+            if eyetracker:
+                eyetracker.setConnectionState(False)
+        
+        # check if all components have finished
+        if not continueRoutine:  # a component has requested a forced-end of Routine
+            routineForceEnded = True
+            break
+        continueRoutine = False  # will revert to True if at least one component still running
+        for thisComponent in crossComponents:
+            if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                continueRoutine = True
+                break  # at least one component has not yet finished
+        
+        # refresh the screen
+        if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+            win.flip()
+    
+    # --- Ending Routine "cross" ---
+    for thisComponent in crossComponents:
+        if hasattr(thisComponent, "setAutoDraw"):
+            thisComponent.setAutoDraw(False)
+    # the Routine "cross" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
     
     # --- Prepare to start Routine "Feedback_2" ---
@@ -1737,7 +2141,7 @@ for thisMaintask in maintask:
     feedbackMsg.setText(feedbackText)
     image_rubies.setImage(stimFile)
     # keep track of which components have finished
-    Feedback_2Components = [feedbackMsg, image_rubies]
+    Feedback_2Components = [feedbackMsg, image_rubies, photodiode_ft1]
     for thisComponent in Feedback_2Components:
         thisComponent.tStart = None
         thisComponent.tStop = None
@@ -1825,6 +2229,26 @@ for thisMaintask in maintask:
                 # update status
                 image_rubies.status = FINISHED
                 image_rubies.setAutoDraw(False)
+        
+        # *photodiode_ft1* updates
+        
+        # if photodiode_ft1 is starting this frame...
+        if photodiode_ft1.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            photodiode_ft1.frameNStart = frameN  # exact frame index
+            photodiode_ft1.tStart = t  # local t and not account for scr refresh
+            photodiode_ft1.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(photodiode_ft1, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'photodiode_ft1.started')
+            # update status
+            photodiode_ft1.status = STARTED
+            photodiode_ft1.setAutoDraw(True)
+        
+        # if photodiode_ft1 is active this frame...
+        if photodiode_ft1.status == STARTED:
+            # update params
+            pass
         
         # check for quit (typically the Esc key)
         if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
