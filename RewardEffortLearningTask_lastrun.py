@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2023.1.3),
-    on Mon Sep 18 17:13:08 2023
+    on Wed Sep 20 16:28:36 2023
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -74,7 +74,7 @@ frameTolerance = 0.001  # how close to onset before 'same' frame
 # --- Setup the Window ---
 win = visual.Window(
     size=[1440, 900], fullscr=False, screen=0, 
-    winType='pyglet', allowStencil=False,
+    winType='pyglet', allowStencil=True,
     monitor='testMonitor', color=[-1.0000, -1.0000, -0.2471], colorSpace='rgb',
     backgroundImage='', backgroundFit='cover',
     blendMode='avg', useFBO=True, 
@@ -103,54 +103,75 @@ defaultKeyboard = keyboard.Keyboard(backend='iohub')
 
 # --- Initialize components for Routine "instr_quiz" ---
 Multiple_Choice1 = visual.TextStim(win=win, name='Multiple_Choice1',
-    text=question,
+    text='',
     font='Arial',
     pos=(0, 0.6), height=0.1, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=0.0);
-box1 = visual.Rect(
-    win=win, name='box1',
-    width=(1, 0.2)[0], height=(1, 0.2)[1],
-    ori=0.0, pos=(0, 0.1), anchor='center',
-    lineWidth=1.0,     colorSpace='rgb',  lineColor=[-0.0039, 1.0000, 0.6627], fillColor=[0.0824, -0.6627, 0.7725],
-    opacity=None, depth=-1.0, interpolate=True)
-box2 = visual.Rect(
-    win=win, name='box2',
-    width=(1, 0.2)[0], height=(1, 0.2)[1],
-    ori=0.0, pos=(0, -0.2), anchor='center',
-    lineWidth=1.0,     colorSpace='rgb',  lineColor=[-0.0039, 1.0000, 0.6627], fillColor=[0.0824, -0.6627, 0.7725],
-    opacity=None, depth=-2.0, interpolate=True)
-box3 = visual.Rect(
-    win=win, name='box3',
-    width=(1, 0.2)[0], height=(1, 0.2)[1],
-    ori=0.0, pos=(0, -0.5), anchor='center',
-    lineWidth=1.0,     colorSpace='rgb',  lineColor=[-0.0039, 1.0000, 0.6627], fillColor=[0.0824, -0.6627, 0.7725],
-    opacity=None, depth=-3.0, interpolate=True)
+press_enter = visual.TextStim(win=win, name='press_enter',
+    text='Press ENTER to log in your response.',
+    font='Arial',
+    pos=(0, 0.3), height=0.08, wrapWidth=None, ori=0.0, 
+    color='white', colorSpace='rgb', opacity=1.0, 
+    languageStyle='LTR',
+    depth=-1.0);
 mouse = event.Mouse(win=win)
 x, y = [None, None]
 mouse.mouseClock = core.Clock()
-text_1 = visual.TextStim(win=win, name='text_1',
-    text=resp1,
-    font='Arial',
-    pos=(0, 0.1), height=0.08, wrapWidth=None, ori=0.0, 
-    color='white', colorSpace='rgb', opacity=None, 
-    languageStyle='LTR',
-    depth=-6.0);
-text_2 = visual.TextStim(win=win, name='text_2',
-    text=resp2,
-    font='Arial',
-    pos=(0, -0.2), height=0.08, wrapWidth=None, ori=0.0, 
-    color='white', colorSpace='rgb', opacity=None, 
-    languageStyle='LTR',
-    depth=-7.0);
-text_3 = visual.TextStim(win=win, name='text_3',
-    text=resp3,
-    font='Arial',
-    pos=(0, -0.5), height=0.08, wrapWidth=None, ori=0.0, 
-    color='white', colorSpace='rgb', opacity=None, 
-    languageStyle='LTR',
-    depth=-8.0);
+box1 = visual.TextBox2(
+     win, text='', placeholder='Type here...', font='Arial',
+     pos=(0, 0.1),     letterHeight=0.08,
+     size=(1.5, 0.2), borderWidth=2.0,
+     color='grey', colorSpace='rgb',
+     opacity=None,
+     bold=False, italic=False,
+     lineSpacing=1.0, speechPoint=None,
+     padding=0.0, alignment='center-left',
+     anchor='center', overflow='visible',
+     fillColor=[1,1,1], borderColor=[0.3569, 0.6941, 0.8039],
+     flipHoriz=False, flipVert=False, languageStyle='LTR',
+     editable=False,
+     name='box1',
+     depth=-3, autoLog=True,
+)
+box2 = visual.TextBox2(
+     win, text='', placeholder='Type here...', font='Arial',
+     pos=(0, -0.2),     letterHeight=0.08,
+     size=(1.5, 0.2), borderWidth=2.0,
+     color='grey', colorSpace='rgb',
+     opacity=None,
+     bold=False, italic=False,
+     lineSpacing=1.0, speechPoint=None,
+     padding=0.0, alignment='center-left',
+     anchor='center', overflow='visible',
+     fillColor=[1,1,1], borderColor=[0.3569, 0.6941, 0.8039],
+     flipHoriz=False, flipVert=False, languageStyle='LTR',
+     editable=False,
+     name='box2',
+     depth=-4, autoLog=True,
+)
+box3 = visual.TextBox2(
+     win, text='', placeholder='Type here...', font='Arial',
+     pos=(0, -0.5),     letterHeight=0.08,
+     size=(1.5, 0.2), borderWidth=2.0,
+     color='grey', colorSpace='rgb',
+     opacity=None,
+     bold=False, italic=False,
+     lineSpacing=1.0, speechPoint=None,
+     padding=0.0, alignment='center-left',
+     anchor='center', overflow='visible',
+     fillColor=[1,1,1], borderColor=[0.3569, 0.6941, 0.8039],
+     flipHoriz=False, flipVert=False, languageStyle='LTR',
+     editable=False,
+     name='box3',
+     depth=-5, autoLog=True,
+)
+# Run 'Begin Experiment' code from code
+quiz_score = 0
+clickables = [box1, box2, box3]
+
+next_quest = keyboard.Keyboard()
 
 # --- Initialize components for Routine "practice_instructions" ---
 practice_intro_text1 = visual.TextStim(win=win, name='practice_intro_text1',
@@ -499,6 +520,7 @@ for thisInstructionquiz in instructionquiz:
     # --- Prepare to start Routine "instr_quiz" ---
     continueRoutine = True
     # update component parameters for each repeat
+    Multiple_Choice1.setText(question)
     # setup some python lists for storing info about the mouse
     mouse.x = []
     mouse.y = []
@@ -506,13 +528,27 @@ for thisInstructionquiz in instructionquiz:
     mouse.midButton = []
     mouse.rightButton = []
     mouse.time = []
+    mouse.clicked_name = []
     gotValidClick = False  # until a click is received
+    box1.reset()
+    box1.setText(resp1)
+    box2.reset()
+    box2.setText(resp2
+)
+    box3.reset()
+    box3.setText(resp3
+)
     # Run 'Begin Routine' code from code
-    clicked_things = []
+    clicked_box = None # Initialize a variable to store the clicked box
     response = 0
     correct = None
+    for box in clickables:
+                box.fillColor = 'white'
+    next_quest.keys = []
+    next_quest.rt = []
+    _next_quest_allKeys = []
     # keep track of which components have finished
-    instr_quizComponents = [Multiple_Choice1, box1, box2, box3, mouse, text_1, text_2, text_3]
+    instr_quizComponents = [Multiple_Choice1, press_enter, mouse, box1, box2, box3, next_quest]
     for thisComponent in instr_quizComponents:
         thisComponent.tStart = None
         thisComponent.tStop = None
@@ -554,6 +590,62 @@ for thisInstructionquiz in instructionquiz:
         if Multiple_Choice1.status == STARTED:
             # update params
             pass
+        
+        # *press_enter* updates
+        
+        # if press_enter is starting this frame...
+        if press_enter.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            press_enter.frameNStart = frameN  # exact frame index
+            press_enter.tStart = t  # local t and not account for scr refresh
+            press_enter.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(press_enter, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'press_enter.started')
+            # update status
+            press_enter.status = STARTED
+            press_enter.setAutoDraw(True)
+        
+        # if press_enter is active this frame...
+        if press_enter.status == STARTED:
+            # update params
+            pass
+        # *mouse* updates
+        
+        # if mouse is starting this frame...
+        if mouse.status == NOT_STARTED and t >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            mouse.frameNStart = frameN  # exact frame index
+            mouse.tStart = t  # local t and not account for scr refresh
+            mouse.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(mouse, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.addData('mouse.started', t)
+            # update status
+            mouse.status = STARTED
+            mouse.mouseClock.reset()
+            prevButtonState = mouse.getPressed()  # if button is down already this ISN'T a new click
+        if mouse.status == STARTED:  # only update if started and not finished!
+            buttons = mouse.getPressed()
+            if buttons != prevButtonState:  # button state changed?
+                prevButtonState = buttons
+                if sum(buttons) > 0:  # state changed to a new click
+                    # check if the mouse was inside our 'clickable' objects
+                    gotValidClick = False
+                    clickableList = environmenttools.getFromNames([box1, box2, box3], namespace=locals())
+                    for obj in clickableList:
+                        # is this object clicked on?
+                        if obj.contains(mouse):
+                            gotValidClick = True
+                            mouse.clicked_name.append(obj.name)
+                    x, y = mouse.getPos()
+                    mouse.x.append(x)
+                    mouse.y.append(y)
+                    buttons = mouse.getPressed()
+                    mouse.leftButton.append(buttons[0])
+                    mouse.midButton.append(buttons[1])
+                    mouse.rightButton.append(buttons[2])
+                    mouse.time.append(mouse.mouseClock.getTime())
         
         # *box1* updates
         
@@ -614,47 +706,17 @@ for thisInstructionquiz in instructionquiz:
         if box3.status == STARTED:
             # update params
             pass
-        # *mouse* updates
-        
-        # if mouse is starting this frame...
-        if mouse.status == NOT_STARTED and t >= 0.0-frameTolerance:
-            # keep track of start time/frame for later
-            mouse.frameNStart = frameN  # exact frame index
-            mouse.tStart = t  # local t and not account for scr refresh
-            mouse.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(mouse, 'tStartRefresh')  # time at next scr refresh
-            # add timestamp to datafile
-            thisExp.addData('mouse.started', t)
-            # update status
-            mouse.status = STARTED
-            mouse.mouseClock.reset()
-            prevButtonState = mouse.getPressed()  # if button is down already this ISN'T a new click
-        if mouse.status == STARTED:  # only update if started and not finished!
-            buttons = mouse.getPressed()
-            if buttons != prevButtonState:  # button state changed?
-                prevButtonState = buttons
-                if sum(buttons) > 0:  # state changed to a new click
-                    x, y = mouse.getPos()
-                    mouse.x.append(x)
-                    mouse.y.append(y)
-                    buttons = mouse.getPressed()
-                    mouse.leftButton.append(buttons[0])
-                    mouse.midButton.append(buttons[1])
-                    mouse.rightButton.append(buttons[2])
-                    mouse.time.append(mouse.mouseClock.getTime())
         # Run 'Each Frame' code from code
-        clickables = [box1, box2, box3]
-        
         # Check if the mouse is pressed in any of the boxes
-        clicked_box = None  # Initialize a variable to store the clicked box
-        
         for clickable in clickables:
             if mouse.isPressedIn(clickable):
-                clicked_things.append(clickable.name)
+                # Reset the color of all boxes to white
+                for box in clickables:
+                    box.fillColor = 'white'
+                
+                # Change the color of the clicked box to blue
+                clickable.fillColor = 'lightblue'
                 clicked_box = clickable
-        
-        # Initialize the response variable
-        response = None
         
         # Assign a value to a new variable based on the clicked box
         if clicked_box == box1:
@@ -664,81 +726,40 @@ for thisInstructionquiz in instructionquiz:
         elif clicked_box == box3:
             response = 3
         
-        # Change the box color to 'aquamarine' if clicked
-        for clickable in clickables:
-            if clickable.name in clicked_things:
-                clickable.color = 'aquamarine'
-        
         # Check if the response is correct
         correct = (response == correctResp)
+           
+        # Check if a response has been recorded
+        if response !=0:
+            print("Response:", response)
         
-        # Check if correct is not None, and if so, continue the routine
-        if correct is not None:
-            continueRoutine = True
-        else:
-            continueRoutine = False
+        # *next_quest* updates
+        waitOnFlip = False
         
-        print(response)
-        
-        # *text_1* updates
-        
-        # if text_1 is starting this frame...
-        if text_1.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+        # if next_quest is starting this frame...
+        if next_quest.status == NOT_STARTED and response>0:
             # keep track of start time/frame for later
-            text_1.frameNStart = frameN  # exact frame index
-            text_1.tStart = t  # local t and not account for scr refresh
-            text_1.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(text_1, 'tStartRefresh')  # time at next scr refresh
+            next_quest.frameNStart = frameN  # exact frame index
+            next_quest.tStart = t  # local t and not account for scr refresh
+            next_quest.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(next_quest, 'tStartRefresh')  # time at next scr refresh
             # add timestamp to datafile
-            thisExp.timestampOnFlip(win, 'text_1.started')
+            thisExp.timestampOnFlip(win, 'next_quest.started')
             # update status
-            text_1.status = STARTED
-            text_1.setAutoDraw(True)
-        
-        # if text_1 is active this frame...
-        if text_1.status == STARTED:
-            # update params
-            pass
-        
-        # *text_2* updates
-        
-        # if text_2 is starting this frame...
-        if text_2.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-            # keep track of start time/frame for later
-            text_2.frameNStart = frameN  # exact frame index
-            text_2.tStart = t  # local t and not account for scr refresh
-            text_2.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(text_2, 'tStartRefresh')  # time at next scr refresh
-            # add timestamp to datafile
-            thisExp.timestampOnFlip(win, 'text_2.started')
-            # update status
-            text_2.status = STARTED
-            text_2.setAutoDraw(True)
-        
-        # if text_2 is active this frame...
-        if text_2.status == STARTED:
-            # update params
-            pass
-        
-        # *text_3* updates
-        
-        # if text_3 is starting this frame...
-        if text_3.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-            # keep track of start time/frame for later
-            text_3.frameNStart = frameN  # exact frame index
-            text_3.tStart = t  # local t and not account for scr refresh
-            text_3.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(text_3, 'tStartRefresh')  # time at next scr refresh
-            # add timestamp to datafile
-            thisExp.timestampOnFlip(win, 'text_3.started')
-            # update status
-            text_3.status = STARTED
-            text_3.setAutoDraw(True)
-        
-        # if text_3 is active this frame...
-        if text_3.status == STARTED:
-            # update params
-            pass
+            next_quest.status = STARTED
+            # keyboard checking is just starting
+            waitOnFlip = True
+            win.callOnFlip(next_quest.clock.reset)  # t=0 on next screen flip
+            win.callOnFlip(next_quest.clearEvents, eventType='keyboard')  # clear events on next screen flip
+        if next_quest.status == STARTED and not waitOnFlip:
+            theseKeys = next_quest.getKeys(keyList=['return'], waitRelease=False)
+            _next_quest_allKeys.extend(theseKeys)
+            if len(_next_quest_allKeys):
+                next_quest.keys = [key.name for key in _next_quest_allKeys]  # storing all keys
+                next_quest.rt = [key.rt for key in _next_quest_allKeys]
+                next_quest.duration = [key.duration for key in _next_quest_allKeys]
+                # a response ends the routine
+                continueRoutine = False
         
         # check for quit (typically the Esc key)
         if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
@@ -771,6 +792,21 @@ for thisInstructionquiz in instructionquiz:
     instructionquiz.addData('mouse.midButton', mouse.midButton)
     instructionquiz.addData('mouse.rightButton', mouse.rightButton)
     instructionquiz.addData('mouse.time', mouse.time)
+    instructionquiz.addData('mouse.clicked_name', mouse.clicked_name)
+    # Run 'End Routine' code from code
+    if correct: #update score
+        quiz_score = quiz_score+1
+    
+    instructionquiz.addData('correct', correct)
+    instructionquiz.addData('response', response)
+    instructionquiz.addData('quiz_score', quiz_score)
+    # check responses
+    if next_quest.keys in ['', [], None]:  # No response was made
+        next_quest.keys = None
+    instructionquiz.addData('next_quest.keys',next_quest.keys)
+    if next_quest.keys != None:  # we had a response
+        instructionquiz.addData('next_quest.rt', next_quest.rt)
+        instructionquiz.addData('next_quest.duration', next_quest.duration)
     # the Routine "instr_quiz" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
     thisExp.nextEntry()
