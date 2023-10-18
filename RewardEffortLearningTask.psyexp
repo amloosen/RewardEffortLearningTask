@@ -1044,6 +1044,23 @@
       </PolygonComponent>
     </Routine>
     <Routine name="practice_instructions">
+      <CodeComponent name="selectText" plugin="None">
+        <Param val="" valType="extendedCode" updates="constant" name="Before Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
+        <Param val="instructions1 = &quot;&quot;&amp;#10;instructions2 = &quot;&quot;&amp;#10;instructions3 = &quot;&quot;&amp;#10;&amp;#10;" valType="extendedCode" updates="constant" name="Begin Experiment"/>
+        <Param val="instructions1 = &quot;&quot;;&amp;#10;instructions2 = &quot;&quot;;&amp;#10;instructions3 = &quot;&quot;;&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
+        <Param val="if ((instruct_slides.thisN === 1)) {&amp;#10;    instructions1 = &quot;On the next screen, you will encounter a fuel tank marked with a red line. Your goal is to fill it up to the red line, just as demonstrated in the video.&quot;;&amp;#10;    instructions2 = &quot;&quot;;&amp;#10;    instructions3 = &quot;&quot;;&amp;#10;} else {&amp;#10;    instructions1 = &quot;Alternate between pressing ''z'' with your left index finger and ''p'' with your right index finger as fast as you can to reach the red bar.&quot;;&amp;#10;    instructions2 = &quot;You will have 5 seconds.&quot;;&amp;#10;    instructions3 = &quot;Press ENTER to Start!&quot;;&amp;#10;}&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
+        <Param val="if instruct_slides.thisN == 1:&amp;#10;    instructions1=&quot;On the next screen, you will encounter a fuel tank marked with a red line. Your goal is to fill it up to the red line, just as demonstrated in the video.&quot;&amp;#10;    instructions2=&quot;&quot;&amp;#10;    instructions3=&quot;&quot;&amp;#10;    #picture=imgExample1.png&amp;#10;else:&amp;#10;    instructions1=&quot;Alternate between pressing ''z'' with your left index finger and ''p'' with your right index finger as fast as you can to reach the red bar.&quot;&amp;#10;    instructions2=&quot;You will have 5 seconds.&quot;&amp;#10;    instructions3=&quot;Press ENTER to Start!&quot;&amp;#10;    #picture=imgExample2.png" valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="Auto-&gt;JS" valType="str" updates="None" name="Code Type"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Each Frame"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Each JS Frame"/>
+        <Param val="" valType="extendedCode" updates="constant" name="End Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="End JS Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="End JS Routine"/>
+        <Param val="" valType="extendedCode" updates="constant" name="End Routine"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="selectText" valType="code" updates="None" name="name"/>
+      </CodeComponent>
       <TextComponent name="practice_intro_text1" plugin="None">
         <Param val="white" valType="color" updates="constant" name="color"/>
         <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
@@ -1065,7 +1082,7 @@
         <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
         <Param val="" valType="code" updates="constant" name="stopVal"/>
         <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
-        <Param val="On the next screen you will see a fuel tank with a red line." valType="str" updates="constant" name="text"/>
+        <Param val="$instructions1&amp;#10;" valType="str" updates="constant" name="text"/>
         <Param val="from exp settings" valType="str" updates="None" name="units"/>
         <Param val="" valType="num" updates="constant" name="wrapWidth"/>
       </TextComponent>
@@ -1090,7 +1107,32 @@
         <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
         <Param val="" valType="code" updates="constant" name="stopVal"/>
         <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
-        <Param val="&amp;#10;&amp;#10;&amp;#10;Press the ''z'' then ''p'' keys as fast as you can to reach the red bar.&amp;#10;&amp;#10;You will have 5 seconds.&amp;#10;&amp;#10;Press ENTER to Start!" valType="str" updates="constant" name="text"/>
+        <Param val="$instructions2" valType="str" updates="constant" name="text"/>
+        <Param val="from exp settings" valType="str" updates="None" name="units"/>
+        <Param val="" valType="num" updates="constant" name="wrapWidth"/>
+      </TextComponent>
+      <TextComponent name="practice_intro_text3" plugin="None">
+        <Param val="white" valType="color" updates="constant" name="color"/>
+        <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
+        <Param val="1" valType="num" updates="constant" name="contrast"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="None" valType="str" updates="constant" name="flip"/>
+        <Param val="Arial" valType="str" updates="constant" name="font"/>
+        <Param val="LTR" valType="str" updates="None" name="languageStyle"/>
+        <Param val="0.1" valType="num" updates="constant" name="letterHeight"/>
+        <Param val="practice_intro_text3" valType="code" updates="None" name="name"/>
+        <Param val="" valType="num" updates="constant" name="opacity"/>
+        <Param val="0" valType="num" updates="constant" name="ori"/>
+        <Param val="(0, -0.4)" valType="list" updates="constant" name="pos"/>
+        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="0.0" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="" valType="code" updates="constant" name="stopVal"/>
+        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
+        <Param val="$instructions3" valType="str" updates="constant" name="text"/>
         <Param val="from exp settings" valType="str" updates="None" name="units"/>
         <Param val="" valType="num" updates="constant" name="wrapWidth"/>
       </TextComponent>
@@ -1652,8 +1694,8 @@
       <CodeComponent name="code" plugin="None">
         <Param val="" valType="extendedCode" updates="constant" name="Before Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
-        <Param val="quiz_score = 0&amp;#10;clickables = [box1, box2, box3]&amp;#10;" valType="extendedCode" updates="constant" name="Begin Experiment"/>
-        <Param val="quiz_score = 0;&amp;#10;clickables = [box1, box2, box3];&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
+        <Param val="quiz_score = 0&amp;#10;clickables = [box1, box2, box3]&amp;#10;&amp;#10;&amp;#10;restart_loop = False&amp;#10;&amp;#10;" valType="extendedCode" updates="constant" name="Begin Experiment"/>
+        <Param val="quiz_score = 0;&amp;#10;clickables = [box1, box2, box3];&amp;#10;restart_loop = false;&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
         <Param val="clicked_box = null;&amp;#10;response = 0;&amp;#10;correct = null;&amp;#10;for (var box, _pj_c = 0, _pj_a = clickables, _pj_b = _pj_a.length; (_pj_c &lt; _pj_b); _pj_c += 1) {&amp;#10;    box = _pj_a[_pj_c];&amp;#10;    box.fillColor = &quot;white&quot;;&amp;#10;}&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
         <Param val="clicked_box = None # Initialize a variable to store the clicked box&amp;#10;response = 0&amp;#10;correct = None&amp;#10;for box in clickables:&amp;#10;            box.fillColor = 'white'" valType="extendedCode" updates="constant" name="Begin Routine"/>
         <Param val="Auto-&gt;JS" valType="str" updates="None" name="Code Type"/>
@@ -1661,8 +1703,8 @@
         <Param val="for (var clickable, _pj_c = 0, _pj_a = clickables, _pj_b = _pj_a.length; (_pj_c &lt; _pj_b); _pj_c += 1) {&amp;#10;    clickable = _pj_a[_pj_c];&amp;#10;    if (mouse.isPressedIn(clickable)) {&amp;#10;        for (var box, _pj_f = 0, _pj_d = clickables, _pj_e = _pj_d.length; (_pj_f &lt; _pj_e); _pj_f += 1) {&amp;#10;            box = _pj_d[_pj_f];&amp;#10;            box.fillColor = &quot;white&quot;;&amp;#10;        }&amp;#10;        clickable.fillColor = &quot;lightblue&quot;;&amp;#10;        clicked_box = clickable;&amp;#10;    }&amp;#10;}&amp;#10;if ((clicked_box === box1)) {&amp;#10;    response = 1;&amp;#10;} else {&amp;#10;    if ((clicked_box === box2)) {&amp;#10;        response = 2;&amp;#10;    } else {&amp;#10;        if ((clicked_box === box3)) {&amp;#10;            response = 3;&amp;#10;        }&amp;#10;    }&amp;#10;}&amp;#10;correct = (response === correctResp);&amp;#10;if ((response !== 0)) {&amp;#10;    console.log(&quot;Response:&quot;, response);&amp;#10;}&amp;#10;" valType="extendedCode" updates="constant" name="Each JS Frame"/>
         <Param val="" valType="extendedCode" updates="constant" name="End Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="End JS Experiment"/>
-        <Param val="if (correct) {&amp;#10;    quiz_score = (quiz_score + 1);&amp;#10;}&amp;#10;instructionquiz.addData(&quot;correct&quot;, correct);&amp;#10;instructionquiz.addData(&quot;response&quot;, response);&amp;#10;instructionquiz.addData(&quot;quiz_score&quot;, quiz_score);&amp;#10;" valType="extendedCode" updates="constant" name="End JS Routine"/>
-        <Param val="if correct: #update score&amp;#10;    quiz_score = quiz_score+1&amp;#10;&amp;#10;instructionquiz.addData('correct', correct)&amp;#10;instructionquiz.addData('response', response)&amp;#10;instructionquiz.addData('quiz_score', quiz_score)" valType="extendedCode" updates="constant" name="End Routine"/>
+        <Param val="if (correct) {&amp;#10;    quiz_score = (quiz_score + 1);&amp;#10;}&amp;#10;instructionquiz.addData(&quot;correct&quot;, correct);&amp;#10;instructionquiz.addData(&quot;response&quot;, response);&amp;#10;instructionquiz.addData(&quot;quiz_score&quot;, quiz_score);&amp;#10;if (((instructionquiz.thisN === 3) &amp;&amp; (quiz_score &lt; 3))) {&amp;#10;    instructionquiz.finished = true;&amp;#10;    instructionquiz_rep.finished = false;&amp;#10;} else {&amp;#10;    if (((instructionquiz.thisN === 3) &amp;&amp; (quiz_score === 3))) {&amp;#10;        instructionquiz.finished = true;&amp;#10;        instructionquiz_rep.finished = true;&amp;#10;    }&amp;#10;}&amp;#10;" valType="extendedCode" updates="constant" name="End JS Routine"/>
+        <Param val="if correct: #update score&amp;#10;    quiz_score = quiz_score+1&amp;#10;&amp;#10;instructionquiz.addData('correct', correct)&amp;#10;instructionquiz.addData('response', response)&amp;#10;instructionquiz.addData('quiz_score', quiz_score)&amp;#10;&amp;#10;if instructionquiz.thisN == 3 and quiz_score &lt; 3:&amp;#10;    instructionquiz.finished = True&amp;#10;    instructionquiz_rep.finished = False&amp;#10;elif instructionquiz.thisN == 3 and quiz_score == 3:&amp;#10;    instructionquiz.finished = True&amp;#10;    instructionquiz_rep.finished = True" valType="extendedCode" updates="constant" name="End Routine"/>
         <Param val="False" valType="bool" updates="None" name="disabled"/>
         <Param val="code" valType="code" updates="None" name="name"/>
       </CodeComponent>
@@ -1687,58 +1729,173 @@
       </KeyboardComponent>
     </Routine>
     <Routine name="check">
-      <ButtonComponent name="button" plugin="None">
-        <Param val="center" valType="str" updates="constant" name="anchor"/>
-        <Param val="True" valType="bool" updates="constant" name="bold"/>
-        <Param val="None" valType="color" updates="constant" name="borderColor"/>
-        <Param val="0" valType="num" updates="constant" name="borderWidth"/>
-        <Param val="&amp;#10;" valType="extendedCode" updates="constant" name="callback"/>
+      <TextComponent name="FeedbackQuiz2" plugin="None">
         <Param val="white" valType="color" updates="constant" name="color"/>
         <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
         <Param val="1" valType="num" updates="constant" name="contrast"/>
         <Param val="False" valType="bool" updates="None" name="disabled"/>
         <Param val="" valType="code" updates="None" name="durationEstim"/>
-        <Param val="darkgrey" valType="color" updates="constant" name="fillColor"/>
-        <Param val="Arvo" valType="str" updates="constant" name="font"/>
-        <Param val="True" valType="bool" updates="constant" name="forceEndRoutine"/>
-        <Param val="False" valType="bool" updates="constant" name="italic"/>
-        <Param val="0.05" valType="num" updates="constant" name="letterHeight"/>
-        <Param val="button" valType="code" updates="None" name="name"/>
-        <Param val="True" valType="bool" updates="constant" name="oncePerClick"/>
+        <Param val="None" valType="str" updates="constant" name="flip"/>
+        <Param val="Arial" valType="str" updates="constant" name="font"/>
+        <Param val="LTR" valType="str" updates="None" name="languageStyle"/>
+        <Param val="0.1" valType="num" updates="constant" name="letterHeight"/>
+        <Param val="FeedbackQuiz2" valType="code" updates="None" name="name"/>
         <Param val="" valType="num" updates="constant" name="opacity"/>
         <Param val="0" valType="num" updates="constant" name="ori"/>
-        <Param val="" valType="num" updates="constant" name="padding"/>
-        <Param val="(0, 0)" valType="list" updates="constant" name="pos"/>
-        <Param val="every click" valType="str" updates="None" name="save"/>
+        <Param val="(0, 0.6)" valType="list" updates="constant" name="pos"/>
         <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
-        <Param val="(0.5, 0.5)" valType="list" updates="constant" name="size"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="condition" valType="str" updates="None" name="startType"/>
+        <Param val="correct" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="4" valType="code" updates="constant" name="stopVal"/>
+        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
+        <Param val="Exceptional work, future astronaut! Your answers were all spot-on.&amp;#10;&amp;#10;Let's continue to the main game." valType="str" updates="set every repeat" name="text"/>
+        <Param val="from exp settings" valType="str" updates="None" name="units"/>
+        <Param val="" valType="num" updates="constant" name="wrapWidth"/>
+      </TextComponent>
+      <TextComponent name="FeedbackQuiz1" plugin="None">
+        <Param val="white" valType="color" updates="constant" name="color"/>
+        <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
+        <Param val="1" valType="num" updates="constant" name="contrast"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="None" valType="str" updates="constant" name="flip"/>
+        <Param val="Arial" valType="str" updates="constant" name="font"/>
+        <Param val="LTR" valType="str" updates="None" name="languageStyle"/>
+        <Param val="0.1" valType="num" updates="constant" name="letterHeight"/>
+        <Param val="FeedbackQuiz1" valType="code" updates="None" name="name"/>
+        <Param val="" valType="num" updates="constant" name="opacity"/>
+        <Param val="0" valType="num" updates="constant" name="ori"/>
+        <Param val="(0, 0.6)" valType="list" updates="constant" name="pos"/>
+        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="condition" valType="str" updates="None" name="startType"/>
+        <Param val="correct" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="4" valType="code" updates="constant" name="stopVal"/>
+        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
+        <Param val="Great effort, future astronaut! Some of your answers were unfortunately incorrect.&amp;#10;&amp;#10;Let's give it another try and help those astronaut skills find their orbit! " valType="str" updates="set every repeat" name="text"/>
+        <Param val="from exp settings" valType="str" updates="None" name="units"/>
+        <Param val="" valType="num" updates="constant" name="wrapWidth"/>
+      </TextComponent>
+      <ImageComponent name="image_rocket" plugin="None">
+        <Param val="center" valType="str" updates="constant" name="anchor"/>
+        <Param val="$[1,1,1]" valType="color" updates="constant" name="color"/>
+        <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
+        <Param val="1" valType="num" updates="constant" name="contrast"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="False" valType="bool" updates="constant" name="flipHoriz"/>
+        <Param val="False" valType="bool" updates="constant" name="flipVert"/>
+        <Param val="$stimFile" valType="file" updates="set every repeat" name="image"/>
+        <Param val="linear" valType="str" updates="constant" name="interpolate"/>
+        <Param val="" valType="str" updates="constant" name="mask"/>
+        <Param val="image_rocket" valType="code" updates="None" name="name"/>
+        <Param val="" valType="num" updates="constant" name="opacity"/>
+        <Param val="0" valType="num" updates="constant" name="ori"/>
+        <Param val="(0, -0.4)" valType="list" updates="constant" name="pos"/>
+        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="(0.3,0.3)" valType="list" updates="constant" name="size"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="0.0" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="$feedbackTime" valType="code" updates="constant" name="stopVal"/>
+        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
+        <Param val="128" valType="num" updates="constant" name="texture resolution"/>
+        <Param val="from exp settings" valType="str" updates="None" name="units"/>
+      </ImageComponent>
+    </Routine>
+    <Routine name="check_2">
+      <TextComponent name="text" plugin="None">
+        <Param val="white" valType="color" updates="constant" name="color"/>
+        <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
+        <Param val="1" valType="num" updates="constant" name="contrast"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="None" valType="str" updates="constant" name="flip"/>
+        <Param val="Open Sans" valType="str" updates="constant" name="font"/>
+        <Param val="LTR" valType="str" updates="None" name="languageStyle"/>
+        <Param val="0.05" valType="num" updates="constant" name="letterHeight"/>
+        <Param val="text" valType="code" updates="None" name="name"/>
+        <Param val="" valType="num" updates="constant" name="opacity"/>
+        <Param val="0" valType="num" updates="constant" name="ori"/>
+        <Param val="(0, 0)" valType="list" updates="constant" name="pos"/>
+        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="0.0" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="1.0" valType="code" updates="constant" name="stopVal"/>
+        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
+        <Param val="hallo -test" valType="str" updates="constant" name="text"/>
+        <Param val="from exp settings" valType="str" updates="None" name="units"/>
+        <Param val="" valType="num" updates="constant" name="wrapWidth"/>
+      </TextComponent>
+    </Routine>
+    <Routine name="practice_instruction_vid">
+      <TextComponent name="instrText_2" plugin="None">
+        <Param val="white" valType="str" updates="constant" name="color"/>
+        <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
+        <Param val="1" valType="num" updates="constant" name="contrast"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="" valType="str" updates="constant" name="flip"/>
+        <Param val="Arial" valType="str" updates="constant" name="font"/>
+        <Param val="LTR" valType="str" updates="None" name="languageStyle"/>
+        <Param val="0.1" valType="code" updates="constant" name="letterHeight"/>
+        <Param val="instrText_2" valType="code" updates="None" name="name"/>
+        <Param val="1" valType="code" updates="constant" name="opacity"/>
+        <Param val="0" valType="code" updates="constant" name="ori"/>
+        <Param val="[0, .3]" valType="list" updates="constant" name="pos"/>
+        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="0.0" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="" valType="code" updates="constant" name="stopVal"/>
+        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
+        <Param val="[Placeholder Intro Video&amp;#10;]" valType="str" updates="constant" name="text"/>
+        <Param val="from exp settings" valType="str" updates="None" name="units"/>
+        <Param val="" valType="code" updates="constant" name="wrapWidth"/>
+      </TextComponent>
+      <KeyboardComponent name="trial_select_2" plugin="None">
+        <Param val="'return'" valType="list" updates="constant" name="allowedKeys"/>
+        <Param val="" valType="str" updates="constant" name="correctAns"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="True" valType="bool" updates="constant" name="discard previous"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="True" valType="bool" updates="constant" name="forceEndRoutine"/>
+        <Param val="trial_select_2" valType="code" updates="None" name="name"/>
+        <Param val="press" valType="str" updates="constant" name="registerOn"/>
+        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
         <Param val="" valType="code" updates="None" name="startEstim"/>
         <Param val="time (s)" valType="str" updates="None" name="startType"/>
         <Param val="0" valType="code" updates="None" name="startVal"/>
         <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
-        <Param val="1.0" valType="code" updates="constant" name="stopVal"/>
-        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
-        <Param val="Click here" valType="str" updates="constant" name="text"/>
-        <Param val="button onset" valType="str" updates="constant" name="timeRelativeTo"/>
-        <Param val="from exp settings" valType="str" updates="None" name="units"/>
-      </ButtonComponent>
+        <Param val="" valType="code" updates="constant" name="stopVal"/>
+        <Param val="all keys" valType="str" updates="constant" name="store"/>
+        <Param val="False" valType="bool" updates="constant" name="storeCorrect"/>
+        <Param val="True" valType="bool" updates="constant" name="syncScreenRefresh"/>
+      </KeyboardComponent>
     </Routine>
   </Routines>
   <Flow>
-    <LoopInitiator loopType="TrialHandler" name="instructionquiz">
+    <Routine name="practice_instruction_vid"/>
+    <LoopInitiator loopType="TrialHandler" name="instruct_slides">
       <Param name="Selected rows" updates="None" val="" valType="str"/>
-      <Param name="conditions" updates="None" val="[{'correctResp': 3, 'question': 'How does the task mention that the requirements for fuel and the yield of rubies may change as you venture into new galaxies?', 'resp1': &quot;1. They don't change; everything remains constant&quot;, 'resp2': &quot;2. The task doesn't mention any changes in different galaxies&quot;, 'resp3': '3. Fuel and ruby requirements may change, so adaptability is crucial'}, {'correctResp': 1, 'question': 'ch2', 'resp1': &quot;1. They don't change; everything remains constant&quot;, 'resp2': &quot;2. The task doesn't mention any changes in different galaxies&quot;, 'resp3': '3. Fuel and ruby requirements may change, so adaptability is crucial'}, {'correctResp': 3, 'question': 'ch3', 'resp1': &quot;1. They don't change; everything remains constant&quot;, 'resp2': &quot;2. The task doesn't mention any changes in different galaxies&quot;, 'resp3': '3. Fuel and ruby requirements may change, so adaptability is crucial'}]" valType="str"/>
-      <Param name="conditionsFile" updates="None" val="quiz.xlsx" valType="file"/>
+      <Param name="conditions" updates="None" val="None" valType="str"/>
+      <Param name="conditionsFile" updates="None" val="" valType="file"/>
       <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
       <Param name="isTrials" updates="None" val="True" valType="bool"/>
       <Param name="loopType" updates="None" val="sequential" valType="str"/>
-      <Param name="nReps" updates="None" val="1" valType="num"/>
-      <Param name="name" updates="None" val="instructionquiz" valType="code"/>
+      <Param name="nReps" updates="None" val="2" valType="num"/>
+      <Param name="name" updates="None" val="instruct_slides" valType="code"/>
       <Param name="random seed" updates="None" val="" valType="code"/>
     </LoopInitiator>
-    <Routine name="instr_quiz"/>
-    <LoopTerminator name="instructionquiz"/>
     <Routine name="practice_instructions"/>
+    <LoopTerminator name="instruct_slides"/>
     <LoopInitiator loopType="TrialHandler" name="practicetrials">
       <Param name="Selected rows" updates="None" val="" valType="str"/>
       <Param name="conditions" updates="None" val="[{'practPumps': 25, 'effTresh': -0.36}, {'practPumps': 50, 'effTresh': -0.22}, {'practPumps': 75, 'effTresh': -0.09}, {'practPumps': 100, 'effTresh': 0.05}, {'practPumps': 25, 'effTresh': -0.36}, {'practPumps': 50, 'effTresh': -0.22}, {'practPumps': 75, 'effTresh': -0.09}, {'practPumps': 100, 'effTresh': 0.05}]" valType="str"/>
@@ -1754,6 +1911,32 @@
     <Routine name="practice_feedback"/>
     <LoopTerminator name="practicetrials"/>
     <Routine name="Instructions"/>
+    <LoopInitiator loopType="TrialHandler" name="instructionquiz_rep">
+      <Param name="Selected rows" updates="None" val="" valType="str"/>
+      <Param name="conditions" updates="None" val="None" valType="str"/>
+      <Param name="conditionsFile" updates="None" val="" valType="file"/>
+      <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
+      <Param name="isTrials" updates="None" val="True" valType="bool"/>
+      <Param name="loopType" updates="None" val="sequential" valType="str"/>
+      <Param name="nReps" updates="None" val="3" valType="num"/>
+      <Param name="name" updates="None" val="instructionquiz_rep" valType="code"/>
+      <Param name="random seed" updates="None" val="" valType="code"/>
+    </LoopInitiator>
+    <LoopInitiator loopType="TrialHandler" name="instructionquiz">
+      <Param name="Selected rows" updates="None" val="" valType="str"/>
+      <Param name="conditions" updates="None" val="[{'correctResp': 3, 'question': 'How does the task mention that the requirements for fuel and the yield of rubies may change as you venture into new galaxies?', 'resp1': &quot;1. They don't change; everything remains constant.&quot;, 'resp2': &quot;2. The task doesn't mention any changes in different galaxies.&quot;, 'resp3': '3. Fuel and ruby requirements may change, so adaptability is crucial.'}, {'correctResp': 2, 'question': 'What is the main objective of this game, and what are players required to collect on their cosmic journey?', 'resp1': '1. To explore new galaxies and discover alien lifeforms.', 'resp2': '2. To collect rubies on various planets.', 'resp3': '3. To master fast key pressing techniques for space travel.'}, {'correctResp': 2, 'question': 'How should you manage your energy allocation when traveling to different planets, and why is this important?', 'resp1': '1. You should allocate maximum energy to all journeys to ensure they reach all planets.', 'resp2': '2. You should conserve energy and adapt to different planet requirements to maximize rubies.', 'resp3': '3. You should use the same amount of energy for all journeys to maintain consistency.'}]" valType="str"/>
+      <Param name="conditionsFile" updates="None" val="quiz.xlsx" valType="file"/>
+      <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
+      <Param name="isTrials" updates="None" val="True" valType="bool"/>
+      <Param name="loopType" updates="None" val="random" valType="str"/>
+      <Param name="nReps" updates="None" val="1" valType="num"/>
+      <Param name="name" updates="None" val="instructionquiz" valType="code"/>
+      <Param name="random seed" updates="None" val="" valType="code"/>
+    </LoopInitiator>
+    <Routine name="instr_quiz"/>
+    <LoopTerminator name="instructionquiz"/>
+    <Routine name="check"/>
+    <LoopTerminator name="instructionquiz_rep"/>
     <LoopInitiator loopType="TrialHandler" name="maintask">
       <Param name="Selected rows" updates="None" val="" valType="str"/>
       <Param name="conditions" updates="None" val="[{'Points': 3, 'FeedbackText1': 'You reached the planet, you get 3 rubies!', 'FeedbackText2': 'You did not have enough battery to reach the planet and missed 3 rubies!', 'stimFile': 'image3.png', 'effLevel': 50}, {'Points': 4, 'FeedbackText1': 'You reached the planet, you get 4 rubies!', 'FeedbackText2': 'You did not have enough battery to reach the planet and missed 4 rubies!', 'stimFile': 'image4.png', 'effLevel': 77}, {'Points': 6, 'FeedbackText1': 'You reached the planet, you get 6 rubies!', 'FeedbackText2': 'You did not have enough battery to reach the planet and missed 6 rubies!', 'stimFile': 'image6.png', 'effLevel': 85}, {'Points': 6, 'FeedbackText1': 'You reached the planet, you get 6 rubies!', 'FeedbackText2': 'You did not have enough battery to reach the planet and missed 6 rubies!', 'stimFile': 'image6.png', 'effLevel': 79}, {'Points': 4, 'FeedbackText1': 'You reached the planet, you get 4 rubies!', 'FeedbackText2': 'You did not have enough battery to reach the planet and missed 4 rubies!', 'stimFile': 'image4.png', 'effLevel': 87}, {'Points': 3, 'FeedbackText1': 'You reached the planet, you get 3 rubies!', 'FeedbackText2': 'You did not have enough battery to reach the planet and missed 3 rubies!', 'stimFile': 'image3.png', 'effLevel': 77}, {'Points': 3, 'FeedbackText1': 'You reached the planet, you get 3 rubies!', 'FeedbackText2': 'You did not have enough battery to reach the planet and missed 3 rubies!', 'stimFile': 'image3.png', 'effLevel': 66}, {'Points': 4, 'FeedbackText1': 'You reached the planet, you get 4 rubies!', 'FeedbackText2': 'You did not have enough battery to reach the planet and missed 4 rubies!', 'stimFile': 'image4.png', 'effLevel': 83}, {'Points': 4, 'FeedbackText1': 'You reached the planet, you get 4 rubies!', 'FeedbackText2': 'You did not have enough battery to reach the planet and missed 4 rubies!', 'stimFile': 'image4.png', 'effLevel': 80}, {'Points': 4, 'FeedbackText1': 'You reached the planet, you get 4 rubies!', 'FeedbackText2': 'You did not have enough battery to reach the planet and missed 4 rubies!', 'stimFile': 'image4.png', 'effLevel': 78}, {'Points': 4, 'FeedbackText1': 'You reached the planet, you get 4 rubies!', 'FeedbackText2': 'You did not have enough battery to reach the planet and missed 4 rubies!', 'stimFile': 'image4.png', 'effLevel': 80}, {'Points': 5, 'FeedbackText1': 'You reached the planet, you get 5 rubies!', 'FeedbackText2': 'You did not have enough battery to reach the planet and missed 5 rubies!', 'stimFile': 'image5.png', 'effLevel': 80}, {'Points': 3, 'FeedbackText1': 'You reached the planet, you get 3 rubies!', 'FeedbackText2': 'You did not have enough battery to reach the planet and missed 3 rubies!', 'stimFile': 'image3.png', 'effLevel': 92}, {'Points': 2, 'FeedbackText1': 'You reached the planet, you get 2 rubies!', 'FeedbackText2': 'You did not have enough battery to reach the planet and missed 2 rubies!', 'stimFile': 'image2.png', 'effLevel': 75}, {'Points': 4, 'FeedbackText1': 'You reached the planet, you get 4 rubies!', 'FeedbackText2': 'You did not have enough battery to reach the planet and missed 4 rubies!', 'stimFile': 'image4.png', 'effLevel': 54}, {'Points': 4, 'FeedbackText1': 'You reached the planet, you get 4 rubies!', 'FeedbackText2': 'You did not have enough battery to reach the planet and missed 4 rubies!', 'stimFile': 'image4.png', 'effLevel': 69}, {'Points': 4, 'FeedbackText1': 'You reached the planet, you get 4 rubies!', 'FeedbackText2': 'You did not have enough battery to reach the planet and missed 4 rubies!', 'stimFile': 'image4.png', 'effLevel': 55}, {'Points': 5, 'FeedbackText1': 'You reached the planet, you get 5 rubies!', 'FeedbackText2': 'You did not have enough battery to reach the planet and missed 5 rubies!', 'stimFile': 'image5.png', 'effLevel': 58}, {'Points': 7, 'FeedbackText1': 'You reached the planet, you get 7 rubies!', 'FeedbackText2': 'You did not have enough battery to reach the planet and missed 7 rubies!', 'stimFile': 'image7.png', 'effLevel': 44}, {'Points': 7, 'FeedbackText1': 'You reached the planet, you get 7 rubies!', 'FeedbackText2': 'You did not have enough battery to reach the planet and missed 7 rubies!', 'stimFile': 'image7.png', 'effLevel': 55}, {'Points': 6, 'FeedbackText1': 'You reached the planet, you get 6 rubies!', 'FeedbackText2': 'You did not have enough battery to reach the planet and missed 6 rubies!', 'stimFile': 'image6.png', 'effLevel': 52}, {'Points': 7, 'FeedbackText1': 'You reached the planet, you get 7 rubies!', 'FeedbackText2': 'You did not have enough battery to reach the planet and missed 7 rubies!', 'stimFile': 'image7.png', 'effLevel': 43}, {'Points': 7, 'FeedbackText1': 'You reached the planet, you get 7 rubies!', 'FeedbackText2': 'You did not have enough battery to reach the planet and missed 7 rubies!', 'stimFile': 'image7.png', 'effLevel': 64}, {'Points': 5, 'FeedbackText1': 'You reached the planet, you get 5 rubies!', 'FeedbackText2': 'You did not have enough battery to reach the planet and missed 5 rubies!', 'stimFile': 'image5.png', 'effLevel': 42}, {'Points': 5, 'FeedbackText1': 'You reached the planet, you get 5 rubies!', 'FeedbackText2': 'You did not have enough battery to reach the planet and missed 5 rubies!', 'stimFile': 'image5.png', 'effLevel': 52}, {'Points': 4, 'FeedbackText1': 'You reached the planet, you get 4 rubies!', 'FeedbackText2': 'You did not have enough battery to reach the planet and missed 4 rubies!', 'stimFile': 'image4.png', 'effLevel': 73}, {'Points': 3, 'FeedbackText1': 'You reached the planet, you get 3 rubies!', 'FeedbackText2': 'You did not have enough battery to reach the planet and missed 3 rubies!', 'stimFile': 'image3.png', 'effLevel': 82}, {'Points': 4, 'FeedbackText1': 'You reached the planet, you get 4 rubies!', 'FeedbackText2': 'You did not have enough battery to reach the planet and missed 4 rubies!', 'stimFile': 'image4.png', 'effLevel': 80}, {'Points': 3, 'FeedbackText1': 'You reached the planet, you get 3 rubies!', 'FeedbackText2': 'You did not have enough battery to reach the planet and missed 3 rubies!', 'stimFile': 'image3.png', 'effLevel': 81}, {'Points': 3, 'FeedbackText1': 'You reached the planet, you get 3 rubies!', 'FeedbackText2': 'You did not have enough battery to reach the planet and missed 3 rubies!', 'stimFile': 'image3.png', 'effLevel': 84}, {'Points': 2, 'FeedbackText1': 'You reached the planet, you get 2 rubies!', 'FeedbackText2': 'You did not have enough battery to reach the planet and missed 2 rubies!', 'stimFile': 'image2.png', 'effLevel': 82}, {'Points': 2, 'FeedbackText1': 'You reached the planet, you get 2 rubies!', 'FeedbackText2': 'You did not have enough battery to reach the planet and missed 2 rubies!', 'stimFile': 'image2.png', 'effLevel': 75}, {'Points': 3, 'FeedbackText1': 'You reached the planet, you get 3 rubies!', 'FeedbackText2': 'You did not have enough battery to reach the planet and missed 3 rubies!', 'stimFile': 'image3.png', 'effLevel': 58}, {'Points': 2, 'FeedbackText1': 'You reached the planet, you get 2 rubies!', 'FeedbackText2': 'You did not have enough battery to reach the planet and missed 2 rubies!', 'stimFile': 'image2.png', 'effLevel': 44}, {'Points': 4, 'FeedbackText1': 'You reached the planet, you get 4 rubies!', 'FeedbackText2': 'You did not have enough battery to reach the planet and missed 4 rubies!', 'stimFile': 'image4.png', 'effLevel': 55}, {'Points': 5, 'FeedbackText1': 'You reached the planet, you get 5 rubies!', 'FeedbackText2': 'You did not have enough battery to reach the planet and missed 5 rubies!', 'stimFile': 'image5.png', 'effLevel': 52}, {'Points': 3, 'FeedbackText1': 'You reached the planet, you get 3 rubies!', 'FeedbackText2': 'You did not have enough battery to reach the planet and missed 3 rubies!', 'stimFile': 'image3.png', 'effLevel': 43}, {'Points': 3, 'FeedbackText1': 'You reached the planet, you get 3 rubies!', 'FeedbackText2': 'You did not have enough battery to reach the planet and missed 3 rubies!', 'stimFile': 'image3.png', 'effLevel': 64}, {'Points': 5, 'FeedbackText1': 'You reached the planet, you get 5 rubies!', 'FeedbackText2': 'You did not have enough battery to reach the planet and missed 5 rubies!', 'stimFile': 'image5.png', 'effLevel': 42}, {'Points': 3, 'FeedbackText1': 'You reached the planet, you get 3 rubies!', 'FeedbackText2': 'You did not have enough battery to reach the planet and missed 3 rubies!', 'stimFile': 'image3.png', 'effLevel': 52}, {'Points': 2, 'FeedbackText1': 'You reached the planet, you get 2 rubies!', 'FeedbackText2': 'You did not have enough battery to reach the planet and missed 2 rubies!', 'stimFile': 'image2.png', 'effLevel': 66}, {'Points': 3, 'FeedbackText1': 'You reached the planet, you get 3 rubies!', 'FeedbackText2': 'You did not have enough battery to reach the planet and missed 3 rubies!', 'stimFile': 'image3.png', 'effLevel': 58}, {'Points': 1, 'FeedbackText1': 'You reached the planet, you get 1 rubies!', 'FeedbackText2': 'You did not have enough battery to reach the planet and missed 1 rubies!', 'stimFile': 'image1.png', 'effLevel': 44}, {'Points': 5, 'FeedbackText1': 'You reached the planet, you get 5 rubies!', 'FeedbackText2': 'You did not have enough battery to reach the planet and missed 5 rubies!', 'stimFile': 'image5.png', 'effLevel': 55}, {'Points': 3, 'FeedbackText1': 'You reached the planet, you get 3 rubies!', 'FeedbackText2': 'You did not have enough battery to reach the planet and missed 3 rubies!', 'stimFile': 'image3.png', 'effLevel': 52}, {'Points': 4, 'FeedbackText1': 'You reached the planet, you get 4 rubies!', 'FeedbackText2': 'You did not have enough battery to reach the planet and missed 4 rubies!', 'stimFile': 'image4.png', 'effLevel': 43}, {'Points': 3, 'FeedbackText1': 'You reached the planet, you get 3 rubies!', 'FeedbackText2': 'You did not have enough battery to reach the planet and missed 3 rubies!', 'stimFile': 'image3.png', 'effLevel': 64}, {'Points': 5, 'FeedbackText1': 'You reached the planet, you get 5 rubies!', 'FeedbackText2': 'You did not have enough battery to reach the planet and missed 5 rubies!', 'stimFile': 'image5.png', 'effLevel': 42}, {'Points': 5, 'FeedbackText1': 'You reached the planet, you get 5 rubies!', 'FeedbackText2': 'You did not have enough battery to reach the planet and missed 5 rubies!', 'stimFile': 'image5.png', 'effLevel': 52}, {'Points': 7, 'FeedbackText1': 'You reached the planet, you get 7 rubies!', 'FeedbackText2': 'You did not have enough battery to reach the planet and missed 7 rubies!', 'stimFile': 'image7.png', 'effLevel': 58}, {'Points': 4, 'FeedbackText1': 'You reached the planet, you get 4 rubies!', 'FeedbackText2': 'You did not have enough battery to reach the planet and missed 4 rubies!', 'stimFile': 'image4.png', 'effLevel': 44}, {'Points': 3, 'FeedbackText1': 'You reached the planet, you get 3 rubies!', 'FeedbackText2': 'You did not have enough battery to reach the planet and missed 3 rubies!', 'stimFile': 'image3.png', 'effLevel': 55}, {'Points': 6, 'FeedbackText1': 'You reached the planet, you get 6 rubies!', 'FeedbackText2': 'You did not have enough battery to reach the planet and missed 6 rubies!', 'stimFile': 'image6.png', 'effLevel': 52}, {'Points': 7, 'FeedbackText1': 'You reached the planet, you get 7 rubies!', 'FeedbackText2': 'You did not have enough battery to reach the planet and missed 7 rubies!', 'stimFile': 'image7.png', 'effLevel': 43}, {'Points': 7, 'FeedbackText1': 'You reached the planet, you get 7 rubies!', 'FeedbackText2': 'You did not have enough battery to reach the planet and missed 7 rubies!', 'stimFile': 'image7.png', 'effLevel': 64}, {'Points': 3, 'FeedbackText1': 'You reached the planet, you get 3 rubies!', 'FeedbackText2': 'You did not have enough battery to reach the planet and missed 3 rubies!', 'stimFile': 'image3.png', 'effLevel': 42}, {'Points': 5, 'FeedbackText1': 'You reached the planet, you get 5 rubies!', 'FeedbackText2': 'You did not have enough battery to reach the planet and missed 5 rubies!', 'stimFile': 'image5.png', 'effLevel': 52}, {'Points': 4, 'FeedbackText1': 'You reached the planet, you get 4 rubies!', 'FeedbackText2': 'You did not have enough battery to reach the planet and missed 4 rubies!', 'stimFile': 'image4.png', 'effLevel': 58}, {'Points': 5, 'FeedbackText1': 'You reached the planet, you get 5 rubies!', 'FeedbackText2': 'You did not have enough battery to reach the planet and missed 5 rubies!', 'stimFile': 'image5.png', 'effLevel': 44}, {'Points': 6, 'FeedbackText1': 'You reached the planet, you get 6 rubies!', 'FeedbackText2': 'You did not have enough battery to reach the planet and missed 6 rubies!', 'stimFile': 'image6.png', 'effLevel': 55}]" valType="str"/>
