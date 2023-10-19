@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2023.1.3),
-    on Wed Oct 18 17:02:21 2023
+    on Thu Oct 19 17:11:30 2023
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -75,7 +75,7 @@ frameTolerance = 0.001  # how close to onset before 'same' frame
 win = visual.Window(
     size=[1440, 900], fullscr=False, screen=0, 
     winType='pyglet', allowStencil=True,
-    monitor='testMonitor', color=[-1.0000, -1.0000, -0.2471], colorSpace='rgb',
+    monitor='testMonitor', color=[-1.0000, -1.0000, 0.0902], colorSpace='rgb',
     backgroundImage='', backgroundFit='cover',
     blendMode='avg', useFBO=True, 
     units='norm')
@@ -101,23 +101,11 @@ eyetracker = None
 # create a default keyboard (e.g. to check for escape)
 defaultKeyboard = keyboard.Keyboard(backend='iohub')
 
-# --- Initialize components for Routine "practice_instruction_vid" ---
-instrText_2 = visual.TextStim(win=win, name='instrText_2',
-    text='[Placeholder Intro Video\n]',
-    font='Arial',
-    pos=[0, .3], height=0.1, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1, 
-    languageStyle='LTR',
-    depth=0.0);
-trial_select_2 = keyboard.Keyboard()
-
 # --- Initialize components for Routine "practice_instructions" ---
 # Run 'Begin Experiment' code from selectText
-instructions1 = ""
-instructions2 = ""
-instructions3 = ""
-
-
+instructions1=""
+instructions2=""
+instructions3=""
 practice_intro_text1 = visual.TextStim(win=win, name='practice_intro_text1',
     text=instructions1
 ,
@@ -136,11 +124,43 @@ practice_intro_text2 = visual.TextStim(win=win, name='practice_intro_text2',
 practice_intro_text3 = visual.TextStim(win=win, name='practice_intro_text3',
     text=instructions3,
     font='Arial',
-    pos=(0, -0.4), height=0.1, wrapWidth=None, ori=0.0, 
+    pos=(0, -0.50), height=0.1, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=-3.0);
 practice_start = keyboard.Keyboard()
+tank_intro = visual.ImageStim(
+    win=win,
+    name='tank_intro', 
+    image='TankOnlyEmpt-01.png', mask=None, anchor='center',
+    ori=0.0, pos=(0, 0), size=(1,1.5),
+    color=[1,1,1], colorSpace='rgb', opacity=None,
+    flipHoriz=False, flipVert=False,
+    texRes=128.0, interpolate=True, depth=-5.0)
+background_outline_intro = visual.Rect(
+    win=win, name='background_outline_intro',
+    width=[0.12,0.43][0], height=[0.12,0.43][1],
+    ori=0, pos=[0, -0.35], anchor='bottom-center',
+    lineWidth=2,     colorSpace='rgb',  lineColor=[-1,-1,-1], fillColor=[1.0000, 1.0000, 1.0000],
+    opacity=1, depth=-6.0, interpolate=True)
+barBody_Intro = visual.Rect(
+    win=win, name='barBody_Intro',
+    width=[1.0, 1.0][0], height=[1.0, 1.0][1],
+    ori=0, pos=[0,0], anchor='bottom-center',
+    lineWidth=1,     colorSpace='rgb',  lineColor="'#2b773e'", fillColor="'#2b773e'",
+    opacity=1, depth=-7.0, interpolate=True)
+treshLine_intro = visual.Line(
+    win=win, name='treshLine_intro',
+    start=(-[0.12, .08][0]/2.0, 0), end=(+[0.12, .08][0]/2.0, 0),
+    ori=0.0, pos=[0,0], anchor='center',
+    lineWidth=4.0,     colorSpace='rgb',  lineColor='red', fillColor='red',
+    opacity=None, depth=-8.0, interpolate=True)
+red_arrow = visual.ShapeStim(
+    win=win, name='red_arrow', vertices='arrow',
+    size=[0.12, 0.1],
+    ori=-90.0, pos=[0.15, 0], anchor='center',
+    lineWidth=1.0,     colorSpace='rgb',  lineColor=[1.0000, -1.0000, -1.0000], fillColor=[1.0000, -1.0000, -1.0000],
+    opacity=None, depth=-9.0, interpolate=True)
 
 # --- Initialize components for Routine "practice" ---
 pract_text = visual.TextStim(win=win, name='pract_text',
@@ -550,119 +570,6 @@ photodiode_ft1 = visual.ShapeStim(
 globalClock = core.Clock()  # to track the time since experiment started
 routineTimer = core.Clock()  # to track time remaining of each (possibly non-slip) routine 
 
-# --- Prepare to start Routine "practice_instruction_vid" ---
-continueRoutine = True
-# update component parameters for each repeat
-trial_select_2.keys = []
-trial_select_2.rt = []
-_trial_select_2_allKeys = []
-# keep track of which components have finished
-practice_instruction_vidComponents = [instrText_2, trial_select_2]
-for thisComponent in practice_instruction_vidComponents:
-    thisComponent.tStart = None
-    thisComponent.tStop = None
-    thisComponent.tStartRefresh = None
-    thisComponent.tStopRefresh = None
-    if hasattr(thisComponent, 'status'):
-        thisComponent.status = NOT_STARTED
-# reset timers
-t = 0
-_timeToFirstFrame = win.getFutureFlipTime(clock="now")
-frameN = -1
-
-# --- Run Routine "practice_instruction_vid" ---
-routineForceEnded = not continueRoutine
-while continueRoutine:
-    # get current time
-    t = routineTimer.getTime()
-    tThisFlip = win.getFutureFlipTime(clock=routineTimer)
-    tThisFlipGlobal = win.getFutureFlipTime(clock=None)
-    frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
-    # update/draw components on each frame
-    
-    # *instrText_2* updates
-    
-    # if instrText_2 is starting this frame...
-    if instrText_2.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-        # keep track of start time/frame for later
-        instrText_2.frameNStart = frameN  # exact frame index
-        instrText_2.tStart = t  # local t and not account for scr refresh
-        instrText_2.tStartRefresh = tThisFlipGlobal  # on global time
-        win.timeOnFlip(instrText_2, 'tStartRefresh')  # time at next scr refresh
-        # add timestamp to datafile
-        thisExp.timestampOnFlip(win, 'instrText_2.started')
-        # update status
-        instrText_2.status = STARTED
-        instrText_2.setAutoDraw(True)
-    
-    # if instrText_2 is active this frame...
-    if instrText_2.status == STARTED:
-        # update params
-        pass
-    
-    # *trial_select_2* updates
-    waitOnFlip = False
-    
-    # if trial_select_2 is starting this frame...
-    if trial_select_2.status == NOT_STARTED and tThisFlip >= 0-frameTolerance:
-        # keep track of start time/frame for later
-        trial_select_2.frameNStart = frameN  # exact frame index
-        trial_select_2.tStart = t  # local t and not account for scr refresh
-        trial_select_2.tStartRefresh = tThisFlipGlobal  # on global time
-        win.timeOnFlip(trial_select_2, 'tStartRefresh')  # time at next scr refresh
-        # add timestamp to datafile
-        thisExp.timestampOnFlip(win, 'trial_select_2.started')
-        # update status
-        trial_select_2.status = STARTED
-        # keyboard checking is just starting
-        waitOnFlip = True
-        win.callOnFlip(trial_select_2.clock.reset)  # t=0 on next screen flip
-        win.callOnFlip(trial_select_2.clearEvents, eventType='keyboard')  # clear events on next screen flip
-    if trial_select_2.status == STARTED and not waitOnFlip:
-        theseKeys = trial_select_2.getKeys(keyList=['return'], waitRelease=False)
-        _trial_select_2_allKeys.extend(theseKeys)
-        if len(_trial_select_2_allKeys):
-            trial_select_2.keys = [key.name for key in _trial_select_2_allKeys]  # storing all keys
-            trial_select_2.rt = [key.rt for key in _trial_select_2_allKeys]
-            trial_select_2.duration = [key.duration for key in _trial_select_2_allKeys]
-            # a response ends the routine
-            continueRoutine = False
-    
-    # check for quit (typically the Esc key)
-    if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-        core.quit()
-        if eyetracker:
-            eyetracker.setConnectionState(False)
-    
-    # check if all components have finished
-    if not continueRoutine:  # a component has requested a forced-end of Routine
-        routineForceEnded = True
-        break
-    continueRoutine = False  # will revert to True if at least one component still running
-    for thisComponent in practice_instruction_vidComponents:
-        if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
-            continueRoutine = True
-            break  # at least one component has not yet finished
-    
-    # refresh the screen
-    if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
-        win.flip()
-
-# --- Ending Routine "practice_instruction_vid" ---
-for thisComponent in practice_instruction_vidComponents:
-    if hasattr(thisComponent, "setAutoDraw"):
-        thisComponent.setAutoDraw(False)
-# check responses
-if trial_select_2.keys in ['', [], None]:  # No response was made
-    trial_select_2.keys = None
-thisExp.addData('trial_select_2.keys',trial_select_2.keys)
-if trial_select_2.keys != None:  # we had a response
-    thisExp.addData('trial_select_2.rt', trial_select_2.rt)
-    thisExp.addData('trial_select_2.duration', trial_select_2.duration)
-thisExp.nextEntry()
-# the Routine "practice_instruction_vid" was not non-slip safe, so reset the non-slip timer
-routineTimer.reset()
-
 # set up handler to look after randomisation of conditions etc
 instruct_slides = data.TrialHandler(nReps=2.0, method='sequential', 
     extraInfo=expInfo, originPath=-1,
@@ -686,21 +593,29 @@ for thisInstruct_slide in instruct_slides:
     continueRoutine = True
     # update component parameters for each repeat
     # Run 'Begin Routine' code from selectText
-    if instruct_slides.thisN == 1:
-        instructions1="On the next screen, you will encounter a fuel tank marked with a red line. Your goal is to fill it up to the red line, just as demonstrated in the video."
+    if instruct_slides.thisN == 0:
+        instructions1="On the next screen, you will see a fuel tank marked with a red line. Your goal is to fill it up to the red line, just as demonstrated in the video."
         instructions2=""
-        instructions3=""
+        instructions3="Press ENTER to continue."
         #picture=imgExample1.png
     else:
-        instructions1="Alternate between pressing ''z'' with your left index finger and ''p'' with your right index finger as fast as you can to reach the red bar."
-        instructions2="You will have 5 seconds."
+        instructions1="Alternate between pressing 'z' with your left index finger and 'p' with your right index finger as fast as you can to reach the red bar."
+        instructions2="You will have 5 seconds to fill the tank."
         instructions3="Press ENTER to Start!"
         #picture=imgExample2.png
+        
+    
+    # Assuming "text_component_name" is the name of your Text Component
+    practice_intro_text1.text = instructions1
+    practice_intro_text2.text = instructions2
+    practice_intro_text3.text = instructions3
+    
     practice_start.keys = []
     practice_start.rt = []
     _practice_start_allKeys = []
+    treshLine_intro.setPos([0, 0])
     # keep track of which components have finished
-    practice_instructionsComponents = [practice_intro_text1, practice_intro_text2, practice_intro_text3, practice_start]
+    practice_instructionsComponents = [practice_intro_text1, practice_intro_text2, practice_intro_text3, practice_start, tank_intro, background_outline_intro, barBody_Intro, treshLine_intro, red_arrow]
     for thisComponent in practice_instructionsComponents:
         thisComponent.tStart = None
         thisComponent.tStop = None
@@ -810,6 +725,107 @@ for thisInstruct_slide in instruct_slides:
                 practice_start.duration = [key.duration for key in _practice_start_allKeys]
                 # a response ends the routine
                 continueRoutine = False
+        
+        # *tank_intro* updates
+        
+        # if tank_intro is starting this frame...
+        if tank_intro.status == NOT_STARTED and instruct_slides.thisN == 0:
+            # keep track of start time/frame for later
+            tank_intro.frameNStart = frameN  # exact frame index
+            tank_intro.tStart = t  # local t and not account for scr refresh
+            tank_intro.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(tank_intro, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'tank_intro.started')
+            # update status
+            tank_intro.status = STARTED
+            tank_intro.setAutoDraw(True)
+        
+        # if tank_intro is active this frame...
+        if tank_intro.status == STARTED:
+            # update params
+            pass
+        
+        # *background_outline_intro* updates
+        
+        # if background_outline_intro is starting this frame...
+        if background_outline_intro.status == NOT_STARTED and instruct_slides.thisN == 0:
+            # keep track of start time/frame for later
+            background_outline_intro.frameNStart = frameN  # exact frame index
+            background_outline_intro.tStart = t  # local t and not account for scr refresh
+            background_outline_intro.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(background_outline_intro, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'background_outline_intro.started')
+            # update status
+            background_outline_intro.status = STARTED
+            background_outline_intro.setAutoDraw(True)
+        
+        # if background_outline_intro is active this frame...
+        if background_outline_intro.status == STARTED:
+            # update params
+            pass
+        
+        # *barBody_Intro* updates
+        
+        # if barBody_Intro is starting this frame...
+        if barBody_Intro.status == NOT_STARTED and instruct_slides.thisN == 0:
+            # keep track of start time/frame for later
+            barBody_Intro.frameNStart = frameN  # exact frame index
+            barBody_Intro.tStart = t  # local t and not account for scr refresh
+            barBody_Intro.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(barBody_Intro, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'barBody_Intro.started')
+            # update status
+            barBody_Intro.status = STARTED
+            barBody_Intro.setAutoDraw(True)
+        
+        # if barBody_Intro is active this frame...
+        if barBody_Intro.status == STARTED:
+            # update params
+            barBody_Intro.setPos([0, -0.35], log=False)
+            barBody_Intro.setSize([0.12, 0.08], log=False)
+        
+        # *treshLine_intro* updates
+        
+        # if treshLine_intro is starting this frame...
+        if treshLine_intro.status == NOT_STARTED and instruct_slides.thisN == 0:
+            # keep track of start time/frame for later
+            treshLine_intro.frameNStart = frameN  # exact frame index
+            treshLine_intro.tStart = t  # local t and not account for scr refresh
+            treshLine_intro.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(treshLine_intro, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'treshLine_intro.started')
+            # update status
+            treshLine_intro.status = STARTED
+            treshLine_intro.setAutoDraw(True)
+        
+        # if treshLine_intro is active this frame...
+        if treshLine_intro.status == STARTED:
+            # update params
+            pass
+        
+        # *red_arrow* updates
+        
+        # if red_arrow is starting this frame...
+        if red_arrow.status == NOT_STARTED and instruct_slides.thisN == 0:
+            # keep track of start time/frame for later
+            red_arrow.frameNStart = frameN  # exact frame index
+            red_arrow.tStart = t  # local t and not account for scr refresh
+            red_arrow.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(red_arrow, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'red_arrow.started')
+            # update status
+            red_arrow.status = STARTED
+            red_arrow.setAutoDraw(True)
+        
+        # if red_arrow is active this frame...
+        if red_arrow.status == STARTED:
+            # update params
+            pass
         
         # check for quit (typically the Esc key)
         if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
