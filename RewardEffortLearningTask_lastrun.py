@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2023.1.3),
-    on Thu Oct 19 17:11:30 2023
+    on Fri Oct 20 18:28:23 2023
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -161,6 +161,14 @@ red_arrow = visual.ShapeStim(
     ori=-90.0, pos=[0.15, 0], anchor='center',
     lineWidth=1.0,     colorSpace='rgb',  lineColor=[1.0000, -1.0000, -1.0000], fillColor=[1.0000, -1.0000, -1.0000],
     opacity=None, depth=-9.0, interpolate=True)
+fingers = visual.ImageStim(
+    win=win,
+    name='fingers', 
+    image='/Users/alisaloosen/Desktop/fingers.png', mask=None, anchor='center',
+    ori=0.0, pos=(0, 0.2), size=(0.28, 0.5),
+    color=[1,1,1], colorSpace='rgb', opacity=None,
+    flipHoriz=False, flipVert=False,
+    texRes=128.0, interpolate=True, depth=-10.0)
 
 # --- Initialize components for Routine "practice" ---
 pract_text = visual.TextStim(win=win, name='pract_text',
@@ -173,15 +181,12 @@ pract_text = visual.TextStim(win=win, name='pract_text',
 # Run 'Begin Experiment' code from CheckKeys_2
 max_press_pract = []  # Initialize max_press
 max_press_pSec_pract = -1
-
-# Run 'Begin Experiment' code from countdownEasy_3
-countdownStarted = False
-timeAvailable = 5
-
-
-# Run 'Begin Experiment' code from barSize_2
+#battery
 batterySize=0.00
 batteryMaxSize=0.55
+#timer
+timer = None
+
 
 tank_2 = visual.ImageStim(
     win=win,
@@ -190,37 +195,37 @@ tank_2 = visual.ImageStim(
     ori=0.0, pos=(0, 0), size=(1.5,2),
     color=[1,1,1], colorSpace='rgb', opacity=None,
     flipHoriz=False, flipVert=False,
-    texRes=128.0, interpolate=True, depth=-4.0)
+    texRes=128.0, interpolate=True, depth=-2.0)
 background_4 = visual.Rect(
     win=win, name='background_4',
     width=[0.15, batteryMaxSize][0], height=[0.15, batteryMaxSize][1],
     ori=0, pos=[-0.5, -0.5], anchor='bottom-center',
     lineWidth=2,     colorSpace='rgb',  lineColor='0.0902, -1.0000, -1.0000', fillColor='0.0902, -1.0000, -1.0000',
-    opacity=1, depth=-5.0, interpolate=True)
+    opacity=1, depth=-3.0, interpolate=True)
 background_outline = visual.Rect(
     win=win, name='background_outline',
     width=[0.15, batteryMaxSize][0], height=[0.15, batteryMaxSize][1],
     ori=0, pos=[0, -0.5], anchor='bottom-center',
     lineWidth=2,     colorSpace='rgb',  lineColor=[-1,-1,-1], fillColor=[1.0000, 1.0000, 1.0000],
-    opacity=1, depth=-6.0, interpolate=True)
+    opacity=1, depth=-4.0, interpolate=True)
 barBody_2 = visual.Rect(
     win=win, name='barBody_2',
     width=[1.0, 1.0][0], height=[1.0, 1.0][1],
     ori=0, pos=[0,0], anchor='bottom-center',
     lineWidth=1,     colorSpace='rgb',  lineColor="'#2b773e'", fillColor="'#2b773e'",
-    opacity=1, depth=-7.0, interpolate=True)
+    opacity=1, depth=-5.0, interpolate=True)
 treshLine = visual.Line(
     win=win, name='treshLine',
     start=(-[0.15, .1][0]/2.0, 0), end=(+[0.15, .1][0]/2.0, 0),
     ori=0.0, pos=[0,0], anchor='center',
     lineWidth=4.0,     colorSpace='rgb',  lineColor='red', fillColor='red',
-    opacity=None, depth=-8.0, interpolate=True)
+    opacity=None, depth=-6.0, interpolate=True)
 photodiode_pr1 = visual.ShapeStim(
     win=win, name='photodiode_pr1', vertices=None,
     size=(0.45, 0.45),
     ori=0.0, pos=(-1,-1), anchor='bottom-left',
     lineWidth=1.0,     colorSpace='rgb',  lineColor='black', fillColor='black',
-    opacity=None, depth=-9.0, interpolate=True)
+    opacity=None, depth=-7.0, interpolate=True)
 
 # --- Initialize components for Routine "practice_feedback" ---
 # Run 'Begin Experiment' code from checkAchieved_pract
@@ -615,7 +620,7 @@ for thisInstruct_slide in instruct_slides:
     _practice_start_allKeys = []
     treshLine_intro.setPos([0, 0])
     # keep track of which components have finished
-    practice_instructionsComponents = [practice_intro_text1, practice_intro_text2, practice_intro_text3, practice_start, tank_intro, background_outline_intro, barBody_Intro, treshLine_intro, red_arrow]
+    practice_instructionsComponents = [practice_intro_text1, practice_intro_text2, practice_intro_text3, practice_start, tank_intro, background_outline_intro, barBody_Intro, treshLine_intro, red_arrow, fingers]
     for thisComponent in practice_instructionsComponents:
         thisComponent.tStart = None
         thisComponent.tStop = None
@@ -827,6 +832,26 @@ for thisInstruct_slide in instruct_slides:
             # update params
             pass
         
+        # *fingers* updates
+        
+        # if fingers is starting this frame...
+        if fingers.status == NOT_STARTED and instruct_slides.thisN == 1:
+            # keep track of start time/frame for later
+            fingers.frameNStart = frameN  # exact frame index
+            fingers.tStart = t  # local t and not account for scr refresh
+            fingers.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(fingers, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'fingers.started')
+            # update status
+            fingers.status = STARTED
+            fingers.setAutoDraw(True)
+        
+        # if fingers is active this frame...
+        if fingers.status == STARTED:
+            # update params
+            pass
+        
         # check for quit (typically the Esc key)
         if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
             core.quit()
@@ -897,15 +922,14 @@ for thisPracticetrial in practicetrials:
     achieved = 0
     firstPump = False
     
-    # Run 'Begin Routine' code from countdownEasy_3
-    if not countdownStarted:
-            countdownClock = core.CountdownTimer(timeAvailable)
-            countdownStarted = True
-    # Run 'Begin Routine' code from barSize_2
+    
+    #battery
     batterySize=0.00
     achieved=False
     nPumps=0
     batterySizeIncr = batteryMaxSize/30
+    
+    
     
     treshLine.setPos([0, effTresh])
     # keep track of which components have finished
@@ -952,35 +976,38 @@ for thisPracticetrial in practicetrials:
             # update params
             pass
         # Run 'Each Frame' code from CheckKeys_2
-        # Check for key presses
         keys = event.getKeys()
         
-        if keys:
+        if not keys:
+            # No keys pressed, keep the routine running
+            continueRoutine = True
+        else:
             key_pressed = keys[0]
-        
-            # Check if the key pressed is 'z' and it's the first key in the sequence
             if key_pressed == 'z' and not key_sequence:
                 key_sequence.append(key_pressed)
-            # Check if the key pressed is 'p' and 'z' was pressed before it
+                if timer is None:
+                    timer = core.CountdownTimer(5)
             elif key_pressed == 'p' and 'z' in key_sequence:
                 key_sequence.append(key_pressed)
-            # If the sequence is complete ('z' followed by 'p'), increase the size of the shape
+        
             if key_sequence == ['z', 'p']:
                 npumps += 1
-                key_sequence = []  
-                if practicetrials.thisN == 0:
-                    firstPump = True # Reset the key sequence
+                key_sequence = []
         
-        if (-0.5+batterySize >= effTresh):
+        if (-0.5 + batterySize >= effTresh):
              achieved = True
-             rscore = rscore+1
-        # Run 'Each Frame' code from countdownEasy_3
-        timeRemaining = countdownClock.getTime()
+             rscore = rscore + 1
+             continueRoutine = False
         
-        if timeRemaining <= 0.0 or (-0.5+ batterySize >=effTresh):
-            continueRoutine = False  # End this trial immediately
-            countdownStarted = False
-        # Run 'Each Frame' code from barSize_2
+        # Check if 'z' or 'p' was pressed to start the countdown
+        if ('z' in key_sequence or 'p' in key_sequence) and not countdownStarted:
+            #countdownClock = core.CountdownTimer(timeAvailable)
+            countdownStarted = True
+        
+        if timer is not None and timer.getTime() <= 0:
+            continueRoutine = False
+        
+        #battery
         batterySize=npumps*batterySizeIncr
         
         # *tank_2* updates
@@ -1136,14 +1163,14 @@ for thisPracticetrial in practicetrials:
     max_press_pract.append(npumps_pSec)
     max_press_pSec_pract = max(max_press_pract)
     
+    timer = None
+    
     practicetrials.addData('# of presses', npumps)
     practicetrials.addData('trial score', rscore)
     practicetrials.addData('treshold', effTresh)
     practicetrials.addData('max_press_pract', max_press_pract)
     practicetrials.addData('trial_duration', t) 
     practicetrials.addData('max_press_pSec_pract',max_press_pSec_pract)
-    # Run 'End Routine' code from countdownEasy_3
-    countdownStarted = False
     # the Routine "practice" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
     
