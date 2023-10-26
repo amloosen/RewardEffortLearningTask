@@ -1860,105 +1860,6 @@
         <Param val="True" valType="bool" updates="constant" name="syncScreenRefresh"/>
       </KeyboardComponent>
     </Routine>
-    <Routine name="check_2">
-      <MovieComponent name="practice_instruction_video_2" plugin="None">
-        <Param val="False" valType="bool" updates="None" name="No audio"/>
-        <Param val="center" valType="str" updates="constant" name="anchor"/>
-        <Param val="ffpyplayer" valType="str" updates="None" name="backend"/>
-        <Param val="1" valType="num" updates="constant" name="contrast"/>
-        <Param val="False" valType="bool" updates="None" name="disabled"/>
-        <Param val="" valType="code" updates="None" name="durationEstim"/>
-        <Param val="True" valType="bool" updates="constant" name="forceEndRoutine"/>
-        <Param val="False" valType="bool" updates="None" name="loop"/>
-        <Param val="/Users/alisaloosen/Desktop/task stuff/PractVideoEffortReward_final.mp4" valType="file" updates="constant" name="movie"/>
-        <Param val="practice_instruction_video_2" valType="code" updates="None" name="name"/>
-        <Param val="" valType="num" updates="constant" name="opacity"/>
-        <Param val="0" valType="num" updates="constant" name="ori"/>
-        <Param val="(0, 0)" valType="list" updates="constant" name="pos"/>
-        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
-        <Param val="[2,2]" valType="list" updates="constant" name="size"/>
-        <Param val="" valType="code" updates="None" name="startEstim"/>
-        <Param val="time (s)" valType="str" updates="None" name="startType"/>
-        <Param val="0" valType="code" updates="None" name="startVal"/>
-        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
-        <Param val="" valType="code" updates="constant" name="stopVal"/>
-        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
-        <Param val="from exp settings" valType="str" updates="None" name="units"/>
-        <Param val="10" valType="num" updates="None" name="volume"/>
-      </MovieComponent>
-      <CodeComponent name="code_2" plugin="None">
-        <Param val="" valType="extendedCode" updates="constant" name="Before Experiment"/>
-        <Param val="" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
-        <Param val="" valType="extendedCode" updates="constant" name="Begin Experiment"/>
-        <Param val="" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
-        <Param val="movieIsPlaying = false;&amp;#10;movieWasPaused = false;&amp;#10;movieWasPlayed = false;&amp;#10;lastSeek = 0;&amp;#10;timeLimitPerSeek = 1;&amp;#10;currentSliderValue = 0;&amp;#10;spacePressed = true;&amp;#10;movieTimeframe = 0;&amp;#10;movieDuration = 125;&amp;#10;timeLimitPerSeek = 1;&amp;#10;lastSeek = 0;&amp;#10;nothing = 0;&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
-        <Param val="movieIsPlaying = False&amp;#10;movieWasPaused = False&amp;#10;movieWasPlayed = False&amp;#10;lastSeek = 0  # Initialize lastSeek variable&amp;#10;timeLimitPerSeek = 1  # Adjust this as needed&amp;#10;currentSliderValue = 0  # Initialize the slider value&amp;#10;spacePressed = True  # To toggle play/pause with space&amp;#10;&amp;#10;movieTimeframe = 0&amp;#10;movieDuration = 125&amp;#10;timeLimitPerSeek = 1&amp;#10;lastSeek = 0&amp;#10;nothing = 0&amp;#10;" valType="extendedCode" updates="constant" name="Begin Routine"/>
-        <Param val="Auto-&gt;JS" valType="str" updates="None" name="Code Type"/>
-        <Param val="keys = event.getKeys(keyList=[&quot;space&quot;, &quot;p&quot;, &quot;s&quot;])&amp;#10;if &quot;space&quot; in keys:&amp;#10;    spacePressed = not spacePressed&amp;#10;&amp;#10;if spacePressed:&amp;#10;    movieIsPlaying = True&amp;#10;else:&amp;#10;    movieIsPlaying = False&amp;#10;&amp;#10;if &quot;p&quot; in keys:&amp;#10;    movieIsPlaying = True&amp;#10;if &quot;s&quot; in keys:&amp;#10;    movieIsPlaying = False&amp;#10;&amp;#10;if not movieIsPlaying and not movieWasPaused:&amp;#10;    practice_instruction_video_2.pause()&amp;#10;    movieWasPaused = True&amp;#10;    movieWasPlayed = False&amp;#10;&amp;#10;if movieIsPlaying and not movieWasPlayed:&amp;#10;    practice_instruction_video_2.play()&amp;#10;    movieWasPaused = False&amp;#10;    movieWasPlayed = True&amp;#10;&amp;#10;if movieTimeframe * frameDur &lt; movieDuration and movieIsPlaying:&amp;#10;    movieTimeframe = movieTimeframe + 1&amp;#10;    if core.getTime() &gt;= lastSeek:&amp;#10;        lastSeek = core.getTime() + timeLimitPerSeek&amp;#10;        if slider.getRating():&amp;#10;            if slider.getRating() != currentSliderValue:&amp;#10;                currentSliderValue = slider.getRating()&amp;#10;                practice_instruction_video_2.seek(round(movieDuration * currentSliderValue / 4))&amp;#10;                movieTimeframe = round(movieDuration / frameDur * currentSliderValue / 4)&amp;#10;    slider.markerPos = 4 * (movieTimeframe * frameDur) / movieDuration&amp;#10;" valType="extendedCode" updates="constant" name="Each Frame"/>
-        <Param val="var _pj;&amp;#10;function _pj_snippets(container) {&amp;#10;    function in_es6(left, right) {&amp;#10;        if (((right instanceof Array) || ((typeof right) === &quot;string&quot;))) {&amp;#10;            return (right.indexOf(left) &gt; (- 1));&amp;#10;        } else {&amp;#10;            if (((right instanceof Map) || (right instanceof Set) || (right instanceof WeakMap) || (right instanceof WeakSet))) {&amp;#10;                return right.has(left);&amp;#10;            } else {&amp;#10;                return (left in right);&amp;#10;            }&amp;#10;        }&amp;#10;    }&amp;#10;    container[&quot;in_es6&quot;] = in_es6;&amp;#10;    return container;&amp;#10;}&amp;#10;_pj = {};&amp;#10;_pj_snippets(_pj);&amp;#10;keys = psychoJS.eventManager.getKeys({&quot;keyList&quot;: [&quot;space&quot;, &quot;p&quot;, &quot;s&quot;]});&amp;#10;if (_pj.in_es6(&quot;space&quot;, keys)) {&amp;#10;    spacePressed = (! spacePressed);&amp;#10;}&amp;#10;if (spacePressed) {&amp;#10;    movieIsPlaying = true;&amp;#10;} else {&amp;#10;    movieIsPlaying = false;&amp;#10;}&amp;#10;if (_pj.in_es6(&quot;p&quot;, keys)) {&amp;#10;    movieIsPlaying = true;&amp;#10;}&amp;#10;if (_pj.in_es6(&quot;s&quot;, keys)) {&amp;#10;    movieIsPlaying = false;&amp;#10;}&amp;#10;if (((! movieIsPlaying) &amp;&amp; (! movieWasPaused))) {&amp;#10;    practice_instruction_video_2.pause();&amp;#10;    movieWasPaused = true;&amp;#10;    movieWasPlayed = false;&amp;#10;}&amp;#10;if ((movieIsPlaying &amp;&amp; (! movieWasPlayed))) {&amp;#10;    practice_instruction_video_2.play();&amp;#10;    movieWasPaused = false;&amp;#10;    movieWasPlayed = true;&amp;#10;}&amp;#10;if ((((movieTimeframe * frameDur) &lt; movieDuration) &amp;&amp; movieIsPlaying)) {&amp;#10;    movieTimeframe = (movieTimeframe + 1);&amp;#10;    if ((core.getTime() &gt;= lastSeek)) {&amp;#10;        lastSeek = (core.getTime() + timeLimitPerSeek);&amp;#10;        if (slider.getRating()) {&amp;#10;            if ((slider.getRating() !== currentSliderValue)) {&amp;#10;                currentSliderValue = slider.getRating();&amp;#10;                practice_instruction_video_2.seek(util.round(((movieDuration * currentSliderValue) / 4)));&amp;#10;                movieTimeframe = util.round((((movieDuration / frameDur) * currentSliderValue) / 4));&amp;#10;            }&amp;#10;        }&amp;#10;    }&amp;#10;    slider.markerPos = ((4 * (movieTimeframe * frameDur)) / movieDuration);&amp;#10;}&amp;#10;" valType="extendedCode" updates="constant" name="Each JS Frame"/>
-        <Param val="" valType="extendedCode" updates="constant" name="End Experiment"/>
-        <Param val="" valType="extendedCode" updates="constant" name="End JS Experiment"/>
-        <Param val="" valType="extendedCode" updates="constant" name="End JS Routine"/>
-        <Param val="" valType="extendedCode" updates="constant" name="End Routine"/>
-        <Param val="False" valType="bool" updates="None" name="disabled"/>
-        <Param val="code_2" valType="code" updates="None" name="name"/>
-      </CodeComponent>
-      <SliderComponent name="slider" plugin="None">
-        <Param val="White" valType="color" updates="constant" name="borderColor"/>
-        <Param val="LightGray" valType="color" updates="constant" name="color"/>
-        <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
-        <Param val="1" valType="num" updates="constant" name="contrast"/>
-        <Param val="False" valType="bool" updates="None" name="disabled"/>
-        <Param val="" valType="code" updates="None" name="durationEstim"/>
-        <Param val="1.0000, 0.6314, -1.0000" valType="color" updates="constant" name="fillColor"/>
-        <Param val="False" valType="bool" updates="constant" name="flip"/>
-        <Param val="Arial" valType="str" updates="constant" name="font"/>
-        <Param val="False" valType="bool" updates="constant" name="forceEndRoutine"/>
-        <Param val="0" valType="num" updates="constant" name="granularity"/>
-        <Param val="0" valType="code" updates="None" name="initVal"/>
-        <Param val="" valType="list" updates="constant" name="labels"/>
-        <Param val="0.1" valType="num" updates="constant" name="letterHeight"/>
-        <Param val="slider" valType="code" updates="None" name="name"/>
-        <Param val="" valType="num" updates="constant" name="opacity"/>
-        <Param val="0" valType="num" updates="constant" name="ori"/>
-        <Param val="(0, -0.5)" valType="list" updates="constant" name="pos"/>
-        <Param val="False" valType="bool" updates="constant" name="readOnly"/>
-        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
-        <Param val="(5.0, 0.1)" valType="list" updates="constant" name="size"/>
-        <Param val="" valType="code" updates="None" name="startEstim"/>
-        <Param val="frame N" valType="str" updates="None" name="startType"/>
-        <Param val="1" valType="code" updates="None" name="startVal"/>
-        <Param val="condition" valType="str" updates="None" name="stopType"/>
-        <Param val="" valType="code" updates="constant" name="stopVal"/>
-        <Param val="False" valType="bool" updates="constant" name="storeHistory"/>
-        <Param val="True" valType="bool" updates="constant" name="storeRating"/>
-        <Param val="True" valType="bool" updates="constant" name="storeRatingTime"/>
-        <Param val="()" valType="list" updates="constant" name="styleTweaks"/>
-        <Param val="rating" valType="str" updates="constant" name="styles"/>
-        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
-        <Param val="(0, 1, 2, 3, 4)" valType="list" updates="constant" name="ticks"/>
-        <Param val="from exp settings" valType="str" updates="None" name="units"/>
-      </SliderComponent>
-      <KeyboardComponent name="resp_2" plugin="None">
-        <Param val="'y','n','left','right','space'" valType="list" updates="constant" name="allowedKeys"/>
-        <Param val="" valType="str" updates="constant" name="correctAns"/>
-        <Param val="False" valType="bool" updates="None" name="disabled"/>
-        <Param val="True" valType="bool" updates="constant" name="discard previous"/>
-        <Param val="" valType="code" updates="None" name="durationEstim"/>
-        <Param val="False" valType="bool" updates="constant" name="forceEndRoutine"/>
-        <Param val="resp_2" valType="code" updates="None" name="name"/>
-        <Param val="press" valType="str" updates="constant" name="registerOn"/>
-        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
-        <Param val="" valType="code" updates="None" name="startEstim"/>
-        <Param val="time (s)" valType="str" updates="None" name="startType"/>
-        <Param val="0.0" valType="code" updates="None" name="startVal"/>
-        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
-        <Param val="" valType="code" updates="constant" name="stopVal"/>
-        <Param val="all keys" valType="str" updates="constant" name="store"/>
-        <Param val="False" valType="bool" updates="constant" name="storeCorrect"/>
-        <Param val="True" valType="bool" updates="constant" name="syncScreenRefresh"/>
-      </KeyboardComponent>
-    </Routine>
     <Routine name="practice_instruction_vid">
       <TextComponent name="instrText_2" plugin="None">
         <Param val="white" valType="str" updates="constant" name="color"/>
@@ -1998,69 +1899,6 @@
         <Param val="" valType="code" updates="None" name="startEstim"/>
         <Param val="time (s)" valType="str" updates="None" name="startType"/>
         <Param val="0" valType="code" updates="None" name="startVal"/>
-        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
-        <Param val="" valType="code" updates="constant" name="stopVal"/>
-        <Param val="all keys" valType="str" updates="constant" name="store"/>
-        <Param val="False" valType="bool" updates="constant" name="storeCorrect"/>
-        <Param val="True" valType="bool" updates="constant" name="syncScreenRefresh"/>
-      </KeyboardComponent>
-    </Routine>
-    <Routine name="practice_video">
-      <MovieComponent name="practice_instruction_video" plugin="None">
-        <Param val="False" valType="bool" updates="None" name="No audio"/>
-        <Param val="center" valType="str" updates="constant" name="anchor"/>
-        <Param val="ffpyplayer" valType="str" updates="None" name="backend"/>
-        <Param val="1" valType="num" updates="constant" name="contrast"/>
-        <Param val="False" valType="bool" updates="None" name="disabled"/>
-        <Param val="" valType="code" updates="None" name="durationEstim"/>
-        <Param val="True" valType="bool" updates="constant" name="forceEndRoutine"/>
-        <Param val="False" valType="bool" updates="None" name="loop"/>
-        <Param val="/Users/alisaloosen/Desktop/task stuff/PractVideoEffortReward_final.mp4" valType="file" updates="constant" name="movie"/>
-        <Param val="practice_instruction_video" valType="code" updates="None" name="name"/>
-        <Param val="" valType="num" updates="constant" name="opacity"/>
-        <Param val="0" valType="num" updates="constant" name="ori"/>
-        <Param val="(0, 0)" valType="list" updates="constant" name="pos"/>
-        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
-        <Param val="[2,2]" valType="list" updates="constant" name="size"/>
-        <Param val="0" valType="code" updates="None" name="startEstim"/>
-        <Param val="condition" valType="str" updates="None" name="startType"/>
-        <Param val="videoIsPlaying" valType="code" updates="None" name="startVal"/>
-        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
-        <Param val="" valType="code" updates="constant" name="stopVal"/>
-        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
-        <Param val="from exp settings" valType="str" updates="None" name="units"/>
-        <Param val="10" valType="num" updates="None" name="volume"/>
-      </MovieComponent>
-      <CodeComponent name="play_pause" plugin="None">
-        <Param val="" valType="extendedCode" updates="constant" name="Before Experiment"/>
-        <Param val="" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
-        <Param val="" valType="extendedCode" updates="constant" name="Begin Experiment"/>
-        <Param val="" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
-        <Param val="videoIsPlaying = false;&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
-        <Param val="videoIsPlaying = False&amp;#10;" valType="extendedCode" updates="constant" name="Begin Routine"/>
-        <Param val="Auto-&gt;JS" valType="str" updates="None" name="Code Type"/>
-        <Param val="playKey = resp.getKeys(waitRelease=False, clear=False)&amp;#10;if playKey and not videoIsPlaying:&amp;#10;    videoIsPlaying = True&amp;#10;elif playKey and videoIsPlaying:&amp;#10;     videoIsPlaying = False" valType="extendedCode" updates="constant" name="Each Frame"/>
-        <Param val="playKey = resp.getKeys({&quot;waitRelease&quot;: false, &quot;clear&quot;: false});&amp;#10;if ((playKey &amp;&amp; (! videoIsPlaying))) {&amp;#10;    videoIsPlaying = true;&amp;#10;} else {&amp;#10;    if ((playKey &amp;&amp; videoIsPlaying)) {&amp;#10;        videoIsPlaying = false;&amp;#10;    }&amp;#10;}&amp;#10;" valType="extendedCode" updates="constant" name="Each JS Frame"/>
-        <Param val="" valType="extendedCode" updates="constant" name="End Experiment"/>
-        <Param val="" valType="extendedCode" updates="constant" name="End JS Experiment"/>
-        <Param val="" valType="extendedCode" updates="constant" name="End JS Routine"/>
-        <Param val="" valType="extendedCode" updates="constant" name="End Routine"/>
-        <Param val="False" valType="bool" updates="None" name="disabled"/>
-        <Param val="play_pause" valType="code" updates="None" name="name"/>
-      </CodeComponent>
-      <KeyboardComponent name="resp" plugin="None">
-        <Param val="'space'" valType="list" updates="constant" name="allowedKeys"/>
-        <Param val="" valType="str" updates="constant" name="correctAns"/>
-        <Param val="False" valType="bool" updates="None" name="disabled"/>
-        <Param val="True" valType="bool" updates="constant" name="discard previous"/>
-        <Param val="" valType="code" updates="None" name="durationEstim"/>
-        <Param val="False" valType="bool" updates="constant" name="forceEndRoutine"/>
-        <Param val="resp" valType="code" updates="None" name="name"/>
-        <Param val="press" valType="str" updates="constant" name="registerOn"/>
-        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
-        <Param val="" valType="code" updates="None" name="startEstim"/>
-        <Param val="time (s)" valType="str" updates="None" name="startType"/>
-        <Param val="0.0" valType="code" updates="None" name="startVal"/>
         <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
         <Param val="" valType="code" updates="constant" name="stopVal"/>
         <Param val="all keys" valType="str" updates="constant" name="store"/>
@@ -2160,11 +1998,139 @@
       </ImageComponent>
     </Routine>
     <Routine name="check_3"/>
+    <Routine name="practice_video">
+      <MovieComponent name="practice_instruction_video_2" plugin="None">
+        <Param val="False" valType="bool" updates="None" name="No audio"/>
+        <Param val="center" valType="str" updates="constant" name="anchor"/>
+        <Param val="ffpyplayer" valType="str" updates="None" name="backend"/>
+        <Param val="1" valType="num" updates="constant" name="contrast"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="True" valType="bool" updates="constant" name="forceEndRoutine"/>
+        <Param val="False" valType="bool" updates="None" name="loop"/>
+        <Param val="stim/PractVideoEffortReward_final.mp4" valType="file" updates="constant" name="movie"/>
+        <Param val="practice_instruction_video_2" valType="code" updates="None" name="name"/>
+        <Param val="" valType="num" updates="constant" name="opacity"/>
+        <Param val="0" valType="num" updates="constant" name="ori"/>
+        <Param val="(0, 0)" valType="list" updates="constant" name="pos"/>
+        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="[2,2]" valType="list" updates="constant" name="size"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="0" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="" valType="code" updates="constant" name="stopVal"/>
+        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
+        <Param val="from exp settings" valType="str" updates="None" name="units"/>
+        <Param val="10" valType="num" updates="None" name="volume"/>
+      </MovieComponent>
+      <CodeComponent name="code_2" plugin="None">
+        <Param val="" valType="extendedCode" updates="constant" name="Before Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Begin Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
+        <Param val="movieIsPlaying = false;&amp;#10;movieWasPaused = false;&amp;#10;movieWasPlayed = false;&amp;#10;timeLimitPerSeek = 1;&amp;#10;currentTimeValue = 0;&amp;#10;spacePressed = true;&amp;#10;movieTimeframe = 0;&amp;#10;movieDuration = 66;&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
+        <Param val="movieIsPlaying = False&amp;#10;movieWasPaused = False&amp;#10;movieWasPlayed = False&amp;#10;timeLimitPerSeek = 1  # Adjust this as needed&amp;#10;currentTimeValue = 0  # Initialize the timer value&amp;#10;spacePressed = True  # To toggle play/pause with space&amp;#10;&amp;#10;movieTimeframe = 0&amp;#10;movieDuration = 66" valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="Auto-&gt;JS" valType="str" updates="None" name="Code Type"/>
+        <Param val="keys = event.getKeys(keyList=[&quot;space&quot;, &quot;left&quot;, &quot;right&quot;])&amp;#10;&amp;#10;if &quot;space&quot; in keys:&amp;#10;    spacePressed = not spacePressed&amp;#10;&amp;#10;if &quot;left&quot; in keys:&amp;#10;    # Move the video backward by a specific time (adjust the value as needed)&amp;#10;    currentTimeValue -= 1  # Adjust this value to control rewind speed&amp;#10;    practice_instruction_video_2.seek(round(practice_instruction_video_2.duration * currentTimeValue))&amp;#10;&amp;#10;if &quot;right&quot; in keys:&amp;#10;    # Move the video forward by a specific time (adjust the value as needed)&amp;#10;    currentTimeValue += 1  # Adjust this value to control fast forward speed&amp;#10;    practice_instruction_video_2.seek(round(practice_instruction_video_2.duration * currentTimeValue))&amp;#10;&amp;#10;if spacePressed:&amp;#10;    practice_instruction_video_2.play()&amp;#10;else:&amp;#10;    practice_instruction_video_2.pause()&amp;#10;" valType="extendedCode" updates="constant" name="Each Frame"/>
+        <Param val="var _pj;&amp;#10;function _pj_snippets(container) {&amp;#10;    function in_es6(left, right) {&amp;#10;        if (((right instanceof Array) || ((typeof right) === &quot;string&quot;))) {&amp;#10;            return (right.indexOf(left) &gt; (- 1));&amp;#10;        } else {&amp;#10;            if (((right instanceof Map) || (right instanceof Set) || (right instanceof WeakMap) || (right instanceof WeakSet))) {&amp;#10;                return right.has(left);&amp;#10;            } else {&amp;#10;                return (left in right);&amp;#10;            }&amp;#10;        }&amp;#10;    }&amp;#10;    container[&quot;in_es6&quot;] = in_es6;&amp;#10;    return container;&amp;#10;}&amp;#10;_pj = {};&amp;#10;_pj_snippets(_pj);&amp;#10;keys = psychoJS.eventManager.getKeys({&quot;keyList&quot;: [&quot;space&quot;, &quot;left&quot;, &quot;right&quot;]});&amp;#10;if (_pj.in_es6(&quot;space&quot;, keys)) {&amp;#10;    spacePressed = (! spacePressed);&amp;#10;}&amp;#10;if (_pj.in_es6(&quot;left&quot;, keys)) {&amp;#10;    currentTimeValue -= 1;&amp;#10;    practice_instruction_video_2.seek(util.round((practice_instruction_video_2.duration * currentTimeValue)));&amp;#10;}&amp;#10;if (_pj.in_es6(&quot;right&quot;, keys)) {&amp;#10;    currentTimeValue += 1;&amp;#10;    practice_instruction_video_2.seek(util.round((practice_instruction_video_2.duration * currentTimeValue)));&amp;#10;}&amp;#10;if (spacePressed) {&amp;#10;    practice_instruction_video_2.play();&amp;#10;} else {&amp;#10;    practice_instruction_video_2.pause();&amp;#10;}&amp;#10;" valType="extendedCode" updates="constant" name="Each JS Frame"/>
+        <Param val="" valType="extendedCode" updates="constant" name="End Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="End JS Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="End JS Routine"/>
+        <Param val="" valType="extendedCode" updates="constant" name="End Routine"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="code_2" valType="code" updates="None" name="name"/>
+      </CodeComponent>
+    </Routine>
+    <Routine name="practice_video_nocontrol"/>
+    <Routine name="practice_video_online">
+      <MovieComponent name="practice_instruction_video_online" plugin="None">
+        <Param val="False" valType="bool" updates="None" name="No audio"/>
+        <Param val="center" valType="str" updates="constant" name="anchor"/>
+        <Param val="ffpyplayer" valType="str" updates="None" name="backend"/>
+        <Param val="1" valType="num" updates="constant" name="contrast"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="True" valType="bool" updates="constant" name="forceEndRoutine"/>
+        <Param val="False" valType="bool" updates="None" name="loop"/>
+        <Param val="stim/PractVideoEffortReward_final.mp4" valType="file" updates="constant" name="movie"/>
+        <Param val="practice_instruction_video_online" valType="code" updates="None" name="name"/>
+        <Param val="" valType="num" updates="constant" name="opacity"/>
+        <Param val="0" valType="num" updates="constant" name="ori"/>
+        <Param val="(0, 0)" valType="list" updates="constant" name="pos"/>
+        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="[2,2]" valType="list" updates="constant" name="size"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="0" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="" valType="code" updates="constant" name="stopVal"/>
+        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
+        <Param val="from exp settings" valType="str" updates="None" name="units"/>
+        <Param val="10" valType="num" updates="None" name="volume"/>
+      </MovieComponent>
+      <CodeComponent name="code_2_online" plugin="None">
+        <Param val="" valType="extendedCode" updates="constant" name="Before Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
+        <Param val="key_instructions = &quot; &quot;&amp;#10;" valType="extendedCode" updates="constant" name="Begin Experiment"/>
+        <Param val="key_instructions = &quot; &quot;;&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
+        <Param val="movieIsPlaying = false;&amp;#10;movieWasPaused = false;&amp;#10;movieWasPlayed = false;&amp;#10;timeLimitPerSeek = 1;&amp;#10;currentTimeValue = 0;&amp;#10;spacePressed = false;&amp;#10;movieTimeframe = 0;&amp;#10;movieDuration = 66;&amp;#10;key_instructions = &quot;Press 'space' to pause or play, and use the left 'arrow' to rewind.&quot;;&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
+        <Param val="movieIsPlaying = False&amp;#10;movieWasPaused = False&amp;#10;movieWasPlayed = False&amp;#10;timeLimitPerSeek = 1  # Adjust this as needed&amp;#10;currentTimeValue = 0  # Initialize the timer value&amp;#10;spacePressed = False # To toggle play/pause with space&amp;#10;&amp;#10;movieTimeframe = 0&amp;#10;movieDuration = 66&amp;#10;key_instructions = &quot;Press 'space' to pause or play, and use the left 'arrow' to rewind.&quot;&amp;#10;&amp;#10;&amp;#10;" valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="Auto-&gt;JS" valType="str" updates="None" name="Code Type"/>
+        <Param val="keys = event.getKeys(keyList=[&quot;space&quot;, &quot;left&quot;])&amp;#10;&amp;#10;if &quot;space&quot; in keys:&amp;#10;    spacePressed = not spacePressed&amp;#10;&amp;#10;if &quot;left&quot; in keys:&amp;#10;    # Move the video backward by a specific time (adjust the value as needed)&amp;#10;    currentTimeValue -= 1  # Adjust this value to control rewind speed&amp;#10;    practice_instruction_video_online.seek(round(practice_instruction_video_online.duration * currentTimeValue))&amp;#10;&amp;#10;if spacePressed:&amp;#10;    practice_instruction_video_online.play()&amp;#10;    textbox.setText('', log=False)&amp;#10;else:&amp;#10;    practice_instruction_video_online.pause()&amp;#10;    textbox.setText(&quot;Press 'space' to pause or play, and use the left 'arrow' to rewind.&quot;, log=False)" valType="extendedCode" updates="constant" name="Each Frame"/>
+        <Param val="var _pj;&amp;#10;function _pj_snippets(container) {&amp;#10;    function in_es6(left, right) {&amp;#10;        if (((right instanceof Array) || ((typeof right) === &quot;string&quot;))) {&amp;#10;            return (right.indexOf(left) &gt; (- 1));&amp;#10;        } else {&amp;#10;            if (((right instanceof Map) || (right instanceof Set) || (right instanceof WeakMap) || (right instanceof WeakSet))) {&amp;#10;                return right.has(left);&amp;#10;            } else {&amp;#10;                return (left in right);&amp;#10;            }&amp;#10;        }&amp;#10;    }&amp;#10;    container[&quot;in_es6&quot;] = in_es6;&amp;#10;    return container;&amp;#10;}&amp;#10;_pj = {};&amp;#10;_pj_snippets(_pj);&amp;#10;keys = psychoJS.eventManager.getKeys({&quot;keyList&quot;: [&quot;space&quot;, &quot;left&quot;]});&amp;#10;if (_pj.in_es6(&quot;space&quot;, keys)) {&amp;#10;    spacePressed = (! spacePressed);&amp;#10;}&amp;#10;if (_pj.in_es6(&quot;left&quot;, keys)) {&amp;#10;    currentTimeValue -= 1;&amp;#10;    practice_instruction_video_online.seek(util.round((practice_instruction_video_online.duration * currentTimeValue)));&amp;#10;}&amp;#10;if (spacePressed) {&amp;#10;    practice_instruction_video_online.play();&amp;#10;    textbox.setText(&quot;&quot;, {&quot;log&quot;: false});&amp;#10;} else {&amp;#10;    practice_instruction_video_online.pause();&amp;#10;    textbox.setText(&quot;Press 'space' to pause or play, and use the left 'arrow' to rewind.&quot;, {&quot;log&quot;: false});&amp;#10;}&amp;#10;" valType="extendedCode" updates="constant" name="Each JS Frame"/>
+        <Param val="" valType="extendedCode" updates="constant" name="End Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="End JS Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="End JS Routine"/>
+        <Param val="" valType="extendedCode" updates="constant" name="End Routine"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="code_2_online" valType="code" updates="None" name="name"/>
+      </CodeComponent>
+      <TextboxComponent name="textbox" plugin="None">
+        <Param val="center" valType="str" updates="constant" name="alignment"/>
+        <Param val="center" valType="str" updates="constant" name="anchor"/>
+        <Param val="True" valType="bool" updates="constant" name="autoLog"/>
+        <Param val="True" valType="bool" updates="constant" name="bold"/>
+        <Param val="None" valType="color" updates="constant" name="borderColor"/>
+        <Param val="2" valType="num" updates="constant" name="borderWidth"/>
+        <Param val="0.3569, 0.6941, 1.0000" valType="color" updates="constant" name="color"/>
+        <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
+        <Param val="1" valType="num" updates="constant" name="contrast"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="False" valType="bool" updates="constant" name="editable"/>
+        <Param val="None" valType="color" updates="constant" name="fillColor"/>
+        <Param val="False" valType="bool" updates="constant" name="flipHoriz"/>
+        <Param val="False" valType="bool" updates="constant" name="flipVert"/>
+        <Param val="Arial" valType="str" updates="constant" name="font"/>
+        <Param val="False" valType="bool" updates="constant" name="italic"/>
+        <Param val="LTR" valType="str" updates="None" name="languageStyle"/>
+        <Param val="0.09" valType="num" updates="constant" name="letterHeight"/>
+        <Param val="1.0" valType="num" updates="constant" name="lineSpacing"/>
+        <Param val="textbox" valType="code" updates="None" name="name"/>
+        <Param val="" valType="num" updates="constant" name="opacity"/>
+        <Param val="0" valType="num" updates="constant" name="ori"/>
+        <Param val="visible" valType="str" updates="constant" name="overflow"/>
+        <Param val="0" valType="num" updates="constant" name="padding"/>
+        <Param val="Type here..." valType="str" updates="constant" name="placeholder"/>
+        <Param val="(0, -0.3)" valType="list" updates="constant" name="pos"/>
+        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="(0.5, 0.5)" valType="list" updates="constant" name="size"/>
+        <Param val="" valType="list" updates="constant" name="speechPoint"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="condition" valType="str" updates="None" name="startType"/>
+        <Param val="spacePressed == False" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="" valType="code" updates="constant" name="stopVal"/>
+        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
+        <Param val="$key_instructions" valType="str" updates="constant" name="text"/>
+        <Param val="from exp settings" valType="str" updates="None" name="units"/>
+      </TextboxComponent>
+    </Routine>
   </Routines>
   <Flow>
     <Routine name="Start"/>
-    <Routine name="check_2"/>
-    <Routine name="practice_video"/>
+    <Routine name="practice_video_online"/>
     <LoopInitiator loopType="TrialHandler" name="instruct_slides">
       <Param name="Selected rows" updates="None" val="" valType="str"/>
       <Param name="conditions" updates="None" val="None" valType="str"/>
