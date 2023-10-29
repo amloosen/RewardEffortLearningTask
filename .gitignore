@@ -33,3 +33,7 @@ TestResults.xml
 *.svg
 *.xlsx
 RewardEffortLearningTask.psyexp
+*.gif
+*.mp4
+Quiz.psyexp
+Quiz_lastrun.py
