@@ -2457,17 +2457,17 @@
       <CodeComponent name="block_break_control" plugin="None">
         <Param val="" valType="extendedCode" updates="constant" name="Before Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
-        <Param val="blockCounter = -1" valType="extendedCode" updates="constant" name="Begin Experiment"/>
-        <Param val="blockCounter = (- 1);&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
-        <Param val="blockCounter += 1;&amp;#10;if ((blockCounter === (nrBlocks - 1))) {&amp;#10;    continueRoutine = false;&amp;#10;}&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
-        <Param val="blockCounter += 1 &amp;#10;&amp;#10;if blockCounter == (nrBlocks-1): &amp;#10;    continueRoutine = False" valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="blockCounter = -1&amp;#10;breakTime = 15" valType="extendedCode" updates="constant" name="Begin Experiment"/>
+        <Param val="blockCounter = (- 1);&amp;#10;breakTime = 15;&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
+        <Param val="blockCounter += 1;&amp;#10;if ((blockCounter === (nrBlocks - 1))) {&amp;#10;    continueRoutine = false;&amp;#10;} else {&amp;#10;    startTimeBreak = globalClock.getTime();&amp;#10;}&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
+        <Param val="blockCounter += 1 &amp;#10;&amp;#10;if blockCounter == (nrBlocks-1): &amp;#10;    continueRoutine = False&amp;#10;else:&amp;#10;    startTimeBreak = globalClock.getTime()" valType="extendedCode" updates="constant" name="Begin Routine"/>
         <Param val="Auto-&gt;JS" valType="str" updates="None" name="Code Type"/>
-        <Param val="" valType="extendedCode" updates="constant" name="Each Frame"/>
-        <Param val="" valType="extendedCode" updates="constant" name="Each JS Frame"/>
+        <Param val="if globalClock.getTime() - startTimeBreak &gt;= breakTime:&amp;#10;    continueRoutine = False" valType="extendedCode" updates="constant" name="Each Frame"/>
+        <Param val="if (((globalClock.getTime() - startTimeBreak) &gt;= breakTime)) {&amp;#10;    continueRoutine = false;&amp;#10;}&amp;#10;" valType="extendedCode" updates="constant" name="Each JS Frame"/>
         <Param val="" valType="extendedCode" updates="constant" name="End Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="End JS Experiment"/>
-        <Param val="" valType="extendedCode" updates="constant" name="End JS Routine"/>
-        <Param val="" valType="extendedCode" updates="constant" name="End Routine"/>
+        <Param val="startTimeBreak = 0;&amp;#10;" valType="extendedCode" updates="constant" name="End JS Routine"/>
+        <Param val="startTimeBreak = 0" valType="extendedCode" updates="constant" name="End Routine"/>
         <Param val="False" valType="bool" updates="None" name="disabled"/>
         <Param val="block_break_control" valType="code" updates="None" name="name"/>
       </CodeComponent>
@@ -2493,7 +2493,7 @@
         <Param val="time (s)" valType="str" updates="None" name="startType"/>
         <Param val="0.0" valType="code" updates="None" name="startVal"/>
         <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
-        <Param val="15" valType="code" updates="constant" name="stopVal"/>
+        <Param val="" valType="code" updates="constant" name="stopVal"/>
         <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
         <Param val="128" valType="num" updates="constant" name="texture resolution"/>
         <Param val="from exp settings" valType="str" updates="None" name="units"/>

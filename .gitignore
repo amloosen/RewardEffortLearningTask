@@ -38,3 +38,9 @@ RewardEffortLearningTask.psyexp
 Quiz.psyexp
 Quiz_lastrun.py
 stim/Unconfirmed 308033.crdownload
+*.xlsx
+*.py
+checkVersion.psyexp
+stim/Pract Video/.DS_Store
+stim/Main Task Video/.DS_Store
+stim/.DS_Store
