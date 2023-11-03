@@ -2460,7 +2460,7 @@
         <Param val="blockCounter = -1&amp;#10;breakTime = 15" valType="extendedCode" updates="constant" name="Begin Experiment"/>
         <Param val="blockCounter = (- 1);&amp;#10;breakTime = 15;&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
         <Param val="blockCounter += 1;&amp;#10;if ((blockCounter === (nrBlocks - 1))) {&amp;#10;    continueRoutine = false;&amp;#10;} else {&amp;#10;    startTimeBreak = globalClock.getTime();&amp;#10;}&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
-        <Param val="blockCounter += 1 &amp;#10;&amp;#10;if blockCounter == (nrBlocks-1): &amp;#10;    continueRoutine = False&amp;#10;else:&amp;#10;    startTimeBreak = globalClock.getTime()" valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="blockCounter += 1 &amp;#10;&amp;#10;if blockCounter == (TotalBlockNumber-1): &amp;#10;    continueRoutine = False&amp;#10;else:&amp;#10;    startTimeBreak = globalClock.getTime()" valType="extendedCode" updates="constant" name="Begin Routine"/>
         <Param val="Auto-&gt;JS" valType="str" updates="None" name="Code Type"/>
         <Param val="if globalClock.getTime() - startTimeBreak &gt;= breakTime:&amp;#10;    continueRoutine = False" valType="extendedCode" updates="constant" name="Each Frame"/>
         <Param val="if (((globalClock.getTime() - startTimeBreak) &gt;= breakTime)) {&amp;#10;    continueRoutine = false;&amp;#10;}&amp;#10;" valType="extendedCode" updates="constant" name="Each JS Frame"/>
