@@ -1739,41 +1739,46 @@
       </KeyboardComponent>
     </Routine>
     <Routine name="Start">
-      <ButtonComponent name="start_video" plugin="None">
+      <TextboxComponent name="start_video" plugin="None">
+        <Param val="center" valType="str" updates="constant" name="alignment"/>
         <Param val="center" valType="str" updates="constant" name="anchor"/>
+        <Param val="True" valType="bool" updates="constant" name="autoLog"/>
         <Param val="True" valType="bool" updates="constant" name="bold"/>
-        <Param val="white" valType="color" updates="constant" name="borderColor"/>
-        <Param val="0" valType="num" updates="constant" name="borderWidth"/>
-        <Param val="" valType="extendedCode" updates="constant" name="callback"/>
+        <Param val="None" valType="color" updates="constant" name="borderColor"/>
+        <Param val="2" valType="num" updates="constant" name="borderWidth"/>
         <Param val="white" valType="color" updates="constant" name="color"/>
         <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
         <Param val="1" valType="num" updates="constant" name="contrast"/>
         <Param val="False" valType="bool" updates="None" name="disabled"/>
         <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="False" valType="bool" updates="constant" name="editable"/>
         <Param val="-0.4118, -1.0000, 0.0196" valType="color" updates="constant" name="fillColor"/>
+        <Param val="False" valType="bool" updates="constant" name="flipHoriz"/>
+        <Param val="False" valType="bool" updates="constant" name="flipVert"/>
         <Param val="Arial" valType="str" updates="constant" name="font"/>
-        <Param val="True" valType="bool" updates="constant" name="forceEndRoutine"/>
         <Param val="False" valType="bool" updates="constant" name="italic"/>
+        <Param val="LTR" valType="str" updates="None" name="languageStyle"/>
         <Param val="0.1" valType="num" updates="constant" name="letterHeight"/>
+        <Param val="1.0" valType="num" updates="constant" name="lineSpacing"/>
         <Param val="start_video" valType="code" updates="None" name="name"/>
-        <Param val="True" valType="bool" updates="constant" name="oncePerClick"/>
         <Param val="" valType="num" updates="constant" name="opacity"/>
         <Param val="0" valType="num" updates="constant" name="ori"/>
-        <Param val="" valType="num" updates="constant" name="padding"/>
+        <Param val="visible" valType="str" updates="constant" name="overflow"/>
+        <Param val="0" valType="num" updates="constant" name="padding"/>
+        <Param val="Type here..." valType="str" updates="constant" name="placeholder"/>
         <Param val="(0, 0)" valType="list" updates="constant" name="pos"/>
-        <Param val="every click" valType="str" updates="None" name="save"/>
         <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
         <Param val="(0.5, 0.5)" valType="list" updates="constant" name="size"/>
+        <Param val="" valType="list" updates="constant" name="speechPoint"/>
         <Param val="" valType="code" updates="None" name="startEstim"/>
         <Param val="time (s)" valType="str" updates="None" name="startType"/>
-        <Param val="0" valType="code" updates="None" name="startVal"/>
+        <Param val="0.0" valType="code" updates="None" name="startVal"/>
         <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
         <Param val="" valType="code" updates="constant" name="stopVal"/>
         <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
         <Param val="START" valType="str" updates="constant" name="text"/>
-        <Param val="button onset" valType="str" updates="constant" name="timeRelativeTo"/>
         <Param val="from exp settings" valType="str" updates="None" name="units"/>
-      </ButtonComponent>
+      </TextboxComponent>
       <ImageComponent name="rocket_full" plugin="None">
         <Param val="center" valType="str" updates="constant" name="anchor"/>
         <Param val="$[1,1,1]" valType="color" updates="constant" name="color"/>
@@ -1828,6 +1833,26 @@
         <Param val="128" valType="num" updates="constant" name="texture resolution"/>
         <Param val="from exp settings" valType="str" updates="None" name="units"/>
       </ImageComponent>
+      <MouseComponent name="mouse_start" plugin="None">
+        <Param val="[start_video]" valType="list" updates="constant" name="clickable"/>
+        <Param val="" valType="list" updates="constant" name="correctAns"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="valid click" valType="str" updates="constant" name="forceEndRoutineOnPress"/>
+        <Param val="mouse_start" valType="code" updates="None" name="name"/>
+        <Param val="False" valType="bool" updates="constant" name="newClicksOnly"/>
+        <Param val="on click" valType="str" updates="None" name="saveMouseState"/>
+        <Param val="name," valType="list" updates="constant" name="saveParamsClickable"/>
+        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="0.0" valType="code" updates="None" name="startVal"/>
+        <Param val="condition" valType="str" updates="None" name="stopType"/>
+        <Param val="" valType="code" updates="constant" name="stopVal"/>
+        <Param val="False" valType="bool" updates="constant" name="storeCorrect"/>
+        <Param val="False" valType="bool" updates="None" name="syncScreenRefresh"/>
+        <Param val="mouse onset" valType="str" updates="constant" name="timeRelativeTo"/>
+      </MouseComponent>
     </Routine>
     <Routine name="check_3"/>
     <Routine name="practice_video">
@@ -2537,8 +2562,8 @@
     <LoopTerminator name="instruct_slides"/>
     <LoopInitiator loopType="TrialHandler" name="practicetrials">
       <Param name="Selected rows" updates="None" val="" valType="str"/>
-      <Param name="conditions" updates="None" val="[{'practPumps': 25, 'effTresh': -0.36}, {'practPumps': 50, 'effTresh': -0.22}, {'practPumps': 75, 'effTresh': -0.09}, {'practPumps': 100, 'effTresh': 0.05}, {'practPumps': 25, 'effTresh': -0.36}, {'practPumps': 50, 'effTresh': -0.22}, {'practPumps': 75, 'effTresh': -0.09}, {'practPumps': 100, 'effTresh': 0.05}]" valType="str"/>
-      <Param name="conditionsFile" updates="None" val="pract1.xlsx" valType="file"/>
+      <Param name="conditions" updates="None" val="[OrderedDict([('practPumps', 25), ('effTresh', -0.36)]), OrderedDict([('practPumps', 50), ('effTresh', -0.22)]), OrderedDict([('practPumps', 75), ('effTresh', -0.09)]), OrderedDict([('practPumps', 100), ('effTresh', 0.05)]), OrderedDict([('practPumps', 25), ('effTresh', -0.36)]), OrderedDict([('practPumps', 50), ('effTresh', -0.22)]), OrderedDict([('practPumps', 75), ('effTresh', -0.09)]), OrderedDict([('practPumps', 100), ('effTresh', 0.05)])]" valType="str"/>
+      <Param name="conditionsFile" updates="None" val="pract1.csv" valType="file"/>
       <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
       <Param name="isTrials" updates="None" val="True" valType="bool"/>
       <Param name="loopType" updates="None" val="sequential" valType="str"/>
@@ -2587,8 +2612,8 @@
     </LoopInitiator>
     <LoopInitiator loopType="TrialHandler" name="instructionquiz">
       <Param name="Selected rows" updates="None" val="" valType="str"/>
-      <Param name="conditions" updates="None" val="[{'correctResp': 3, 'question': 'How did the instructions mention that the requirements for fuel may change as you venture into new galaxies?', 'resp1': '1. It never changes; everything remains constant.', 'resp2': '2. The instructions do not mention any changes in different galaxies.', 'resp3': '3. Fuel requirements may change, so adaptability is crucial.'}, {'correctResp': 2, 'question': 'What is the main objective of this game, and what are you required to collect on this cosmic journey?', 'resp1': '1. To explore new galaxies and discover alien lifeforms.', 'resp2': '2. To collect rubies on various planets.', 'resp3': '3. To master fast key pressing techniques for space travel.'}, {'correctResp': 2, 'question': 'How should you manage your energy allocation when traveling to different planets, and why is this important?', 'resp1': '1. You should allocate maximum energy to all journeys.', 'resp2': '2. You should adapt to different planet requirements.', 'resp3': '3. You should use the same amount of energy for all journeys to maintain consistency.'}]" valType="str"/>
-      <Param name="conditionsFile" updates="None" val="quiz.xlsx" valType="file"/>
+      <Param name="conditions" updates="None" val="[OrderedDict([('correctResp', 3), ('question', 'How did the instructions mention that the requirements for fuel may change as you venture into new galaxies?'), ('resp1', '1. It never changes; everything remains constant.'), ('resp2', '2. The instructions do not mention any changes in different galaxies.'), ('resp3', '3. Fuel requirements may change, so adaptability is crucial.')]), OrderedDict([('correctResp', 2), ('question', 'What is the main objective of this game, and what are you required to collect on this cosmic journey?'), ('resp1', '1. To explore new galaxies and discover alien lifeforms.'), ('resp2', '2. To collect rubies on various planets.'), ('resp3', '3. To master fast key pressing techniques for space travel.')]), OrderedDict([('correctResp', 2), ('question', 'How should you manage your energy allocation when traveling to different planets, and why is this important?'), ('resp1', '1. You should allocate maximum energy to all journeys.'), ('resp2', '2. You should adapt to different planet requirements.'), ('resp3', '3. You should use the same amount of energy for all journeys to maintain consistency.')])]" valType="str"/>
+      <Param name="conditionsFile" updates="None" val="quiz.csv" valType="file"/>
       <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
       <Param name="isTrials" updates="None" val="True" valType="bool"/>
       <Param name="loopType" updates="None" val="sequential" valType="str"/>
@@ -2604,8 +2629,8 @@
     <Routine name="video_main_task_start"/>
     <LoopInitiator loopType="TrialHandler" name="blocks">
       <Param name="Selected rows" updates="None" val="" valType="str"/>
-      <Param name="conditions" updates="None" val="[{'BlockNumber': 1, 'TrialFile': 'trialTypes1.xlsx'}, {'BlockNumber': 2, 'TrialFile': 'trialTypes2.xlsx'}]" valType="str"/>
-      <Param name="conditionsFile" updates="None" val="blockTypes.xlsx" valType="file"/>
+      <Param name="conditions" updates="None" val="[OrderedDict([('BlockNumber', 1), ('TrialFile', 'trialTypes1.csv'), ('TotalBlockNumber', 2)]), OrderedDict([('BlockNumber', 2), ('TrialFile', 'trialTypes2.csv'), ('TotalBlockNumber', 2)])]" valType="str"/>
+      <Param name="conditionsFile" updates="None" val="blockTypes.csv" valType="file"/>
       <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
       <Param name="isTrials" updates="None" val="True" valType="bool"/>
       <Param name="loopType" updates="None" val="sequential" valType="str"/>
