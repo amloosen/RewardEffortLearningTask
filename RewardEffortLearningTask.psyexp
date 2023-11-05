@@ -182,7 +182,7 @@
         <Param val="" valType="code" updates="None" name="durationEstim"/>
         <Param val="False" valType="bool" updates="constant" name="flipHoriz"/>
         <Param val="False" valType="bool" updates="constant" name="flipVert"/>
-        <Param val="image1.png" valType="file" updates="constant" name="image"/>
+        <Param val="stim/image1.png" valType="file" updates="constant" name="image"/>
         <Param val="linear" valType="str" updates="constant" name="interpolate"/>
         <Param val="" valType="str" updates="constant" name="mask"/>
         <Param val="coins_little_2" valType="code" updates="None" name="name"/>
@@ -209,7 +209,7 @@
         <Param val="" valType="code" updates="None" name="durationEstim"/>
         <Param val="False" valType="bool" updates="constant" name="flipHoriz"/>
         <Param val="False" valType="bool" updates="constant" name="flipVert"/>
-        <Param val="image7.png" valType="file" updates="constant" name="image"/>
+        <Param val="stim/image7.png" valType="file" updates="constant" name="image"/>
         <Param val="linear" valType="str" updates="constant" name="interpolate"/>
         <Param val="" valType="str" updates="constant" name="mask"/>
         <Param val="coins_many_2" valType="code" updates="None" name="name"/>
@@ -324,7 +324,7 @@
         <Param val="" valType="code" updates="None" name="durationEstim"/>
         <Param val="False" valType="bool" updates="constant" name="flipHoriz"/>
         <Param val="False" valType="bool" updates="constant" name="flipVert"/>
-        <Param val="TankOnlyEmpt-01.png" valType="file" updates="constant" name="image"/>
+        <Param val="stim/TankOnlyEmpt-01.png" valType="file" updates="constant" name="image"/>
         <Param val="linear" valType="str" updates="constant" name="interpolate"/>
         <Param val="" valType="str" updates="constant" name="mask"/>
         <Param val="tank" valType="code" updates="None" name="name"/>
@@ -597,7 +597,7 @@
         <Param val="" valType="code" updates="None" name="durationEstim"/>
         <Param val="False" valType="bool" updates="constant" name="flipHoriz"/>
         <Param val="False" valType="bool" updates="constant" name="flipVert"/>
-        <Param val="fuelShipWhite.png" valType="file" updates="set every repeat" name="image"/>
+        <Param val="stim/fuelShipWhite.png" valType="file" updates="set every repeat" name="image"/>
         <Param val="linear" valType="str" updates="constant" name="interpolate"/>
         <Param val="" valType="str" updates="constant" name="mask"/>
         <Param val="fuel_empty" valType="code" updates="None" name="name"/>
@@ -624,7 +624,7 @@
         <Param val="" valType="code" updates="None" name="durationEstim"/>
         <Param val="False" valType="bool" updates="constant" name="flipHoriz"/>
         <Param val="False" valType="bool" updates="constant" name="flipVert"/>
-        <Param val="fuelShipFull-01.png" valType="file" updates="constant" name="image"/>
+        <Param val="stim/fuelShipFull-01.png" valType="file" updates="constant" name="image"/>
         <Param val="linear" valType="str" updates="constant" name="interpolate"/>
         <Param val="" valType="str" updates="constant" name="mask"/>
         <Param val="fuel_full" valType="code" updates="None" name="name"/>
@@ -969,7 +969,7 @@
         <Param val="" valType="code" updates="None" name="durationEstim"/>
         <Param val="False" valType="bool" updates="constant" name="flipHoriz"/>
         <Param val="False" valType="bool" updates="constant" name="flipVert"/>
-        <Param val="TankOnlyEmpt-01.png" valType="file" updates="constant" name="image"/>
+        <Param val="stim/TankOnlyEmpt-01.png" valType="file" updates="constant" name="image"/>
         <Param val="linear" valType="str" updates="constant" name="interpolate"/>
         <Param val="" valType="str" updates="constant" name="mask"/>
         <Param val="tank_intro" valType="code" updates="None" name="name"/>
@@ -1108,7 +1108,7 @@
         <Param val="" valType="code" updates="None" name="durationEstim"/>
         <Param val="False" valType="bool" updates="constant" name="flipHoriz"/>
         <Param val="False" valType="bool" updates="constant" name="flipVert"/>
-        <Param val="/Users/alisaloosen/Desktop/task stuff/fingers.png" valType="file" updates="constant" name="image"/>
+        <Param val="stim/fingers.png" valType="file" updates="constant" name="image"/>
         <Param val="linear" valType="str" updates="constant" name="interpolate"/>
         <Param val="" valType="str" updates="constant" name="mask"/>
         <Param val="fingers" valType="code" updates="None" name="name"/>
@@ -1179,7 +1179,7 @@
         <Param val="" valType="code" updates="None" name="durationEstim"/>
         <Param val="False" valType="bool" updates="constant" name="flipHoriz"/>
         <Param val="False" valType="bool" updates="constant" name="flipVert"/>
-        <Param val="TankOnlyEmpt-01.png" valType="file" updates="constant" name="image"/>
+        <Param val="stim/TankOnlyEmpt-01.png" valType="file" updates="constant" name="image"/>
         <Param val="linear" valType="str" updates="constant" name="interpolate"/>
         <Param val="" valType="str" updates="constant" name="mask"/>
         <Param val="tank_2" valType="code" updates="None" name="name"/>
@@ -1633,8 +1633,8 @@
         <Param val="" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
         <Param val="quizCounter = -1&amp;#10;&amp;#10;clickables = [box1, box2, box3]&amp;#10;correct = None&amp;#10;&amp;#10;check_loc3 = [0.9, -0.56]&amp;#10;check_loc2 = [0.9, -0.26]&amp;#10;check_loc1 = [0.9, 0.04] &amp;#10;check_loc = [0,0]&amp;#10;&amp;#10;" valType="extendedCode" updates="constant" name="Begin Experiment"/>
         <Param val="quizCounter = (- 1);&amp;#10;clickables = [box1, box2, box3];&amp;#10;correct = null;&amp;#10;check_loc3 = [0.9, (- 0.56)];&amp;#10;check_loc2 = [0.9, (- 0.26)];&amp;#10;check_loc1 = [0.9, 0.04];&amp;#10;check_loc = [0, 0];&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
-        <Param val="quizCounter += 1;&amp;#10;response = 0;&amp;#10;if ((quizCounter === 0)) {&amp;#10;    quiz_score = 0;&amp;#10;}&amp;#10;check_img.image = null;&amp;#10;for (var box, _pj_c = 0, _pj_a = clickables, _pj_b = _pj_a.length; (_pj_c &lt; _pj_b); _pj_c += 1) {&amp;#10;    box = _pj_a[_pj_c];&amp;#10;    box.fillColor = &quot;white&quot;;&amp;#10;}&amp;#10;console.log(&quot;score:&quot;, quiz_score);&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
-        <Param val="quizCounter += 1&amp;#10;# Check if it's the first repetition of the instructionquiz routine&amp;#10;response = 0  # Set response to 0&amp;#10;if quizCounter == 0:&amp;#10;    quiz_score = 0  # Initialize quiz_score to 0&amp;#10;check_img.image = None&amp;#10;# Reset the color of all boxes to white&amp;#10;for box in clickables:&amp;#10;    box.fillColor = 'white'&amp;#10;&amp;#10;&amp;#10;print('score:', quiz_score)" valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="quizCounter += 1;&amp;#10;response = 0;&amp;#10;if ((quizCounter === 0)) {&amp;#10;    quiz_score = 0;&amp;#10;}&amp;#10;check_img.image = null;&amp;#10;for (var box, _pj_c = 0, _pj_a = clickables, _pj_b = _pj_a.length; (_pj_c &lt; _pj_b); _pj_c += 1) {&amp;#10;    box = _pj_a[_pj_c];&amp;#10;    box.fillColor = &quot;white&quot;;&amp;#10;}&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
+        <Param val="quizCounter += 1&amp;#10;# Check if it's the first repetition of the instructionquiz routine&amp;#10;response = 0  # Set response to 0&amp;#10;if quizCounter == 0:&amp;#10;    quiz_score = 0  # Initialize quiz_score to 0&amp;#10;check_img.image = None&amp;#10;# Reset the color of all boxes to white&amp;#10;for box in clickables:&amp;#10;    box.fillColor = 'white'&amp;#10;" valType="extendedCode" updates="constant" name="Begin Routine"/>
         <Param val="Auto-&gt;JS" valType="str" updates="None" name="Code Type"/>
         <Param val="# Check if the mouse is pressed in any of the boxes&amp;#10;if response==0:&amp;#10;    for clickable in clickables:&amp;#10;        if mouse.isPressedIn(clickable):&amp;#10;        # Reset the color of all boxes to white&amp;#10;            for box in clickables:&amp;#10;                box.fillColor = 'white'&amp;#10;        &amp;#10;                if clickable == box1:&amp;#10;                    response = 1&amp;#10;                    check_loc = check_loc1&amp;#10;                elif clickable == box2:&amp;#10;                    response = 2&amp;#10;                    check_loc = check_loc2&amp;#10;                elif clickable == box3:&amp;#10;                    response = 3&amp;#10;                    check_loc = check_loc3&amp;#10;        # Check if the response is correct&amp;#10;                correct = (response == correctResp)&amp;#10;                if correct:&amp;#10;                    clickable.fillColor = 'green'&amp;#10;                    check_img.image = 'stim/check-01.png'&amp;#10;                else:&amp;#10;                    clickable.fillColor = 'red'&amp;#10;                    check_img.image = 'stim/cross-01.png'&amp;#10;                    &amp;#10;                check_img.setPos(check_loc, log=False)&amp;#10;" valType="extendedCode" updates="constant" name="Each Frame"/>
         <Param val="if ((response === 0)) {&amp;#10;    for (var clickable, _pj_c = 0, _pj_a = clickables, _pj_b = _pj_a.length; (_pj_c &lt; _pj_b); _pj_c += 1) {&amp;#10;        clickable = _pj_a[_pj_c];&amp;#10;        if (mouse.isPressedIn(clickable)) {&amp;#10;            for (var box, _pj_f = 0, _pj_d = clickables, _pj_e = _pj_d.length; (_pj_f &lt; _pj_e); _pj_f += 1) {&amp;#10;                box = _pj_d[_pj_f];&amp;#10;                box.fillColor = &quot;white&quot;;&amp;#10;                if ((clickable === box1)) {&amp;#10;                    response = 1;&amp;#10;                    check_loc = check_loc1;&amp;#10;                } else {&amp;#10;                    if ((clickable === box2)) {&amp;#10;                        response = 2;&amp;#10;                        check_loc = check_loc2;&amp;#10;                    } else {&amp;#10;                        if ((clickable === box3)) {&amp;#10;                            response = 3;&amp;#10;                            check_loc = check_loc3;&amp;#10;                        }&amp;#10;                    }&amp;#10;                }&amp;#10;                correct = (response === correctResp);&amp;#10;                if (correct) {&amp;#10;                    clickable.fillColor = &quot;green&quot;;&amp;#10;                    check_img.image = &quot;stim/check-01.png&quot;;&amp;#10;                } else {&amp;#10;                    clickable.fillColor = &quot;red&quot;;&amp;#10;                    check_img.image = &quot;stim/cross-01.png&quot;;&amp;#10;                }&amp;#10;                check_img.setPos(check_loc, {&quot;log&quot;: false});&amp;#10;            }&amp;#10;        }&amp;#10;    }&amp;#10;}&amp;#10;" valType="extendedCode" updates="constant" name="Each JS Frame"/>
@@ -1788,7 +1788,7 @@
         <Param val="" valType="code" updates="None" name="durationEstim"/>
         <Param val="False" valType="bool" updates="constant" name="flipHoriz"/>
         <Param val="False" valType="bool" updates="constant" name="flipVert"/>
-        <Param val="fuelShipFull-01.png" valType="file" updates="constant" name="image"/>
+        <Param val="stim/fuelShipFull-01.png" valType="file" updates="constant" name="image"/>
         <Param val="linear" valType="str" updates="constant" name="interpolate"/>
         <Param val="" valType="str" updates="constant" name="mask"/>
         <Param val="rocket_full" valType="code" updates="None" name="name"/>
@@ -2145,7 +2145,7 @@
         <Param val="" valType="code" updates="None" name="durationEstim"/>
         <Param val="False" valType="bool" updates="constant" name="flipHoriz"/>
         <Param val="False" valType="bool" updates="constant" name="flipVert"/>
-        <Param val="fuelShipFull-01.png" valType="file" updates="constant" name="image"/>
+        <Param val="stim/fuelShipFull-01.png" valType="file" updates="constant" name="image"/>
         <Param val="linear" valType="str" updates="constant" name="interpolate"/>
         <Param val="" valType="str" updates="constant" name="mask"/>
         <Param val="spaceship" valType="code" updates="None" name="name"/>
