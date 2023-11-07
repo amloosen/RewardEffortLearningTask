@@ -145,7 +145,7 @@ async function experimentInit() {
   start_video = new visual.TextBox({
     win: psychoJS.window,
     name: 'start_video',
-    text: 'START',
+    text: 'PRESS ENTER TO START',
     placeholder: 'Type here...',
     font: 'Arial',
     pos: [0, 0], 
@@ -186,10 +186,8 @@ async function experimentInit() {
     flipHoriz : false, flipVert : false,
     texRes : 128.0, interpolate : true, depth : -2.0 
   });
-  mouse_start = new core.Mouse({
-    win: psychoJS.window,
-  });
-  mouse_start.mouseClock = new util.Clock();
+  experiment_start = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
+  
   // Initialize components for Routine "practice_video_online_2"
   practice_video_online_2Clock = new util.Clock();
   practice_instruction_video_onlineClock = new util.Clock();
@@ -1083,22 +1081,15 @@ function StartRoutineBegin(snapshot) {
     frameN = -1;
     continueRoutine = true; // until we're told otherwise
     // update component parameters for each repeat
-    // setup some python lists for storing info about the mouse_start
-    // current position of the mouse:
-    mouse_start.x = [];
-    mouse_start.y = [];
-    mouse_start.leftButton = [];
-    mouse_start.midButton = [];
-    mouse_start.rightButton = [];
-    mouse_start.time = [];
-    mouse_start.clicked_name = [];
-    gotValidClick = false; // until a click is received
+    experiment_start.keys = undefined;
+    experiment_start.rt = undefined;
+    _experiment_start_allKeys = [];
     // keep track of which components have finished
     StartComponents = [];
     StartComponents.push(start_video);
     StartComponents.push(rocket_full);
     StartComponents.push(astronaut);
-    StartComponents.push(mouse_start);
+    StartComponents.push(experiment_start);
     
     for (const thisComponent of StartComponents)
       if ('status' in thisComponent)
@@ -1144,42 +1135,31 @@ function StartRoutineEachFrame() {
       astronaut.setAutoDraw(true);
     }
 
-    // *mouse_start* updates
-    if (t >= 0.0 && mouse_start.status === PsychoJS.Status.NOT_STARTED) {
+    
+    // *experiment_start* updates
+    if (t >= 0 && experiment_start.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
-      mouse_start.tStart = t;  // (not accounting for frame time here)
-      mouse_start.frameNStart = frameN;  // exact frame index
+      experiment_start.tStart = t;  // (not accounting for frame time here)
+      experiment_start.frameNStart = frameN;  // exact frame index
       
-      mouse_start.status = PsychoJS.Status.STARTED;
-      mouse_start.mouseClock.reset();
-      prevButtonState = [0, 0, 0];  // if now button is down we will treat as 'new' click
-      }
-    if (mouse_start.status === PsychoJS.Status.STARTED) {  // only update if started and not finished!
-      _mouseButtons = mouse_start.getPressed();
-      if (!_mouseButtons.every( (e,i,) => (e == prevButtonState[i]) )) { // button state changed?
-        prevButtonState = _mouseButtons;
-        if (_mouseButtons.reduce( (e, acc) => (e+acc) ) > 0) { // state changed to a new click
-          // check if the mouse was inside our 'clickable' objects
-          gotValidClick = false;
-          for (const obj of [[start_video]]) {
-            if (obj.contains(mouse_start)) {
-              gotValidClick = true;
-              mouse_start.clicked_name.push(obj.name)
-            }
-          }
-          _mouseXYs = mouse_start.getPos();
-          mouse_start.x.push(_mouseXYs[0]);
-          mouse_start.y.push(_mouseXYs[1]);
-          mouse_start.leftButton.push(_mouseButtons[0]);
-          mouse_start.midButton.push(_mouseButtons[1]);
-          mouse_start.rightButton.push(_mouseButtons[2]);
-          mouse_start.time.push(mouse_start.mouseClock.getTime());
-          if (gotValidClick === true) { // end routine on response
-            continueRoutine = false;
-          }
-        }
+      // keyboard checking is just starting
+      psychoJS.window.callOnFlip(function() { experiment_start.clock.reset(); });  // t=0 on next screen flip
+      psychoJS.window.callOnFlip(function() { experiment_start.start(); }); // start on screen flip
+      psychoJS.window.callOnFlip(function() { experiment_start.clearEvents(); });
+    }
+
+    if (experiment_start.status === PsychoJS.Status.STARTED) {
+      let theseKeys = experiment_start.getKeys({keyList: ['return'], waitRelease: false});
+      _experiment_start_allKeys = _experiment_start_allKeys.concat(theseKeys);
+      if (_experiment_start_allKeys.length > 0) {
+        experiment_start.keys = _experiment_start_allKeys.map((key) => key.name);  // storing all keys
+        experiment_start.rt = _experiment_start_allKeys.map((key) => key.rt);
+        experiment_start.duration = _experiment_start_allKeys.map((key) => key.duration);
+        // a response ends the routine
+        continueRoutine = false;
       }
     }
+    
     // check for quit (typically the Esc key)
     if (psychoJS.experiment.experimentEnded || psychoJS.eventManager.getKeys({keyList:['escape']}).length > 0) {
       return quitPsychoJS('The [Escape] key was pressed. Goodbye!', false);
@@ -1214,15 +1194,18 @@ function StartRoutineEnd(snapshot) {
         thisComponent.setAutoDraw(false);
       }
     }
-    // store data for psychoJS.experiment (ExperimentHandler)
-    if (mouse_start.x) {  psychoJS.experiment.addData('mouse_start.x', mouse_start.x[0])};
-    if (mouse_start.y) {  psychoJS.experiment.addData('mouse_start.y', mouse_start.y[0])};
-    if (mouse_start.leftButton) {  psychoJS.experiment.addData('mouse_start.leftButton', mouse_start.leftButton[0])};
-    if (mouse_start.midButton) {  psychoJS.experiment.addData('mouse_start.midButton', mouse_start.midButton[0])};
-    if (mouse_start.rightButton) {  psychoJS.experiment.addData('mouse_start.rightButton', mouse_start.rightButton[0])};
-    if (mouse_start.time) {  psychoJS.experiment.addData('mouse_start.time', mouse_start.time[0])};
-    if (mouse_start.clicked_name) {  psychoJS.experiment.addData('mouse_start.clicked_name', mouse_start.clicked_name[0])};
+    // update the trial handler
+    if (currentLoop instanceof MultiStairHandler) {
+      currentLoop.addResponse(experiment_start.corr, level);
+    }
+    psychoJS.experiment.addData('experiment_start.keys', experiment_start.keys);
+    if (typeof experiment_start.keys !== 'undefined') {  // we had a response
+        psychoJS.experiment.addData('experiment_start.rt', experiment_start.rt);
+        psychoJS.experiment.addData('experiment_start.duration', experiment_start.duration);
+        routineTimer.reset();
+        }
     
+    experiment_start.stop();
     // the Routine "Start" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset();
     
