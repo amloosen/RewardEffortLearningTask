@@ -47,8 +47,10 @@ else
     nonZerosNew = find(reducedMatrix(:, 2) ~= 0);
     index_remtmp = randperm(size(nonZerosNew,1),missing_zeros);
     reducedMatrix(nonZerosNew(index_remtmp),2) = 0;
-    numZerosNew = sum(reducedMatrix(:, 2) == 0);%check again
 
+    numZerosNew = sum(reducedMatrix(:, 2) == 0);%check again
+    corr(reducedMatrix)
+    corr(reducedMatrix_PE)
 %     % Ensure that both matrices have 50% of 0s and cors are ok
 %     while numZerosReduced ~= 0.5 * (size(originalMatrix, 1) - numToRemove) || abs(cor(2)) >= .1 || abs(cor_PE(2)) >= .1
 %         % Randomly select either first or final rows.
@@ -88,4 +90,4 @@ dataTable = array2table(data, 'VariableNames', headers);
 writematrix(reducedMatrix, 'Sequence_OnlinePilotIntracranial.csv');
 
 % Save feedback sheet with sentences etc.
-generateFeedbackCSV(reducedMatrix(:,2));
+generateFeedbackCSV(reducedMatrix(:,1),reducedMatrix(:,2));

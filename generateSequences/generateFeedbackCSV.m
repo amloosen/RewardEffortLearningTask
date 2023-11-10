@@ -1,4 +1,4 @@
-function generateFeedbackCSV(Points)
+function generateFeedbackCSV(Effort,Points)
     % Check if the input vector is provided
     if nargin < 1
         error('Input vector for Points is required.');
@@ -52,8 +52,9 @@ function generateFeedbackCSV(Points)
     end
 
     % Create a table with the data
-    data = table(Points, FeedbackText1, FeedbackText2, stimFile, 'VariableNames', {'Points', 'FeedbackText1', 'FeedbackText2', 'stimFile'});
+    data = table(Points, FeedbackText1, FeedbackText2, stimFile,Effort, 'VariableNames', {'Points', 'FeedbackText1', 'FeedbackText2', 'stimFile','effLevel'});
 
+    %%
     % Generate a unique filename based on the current timestamp
     timestamp = datestr(now, 'yyyy-mm-dd_HHMMSS');
     filename = ['Allfeedback_data_' timestamp '.csv'];
@@ -71,9 +72,16 @@ function generateFeedbackCSV(Points)
 
     % Generate a unique filename based on the current timestamp
     timestamp = datestr(now, 'yyyy-mm-dd_HHMMSS');
-    filename = ['feedback_data_' timestamp '.csv'];
+    filename2 = 'trialTypes1.csv';
 
     % Write the table to a CSV file
-    writetable(data, filename);
-    fprintf('CSV file "%s" has been generated.\n', filename);
+    writetable(table1, filename2);
+    fprintf('CSV file "%s" has been generated.\n', filename2);
+
+    filename3 = 'trialTypes2.csv';
+
+    % Write the table to a CSV file
+    writetable(table2, filename3);
+    fprintf('CSV file "%s" has been generated.\n', filename2);
+
 end
