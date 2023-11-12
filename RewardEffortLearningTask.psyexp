@@ -104,6 +104,23 @@
         <Param val="(1, 2, 3, 4, 5, 6, 7)" valType="list" updates="constant" name="ticks"/>
         <Param val="from exp settings" valType="str" updates="None" name="units"/>
       </SliderComponent>
+      <CodeComponent name="get_rating_2" plugin="None">
+        <Param val="" valType="extendedCode" updates="constant" name="Before Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
+        <Param val="reward_ratings = []&amp;#10;&amp;#10;&amp;#10;" valType="extendedCode" updates="constant" name="Begin Experiment"/>
+        <Param val="reward_ratings = [];&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
+        <Param val="psychoJS.eventManager.clearEvents(&quot;keyboard&quot;);&amp;#10;start_tmp = (Number.parseInt((Math.random() * 7)) + 1);&amp;#10;reward.markerPos = start_tmp;&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
+        <Param val="event.clearEvents('keyboard')&amp;#10;start_tmp = int(random()*7) + 1&amp;#10;reward.markerPos = start_tmp" valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="Auto-&gt;JS" valType="str" updates="None" name="Code Type"/>
+        <Param val="keys = event.getKeys()&amp;#10;&amp;#10;if len(keys):&amp;#10;    if 'left' in keys:&amp;#10;        reward.markerPos = reward.markerPos - 1&amp;#10;    elif 'right' in keys:&amp;#10;        reward.markerPos = reward.markerPos  + 1&amp;#10;" valType="extendedCode" updates="constant" name="Each Frame"/>
+        <Param val="var _pj;&amp;#10;function _pj_snippets(container) {&amp;#10;    function in_es6(left, right) {&amp;#10;        if (((right instanceof Array) || ((typeof right) === &quot;string&quot;))) {&amp;#10;            return (right.indexOf(left) &gt; (- 1));&amp;#10;        } else {&amp;#10;            if (((right instanceof Map) || (right instanceof Set) || (right instanceof WeakMap) || (right instanceof WeakSet))) {&amp;#10;                return right.has(left);&amp;#10;            } else {&amp;#10;                return (left in right);&amp;#10;            }&amp;#10;        }&amp;#10;    }&amp;#10;    container[&quot;in_es6&quot;] = in_es6;&amp;#10;    return container;&amp;#10;}&amp;#10;_pj = {};&amp;#10;_pj_snippets(_pj);&amp;#10;keys = psychoJS.eventManager.getKeys();&amp;#10;if (keys.length) {&amp;#10;    if (_pj.in_es6(&quot;left&quot;, keys)) {&amp;#10;        reward.markerPos = (reward.markerPos - 1);&amp;#10;    } else {&amp;#10;        if (_pj.in_es6(&quot;right&quot;, keys)) {&amp;#10;            reward.markerPos = (reward.markerPos + 1);&amp;#10;        }&amp;#10;    }&amp;#10;}&amp;#10;" valType="extendedCode" updates="constant" name="Each JS Frame"/>
+        <Param val="" valType="extendedCode" updates="constant" name="End Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="End JS Experiment"/>
+        <Param val="rewscale_value = reward.getRating();&amp;#10;reward_ratings.push(rewscale_value);&amp;#10;trials.addData(&quot;rewRating&quot;, reward.markerPos);&amp;#10;trials.addData(&quot;AnchorRewRating&quot;, start_tmp);&amp;#10;" valType="extendedCode" updates="constant" name="End JS Routine"/>
+        <Param val="rewscale_value = reward.getRating()&amp;#10;reward_ratings.append(rewscale_value)&amp;#10;&amp;#10;#save data&amp;#10;trials.addData(&quot;rewRating&quot;, reward.markerPos)&amp;#10;trials.addData(&quot;AnchorRewRating&quot;, start_tmp)" valType="extendedCode" updates="constant" name="End Routine"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="get_rating_2" valType="code" updates="None" name="name"/>
+      </CodeComponent>
       <TextComponent name="text_rewardRating" plugin="None">
         <Param val="white" valType="color" updates="constant" name="color"/>
         <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
@@ -150,7 +167,7 @@
         <Param val="condition" valType="str" updates="None" name="stopType"/>
         <Param val="" valType="code" updates="constant" name="stopVal"/>
         <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
-        <Param val="Click on the scale to indicate your rating and press ENTER to log it in." valType="str" updates="constant" name="text"/>
+        <Param val="Navigate to your desired rating using the arrow keys and press ENTER to log it in." valType="str" updates="constant" name="text"/>
         <Param val="from exp settings" valType="str" updates="None" name="units"/>
         <Param val="" valType="num" updates="constant" name="wrapWidth"/>
       </TextComponent>
@@ -165,8 +182,8 @@
         <Param val="press" valType="str" updates="constant" name="registerOn"/>
         <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
         <Param val="" valType="code" updates="None" name="startEstim"/>
-        <Param val="condition" valType="str" updates="None" name="startType"/>
-        <Param val="reward.rating" valType="code" updates="None" name="startVal"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="1" valType="code" updates="None" name="startVal"/>
         <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
         <Param val="" valType="code" updates="constant" name="stopVal"/>
         <Param val="all keys" valType="str" updates="constant" name="store"/>
@@ -227,23 +244,6 @@
         <Param val="128" valType="num" updates="constant" name="texture resolution"/>
         <Param val="from exp settings" valType="str" updates="None" name="units"/>
       </ImageComponent>
-      <CodeComponent name="get_rating_2" plugin="None">
-        <Param val="" valType="extendedCode" updates="constant" name="Before Experiment"/>
-        <Param val="" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
-        <Param val="reward_ratings = []&amp;#10;&amp;#10;" valType="extendedCode" updates="constant" name="Begin Experiment"/>
-        <Param val="reward_ratings = [];&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
-        <Param val="" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
-        <Param val="" valType="extendedCode" updates="constant" name="Begin Routine"/>
-        <Param val="Auto-&gt;JS" valType="str" updates="None" name="Code Type"/>
-        <Param val="" valType="extendedCode" updates="constant" name="Each Frame"/>
-        <Param val="" valType="extendedCode" updates="constant" name="Each JS Frame"/>
-        <Param val="" valType="extendedCode" updates="constant" name="End Experiment"/>
-        <Param val="" valType="extendedCode" updates="constant" name="End JS Experiment"/>
-        <Param val="rewscale_value = reward.getRating();&amp;#10;reward_ratings.push(rewscale_value);&amp;#10;trials.addData(&quot;rewRating&quot;, rewscale_value);&amp;#10;" valType="extendedCode" updates="constant" name="End JS Routine"/>
-        <Param val="rewscale_value = reward.getRating()&amp;#10;reward_ratings.append(rewscale_value)&amp;#10;&amp;#10;#save data&amp;#10;trials.addData('rewRating',rewscale_value) " valType="extendedCode" updates="constant" name="End Routine"/>
-        <Param val="False" valType="bool" updates="None" name="disabled"/>
-        <Param val="get_rating_2" valType="code" updates="None" name="name"/>
-      </CodeComponent>
       <PolygonComponent name="photodiode_r1" plugin="None">
         <Param val="bottom-left" valType="str" updates="constant" name="anchor"/>
         <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
@@ -519,6 +519,23 @@
         <Param val="(1, 2, 3, 4, 5)" valType="list" updates="constant" name="ticks"/>
         <Param val="from exp settings" valType="str" updates="None" name="units"/>
       </SliderComponent>
+      <CodeComponent name="get_rating" plugin="None">
+        <Param val="" valType="extendedCode" updates="constant" name="Before Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
+        <Param val="effort_ratings = []&amp;#10;&amp;#10;&amp;#10;" valType="extendedCode" updates="constant" name="Begin Experiment"/>
+        <Param val="effort_ratings = [];&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
+        <Param val="psychoJS.eventManager.clearEvents(&quot;keyboard&quot;);&amp;#10;start_tmp_eff = (Number.parseInt((Math.random() * 5)) + 1);&amp;#10;effort.markerPos = start_tmp_eff;&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
+        <Param val="event.clearEvents('keyboard')&amp;#10;start_tmp_eff = int(random()*5) + 1&amp;#10;effort.markerPos = start_tmp_eff" valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="Auto-&gt;JS" valType="str" updates="None" name="Code Type"/>
+        <Param val="keys = event.getKeys()&amp;#10;&amp;#10;if len(keys):&amp;#10;    if 'left' in keys:&amp;#10;        effort.markerPos = effort.markerPos - 1&amp;#10;    elif 'right' in keys:&amp;#10;        effort.markerPos = effort.markerPos  + 1&amp;#10;" valType="extendedCode" updates="constant" name="Each Frame"/>
+        <Param val="var _pj;&amp;#10;function _pj_snippets(container) {&amp;#10;    function in_es6(left, right) {&amp;#10;        if (((right instanceof Array) || ((typeof right) === &quot;string&quot;))) {&amp;#10;            return (right.indexOf(left) &gt; (- 1));&amp;#10;        } else {&amp;#10;            if (((right instanceof Map) || (right instanceof Set) || (right instanceof WeakMap) || (right instanceof WeakSet))) {&amp;#10;                return right.has(left);&amp;#10;            } else {&amp;#10;                return (left in right);&amp;#10;            }&amp;#10;        }&amp;#10;    }&amp;#10;    container[&quot;in_es6&quot;] = in_es6;&amp;#10;    return container;&amp;#10;}&amp;#10;_pj = {};&amp;#10;_pj_snippets(_pj);&amp;#10;keys = psychoJS.eventManager.getKeys();&amp;#10;if (keys.length) {&amp;#10;    if (_pj.in_es6(&quot;left&quot;, keys)) {&amp;#10;        effort.markerPos = (effort.markerPos - 1);&amp;#10;    } else {&amp;#10;        if (_pj.in_es6(&quot;right&quot;, keys)) {&amp;#10;            effort.markerPos = (effort.markerPos + 1);&amp;#10;        }&amp;#10;    }&amp;#10;}&amp;#10;" valType="extendedCode" updates="constant" name="Each JS Frame"/>
+        <Param val="" valType="extendedCode" updates="constant" name="End Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="End JS Experiment"/>
+        <Param val="effscale_value = effort.getRating();&amp;#10;effort_ratings.push(effscale_value);&amp;#10;trials.addData(&quot;effRating&quot;, effort.markerPos);&amp;#10;trials.addData(&quot;AnchorEffRating&quot;, start_tmp_eff);&amp;#10;" valType="extendedCode" updates="constant" name="End JS Routine"/>
+        <Param val="effscale_value = effort.getRating()&amp;#10;effort_ratings.append(effscale_value)&amp;#10;&amp;#10;#save data&amp;#10;trials.addData('effRating',effort.markerPos)&amp;#10;trials.addData(&quot;AnchorEffRating&quot;, start_tmp_eff)&amp;#10;" valType="extendedCode" updates="constant" name="End Routine"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="get_rating" valType="code" updates="None" name="name"/>
+      </CodeComponent>
       <TextComponent name="text_effortRating_3" plugin="None">
         <Param val="white" valType="color" updates="constant" name="color"/>
         <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
@@ -565,7 +582,7 @@
         <Param val="condition" valType="str" updates="None" name="stopType"/>
         <Param val="" valType="code" updates="constant" name="stopVal"/>
         <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
-        <Param val="Click on the scale to indicate your rating and press ENTER to log it in." valType="str" updates="constant" name="text"/>
+        <Param val="Navigate to your desired rating using the arrow keys and press ENTER to log it in." valType="str" updates="constant" name="text"/>
         <Param val="from exp settings" valType="str" updates="None" name="units"/>
         <Param val="" valType="num" updates="constant" name="wrapWidth"/>
       </TextComponent>
@@ -580,8 +597,8 @@
         <Param val="press" valType="str" updates="constant" name="registerOn"/>
         <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
         <Param val="" valType="code" updates="None" name="startEstim"/>
-        <Param val="condition" valType="str" updates="None" name="startType"/>
-        <Param val="effort.rating" valType="code" updates="None" name="startVal"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="1" valType="code" updates="None" name="startVal"/>
         <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
         <Param val="" valType="code" updates="constant" name="stopVal"/>
         <Param val="all keys" valType="str" updates="constant" name="store"/>
@@ -642,23 +659,6 @@
         <Param val="128" valType="num" updates="constant" name="texture resolution"/>
         <Param val="from exp settings" valType="str" updates="None" name="units"/>
       </ImageComponent>
-      <CodeComponent name="get_rating" plugin="None">
-        <Param val="" valType="extendedCode" updates="constant" name="Before Experiment"/>
-        <Param val="" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
-        <Param val="effort_ratings = []" valType="extendedCode" updates="constant" name="Begin Experiment"/>
-        <Param val="effort_ratings = [];&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
-        <Param val="" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
-        <Param val="" valType="extendedCode" updates="constant" name="Begin Routine"/>
-        <Param val="Auto-&gt;JS" valType="str" updates="None" name="Code Type"/>
-        <Param val="" valType="extendedCode" updates="constant" name="Each Frame"/>
-        <Param val="" valType="extendedCode" updates="constant" name="Each JS Frame"/>
-        <Param val="" valType="extendedCode" updates="constant" name="End Experiment"/>
-        <Param val="" valType="extendedCode" updates="constant" name="End JS Experiment"/>
-        <Param val="effscale_value = effort.getRating();&amp;#10;effort_ratings.push(effscale_value);&amp;#10;trials.addData(&quot;effRating&quot;, effLevel);&amp;#10;" valType="extendedCode" updates="constant" name="End JS Routine"/>
-        <Param val="effscale_value = effort.getRating()&amp;#10;effort_ratings.append(effscale_value)&amp;#10;&amp;#10;#save data&amp;#10;trials.addData('effRating',effscale_value) " valType="extendedCode" updates="constant" name="End Routine"/>
-        <Param val="False" valType="bool" updates="None" name="disabled"/>
-        <Param val="get_rating" valType="code" updates="None" name="name"/>
-      </CodeComponent>
       <PolygonComponent name="photodiode_r1_2" plugin="None">
         <Param val="bottom-left" valType="str" updates="constant" name="anchor"/>
         <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
@@ -855,7 +855,7 @@
         <Param val="instructions1=&quot;&quot;&amp;#10;instructions2=&quot;&quot;&amp;#10;instructions3=&quot;&quot;&amp;#10;&amp;#10;slidesCounter = -1" valType="extendedCode" updates="constant" name="Begin Experiment"/>
         <Param val="instructions1 = &quot;&quot;;&amp;#10;instructions2 = &quot;&quot;;&amp;#10;instructions3 = &quot;&quot;;&amp;#10;slidesCounter = (- 1);&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
         <Param val="slidesCounter += 1;&amp;#10;if ((slidesCounter === 0)) {&amp;#10;    instructions1 = &quot;On the next screen, you will see a fuel tank marked with a red line. Your goal is to fill it up to the red line, just as demonstrated in the video.&quot;;&amp;#10;    instructions2 = &quot;&quot;;&amp;#10;    instructions3 = &quot;Press ENTER to continue.&quot;;&amp;#10;} else {&amp;#10;    instructions1 = &quot;Alternate between pressing 'z' with your left index finger and 'p' with your right index finger as fast as you can to reach the red bar.&quot;;&amp;#10;    instructions2 = &quot;You will have 5 seconds to fill the tank.&quot;;&amp;#10;    instructions3 = &quot;Press ENTER to Start!&quot;;&amp;#10;}&amp;#10;practice_intro_text1.text = instructions1;&amp;#10;practice_intro_text2.text = instructions2;&amp;#10;practice_intro_text3.text = instructions3;&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
-        <Param val="slidesCounter += 1&amp;#10;&amp;#10;if slidesCounter == 0:&amp;#10;    instructions1=&quot;On the next screen, you will see a fuel tank marked with a red line. Your goal is to fill it up to the red line, just as demonstrated in the video.&quot;&amp;#10;    instructions2=&quot;&quot;&amp;#10;    instructions3=&quot;Press ENTER to continue.&quot;&amp;#10;    #picture=imgExample1.png&amp;#10;else:&amp;#10;    instructions1=&quot;Alternate between pressing 'z' with your left index finger and 'p' with your right index finger as fast as you can to reach the red bar.&quot;&amp;#10;    instructions2=&quot;You will have 5 seconds to fill the tank.&quot;&amp;#10;    instructions3=&quot;Press ENTER to Start!&quot;&amp;#10;    #picture=imgExample2.png&amp;#10;    &amp;#10;&amp;#10;# Assuming &quot;text_component_name&quot; is the name of your Text Component&amp;#10;practice_intro_text1.text = instructions1&amp;#10;practice_intro_text2.text = instructions2&amp;#10;practice_intro_text3.text = instructions3&amp;#10;" valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="slidesCounter += 1&amp;#10;&amp;#10;if slidesCounter == 0:&amp;#10;    instructions1=&quot;On the next screen, you will see a fuel tank marked with a red line. Your goal is to fill it up to the red line, just as demonstrated in the video.&quot;&amp;#10;    instructions2=&quot;&quot;&amp;#10;    instructions3=&quot;Press ENTER to continue.&quot;&amp;#10;else:&amp;#10;    instructions1=&quot;Alternate between pressing 'z' with your left index finger and 'p' with your right index finger as fast as you can to reach the red bar.&quot;&amp;#10;    instructions2=&quot;You will have 5 seconds to fill the tank.&quot;&amp;#10;    instructions3=&quot;Press ENTER to Start!&quot;&amp;#10;    &amp;#10;# Assuming &quot;text_component_name&quot; is the name of your Text Component&amp;#10;practice_intro_text1.text = instructions1&amp;#10;practice_intro_text2.text = instructions2&amp;#10;practice_intro_text3.text = instructions3" valType="extendedCode" updates="constant" name="Begin Routine"/>
         <Param val="Auto-&gt;JS" valType="str" updates="None" name="Code Type"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each Frame"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each JS Frame"/>
@@ -887,7 +887,7 @@
         <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
         <Param val="" valType="code" updates="constant" name="stopVal"/>
         <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
-        <Param val="$instructions1&amp;#10;" valType="str" updates="constant" name="text"/>
+        <Param val="" valType="str" updates="constant" name="text"/>
         <Param val="from exp settings" valType="str" updates="None" name="units"/>
         <Param val="" valType="num" updates="constant" name="wrapWidth"/>
       </TextComponent>
@@ -912,7 +912,7 @@
         <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
         <Param val="" valType="code" updates="constant" name="stopVal"/>
         <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
-        <Param val="$instructions2" valType="str" updates="constant" name="text"/>
+        <Param val="" valType="str" updates="constant" name="text"/>
         <Param val="from exp settings" valType="str" updates="None" name="units"/>
         <Param val="" valType="num" updates="constant" name="wrapWidth"/>
       </TextComponent>
@@ -937,7 +937,7 @@
         <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
         <Param val="" valType="code" updates="constant" name="stopVal"/>
         <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
-        <Param val="$instructions3" valType="str" updates="constant" name="text"/>
+        <Param val="" valType="str" updates="constant" name="text"/>
         <Param val="from exp settings" valType="str" updates="None" name="units"/>
         <Param val="" valType="num" updates="constant" name="wrapWidth"/>
       </TextComponent>
@@ -1161,8 +1161,8 @@
         <Param val="key_sequence = [];&amp;#10;achieved = 0;&amp;#10;firstIncr = false;&amp;#10;rscore_pract = 0;&amp;#10;tankSize = 0;&amp;#10;achieved = false;&amp;#10;nIncr_pumps = 0;&amp;#10;tankSizeIncr_pract = (tankMaxSize / 50);&amp;#10;practCounter += 1;&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
         <Param val="key_sequence = []  #List to store the key sequence ('z' followed by 'p')&amp;#10;achieved = 0&amp;#10;firstIncr = False&amp;#10;rscore_pract = 0&amp;#10;tankSize = 0&amp;#10;achieved=False&amp;#10;nIncr_pumps = 0&amp;#10;tankSizeIncr_pract = tankMaxSize/50 #adapt if necessary to let the calibration tank fill quicker/slower&amp;#10;&amp;#10;&amp;#10;practCounter += 1&amp;#10;" valType="extendedCode" updates="constant" name="Begin Routine"/>
         <Param val="Auto-&gt;JS" valType="str" updates="None" name="Code Type"/>
-        <Param val="keys = event.getKeys()&amp;#10;&amp;#10;if not keys:&amp;#10;    # No keys pressed, keep the routine running&amp;#10;    continueRoutine = True&amp;#10;else:&amp;#10;    key_pressed = keys[0]&amp;#10;    if key_pressed == 'z' and not key_sequence:&amp;#10;        key_sequence.append(key_pressed)&amp;#10;        if timer_pract is None:&amp;#10;            timer_pract = core.CountdownTimer(time_available_pract)&amp;#10;    elif key_pressed == 'p' and 'z' in key_sequence:&amp;#10;        key_sequence.append(key_pressed)&amp;#10;&amp;#10;    if key_sequence == ['z', 'p']:&amp;#10;        nIncr_pumps += 1&amp;#10;        key_sequence = []&amp;#10;&amp;#10;if (-0.5 + tankSize &gt;= effTresh):&amp;#10;     achieved = True&amp;#10;     rscore_pract = rscore_pract + 1&amp;#10;     continueRoutine = False&amp;#10;&amp;#10;if timer_pract is not None and timer_pract.getTime() &lt;= 0: #check if timer has run out&amp;#10;    continueRoutine = False&amp;#10;&amp;#10;#battery - fill up the fuel&amp;#10;tankSize = nIncr_pumps*tankSizeIncr_pract&amp;#10;&amp;#10;" valType="extendedCode" updates="constant" name="Each Frame"/>
-        <Param val="var _pj;&amp;#10;function _pj_snippets(container) {&amp;#10;    function in_es6(left, right) {&amp;#10;        if (((right instanceof Array) || ((typeof right) === &quot;string&quot;))) {&amp;#10;            return (right.indexOf(left) &gt; (- 1));&amp;#10;        } else {&amp;#10;            if (((right instanceof Map) || (right instanceof Set) || (right instanceof WeakMap) || (right instanceof WeakSet))) {&amp;#10;                return right.has(left);&amp;#10;            } else {&amp;#10;                return (left in right);&amp;#10;            }&amp;#10;        }&amp;#10;    }&amp;#10;    container[&quot;in_es6&quot;] = in_es6;&amp;#10;    return container;&amp;#10;}&amp;#10;_pj = {};&amp;#10;_pj_snippets(_pj);&amp;#10;keys = psychoJS.eventManager.getKeys();&amp;#10;if ((! keys)) {&amp;#10;    continueRoutine = true;&amp;#10;} else {&amp;#10;    key_pressed = keys[0];&amp;#10;    if (((key_pressed === &quot;z&quot;) &amp;&amp; (! key_sequence))) {&amp;#10;        key_sequence.push(key_pressed);&amp;#10;        if ((timer_pract === null)) {&amp;#10;            timer_pract = new core.CountdownTimer(time_available_pract);&amp;#10;        }&amp;#10;    } else {&amp;#10;        if (((key_pressed === &quot;p&quot;) &amp;&amp; _pj.in_es6(&quot;z&quot;, key_sequence))) {&amp;#10;            key_sequence.push(key_pressed);&amp;#10;        }&amp;#10;    }&amp;#10;    if ((key_sequence === [&quot;z&quot;, &quot;p&quot;])) {&amp;#10;        nIncr_pumps += 1;&amp;#10;        key_sequence = [];&amp;#10;    }&amp;#10;}&amp;#10;if ((((- 0.5) + tankSize) &gt;= effTresh)) {&amp;#10;    achieved = true;&amp;#10;    rscore_pract = (rscore_pract + 1);&amp;#10;    continueRoutine = false;&amp;#10;}&amp;#10;if (((timer_pract !== null) &amp;&amp; (timer_pract.getTime() &lt;= 0))) {&amp;#10;    continueRoutine = false;&amp;#10;}&amp;#10;tankSize = (nIncr_pumps * tankSizeIncr_pract);&amp;#10;" valType="extendedCode" updates="constant" name="Each JS Frame"/>
+        <Param val="keys = event.getKeys()&amp;#10;&amp;#10;if not keys:&amp;#10;    # No keys pressed, keep the routine running&amp;#10;    continueRoutine = True&amp;#10;else:&amp;#10;    key_pressed = keys[0]&amp;#10;    if key_pressed == 'z' and not key_sequence:&amp;#10;        key_sequence.append(key_pressed)&amp;#10;        if timer_pract is None:&amp;#10;            timer_pract = util.CountdownTimer(time_available_pract)&amp;#10;    elif key_pressed == 'p' and 'z' in key_sequence:&amp;#10;        key_sequence.append(key_pressed)&amp;#10;&amp;#10;    if key_sequence == ['z', 'p']:&amp;#10;        nIncr_pumps += 1&amp;#10;        key_sequence = []&amp;#10;&amp;#10;if (-0.5 + tankSize &gt;= effTresh):&amp;#10;     achieved = True&amp;#10;     rscore_pract = rscore_pract + 1&amp;#10;     continueRoutine = False&amp;#10;&amp;#10;if timer_pract is not None and timer_pract.getTime() &lt;= 0: #check if timer has run out&amp;#10;    continueRoutine = False&amp;#10;&amp;#10;#battery - fill up the fuel&amp;#10;tankSize = nIncr_pumps*tankSizeIncr_pract&amp;#10;&amp;#10;" valType="extendedCode" updates="constant" name="Each Frame"/>
+        <Param val="var _pj;&amp;#10;function _pj_snippets(container) {&amp;#10;    function in_es6(left, right) {&amp;#10;        if (((right instanceof Array) || ((typeof right) === &quot;string&quot;))) {&amp;#10;            return (right.indexOf(left) &gt; (- 1));&amp;#10;        } else {&amp;#10;            if (((right instanceof Map) || (right instanceof Set) || (right instanceof WeakMap) || (right instanceof WeakSet))) {&amp;#10;                return right.has(left);&amp;#10;            } else {&amp;#10;                return (left in right);&amp;#10;            }&amp;#10;        }&amp;#10;    }&amp;#10;    container[&quot;in_es6&quot;] = in_es6;&amp;#10;    return container;&amp;#10;}&amp;#10;_pj = {};&amp;#10;_pj_snippets(_pj);&amp;#10;keys = psychoJS.eventManager.getKeys();&amp;#10;if ((! keys)) {&amp;#10;    continueRoutine = true;&amp;#10;} else {&amp;#10;    key_pressed = keys[0];&amp;#10;    if (((key_pressed === &quot;z&quot;) &amp;&amp; (! key_sequence))) {&amp;#10;        key_sequence.push(key_pressed);&amp;#10;        if ((timer_pract === null)) {&amp;#10;            timer_pract = new util.CountdownTimer(time_available_pract);&amp;#10;        }&amp;#10;    } else {&amp;#10;        if (((key_pressed === &quot;p&quot;) &amp;&amp; _pj.in_es6(&quot;z&quot;, key_sequence))) {&amp;#10;            key_sequence.push(key_pressed);&amp;#10;        }&amp;#10;    }&amp;#10;    if ((key_sequence === [&quot;z&quot;, &quot;p&quot;])) {&amp;#10;        nIncr_pumps += 1;&amp;#10;        key_sequence = [];&amp;#10;    }&amp;#10;}&amp;#10;if ((((- 0.5) + tankSize) &gt;= effTresh)) {&amp;#10;    achieved = true;&amp;#10;    rscore_pract = (rscore_pract + 1);&amp;#10;    continueRoutine = false;&amp;#10;}&amp;#10;if (((timer_pract !== null) &amp;&amp; (timer_pract.getTime() &lt;= 0))) {&amp;#10;    continueRoutine = false;&amp;#10;}&amp;#10;tankSize = (nIncr_pumps * tankSizeIncr_pract);&amp;#10;" valType="extendedCode" updates="constant" name="Each JS Frame"/>
         <Param val="" valType="extendedCode" updates="constant" name="End Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="End JS Experiment"/>
         <Param val="tscore_pract += rscore_pract;&amp;#10;max_incr_pract.push((nIncr_pumps / t));&amp;#10;max_incr_pSec_pract = Math.max(max_incr_pract);&amp;#10;timer_pract = null;&amp;#10;practicetrials.addData(&quot;nr_of_incr_pract&quot;, nIncr_pumps);&amp;#10;practicetrials.addData(&quot;trial_score_pract&quot;, rscore_pract);&amp;#10;practicetrials.addData(&quot;total_score_pract&quot;, tscore_pract);&amp;#10;practicetrials.addData(&quot;treshold_pract&quot;, effTresh);&amp;#10;practicetrials.addData(&quot;trial_duration_pract&quot;, t);&amp;#10;practicetrials.addData(&quot;max_incr_pSec_pract&quot;, max_incr_pSec_pract);&amp;#10;practicetrials.addData(&quot;max_incr_pract&quot;, max_incr_pract);&amp;#10;" valType="extendedCode" updates="constant" name="End JS Routine"/>
@@ -1928,10 +1928,10 @@
       <CodeComponent name="code_practinstr_online" plugin="None">
         <Param val="" valType="extendedCode" updates="constant" name="Before Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
-        <Param val="key_instructions = &quot; &quot;&amp;#10;" valType="extendedCode" updates="constant" name="Begin Experiment"/>
-        <Param val="key_instructions = &quot; &quot;;&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
-        <Param val="movieIsPlaying = false;&amp;#10;movieWasPaused = false;&amp;#10;movieWasPlayed = false;&amp;#10;timeLimitPerSeek = 1;&amp;#10;currentTimeValue = 0;&amp;#10;spacePressed = false;&amp;#10;movieTimeframe = 0;&amp;#10;movieDuration = 66;&amp;#10;key_instructions = &quot;Press 'space' to pause or play, and use the left 'arrow' to rewind.&quot;;&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
-        <Param val="movieIsPlaying = False&amp;#10;movieWasPaused = False&amp;#10;movieWasPlayed = False&amp;#10;timeLimitPerSeek = 1  # Adjust this as needed&amp;#10;currentTimeValue = 0  # Initialize the timer value&amp;#10;spacePressed = False # To toggle play/pause with space&amp;#10;&amp;#10;movieTimeframe = 0&amp;#10;movieDuration = 66&amp;#10;key_instructions = &quot;Press 'space' to pause or play, and use the left 'arrow' to rewind.&quot;&amp;#10;&amp;#10;&amp;#10;" valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Begin Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
+        <Param val="movieIsPlaying = false;&amp;#10;movieWasPaused = false;&amp;#10;movieWasPlayed = false;&amp;#10;timeLimitPerSeek = 1;&amp;#10;currentTimeValue = 0;&amp;#10;spacePressed = false;&amp;#10;movieTimeframe = 0;&amp;#10;movieDuration = 66;&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
+        <Param val="movieIsPlaying = False&amp;#10;movieWasPaused = False&amp;#10;movieWasPlayed = False&amp;#10;timeLimitPerSeek = 1  # Adjust this as needed&amp;#10;currentTimeValue = 0  # Initialize the timer value&amp;#10;spacePressed = False # To toggle play/pause with space&amp;#10;&amp;#10;movieTimeframe = 0&amp;#10;movieDuration = 66&amp;#10;&amp;#10;" valType="extendedCode" updates="constant" name="Begin Routine"/>
         <Param val="Auto-&gt;JS" valType="str" updates="None" name="Code Type"/>
         <Param val="keys = event.getKeys(keyList=[&quot;space&quot;, &quot;left&quot;])&amp;#10;&amp;#10;if &quot;space&quot; in keys:&amp;#10;    spacePressed = not spacePressed&amp;#10;&amp;#10;if &quot;left&quot; in keys:&amp;#10;    # Move the video backward by a specific time (adjust the value as needed)&amp;#10;    currentTimeValue -= 1  # Adjust this value to control rewind speed&amp;#10;    practice_instruction_video_online.seek(round(practice_instruction_video_online.duration * currentTimeValue))&amp;#10;&amp;#10;if spacePressed:&amp;#10;    practice_instruction_video_online.play()&amp;#10;    textbox_keyspract.setText('', log=False)&amp;#10;else:&amp;#10;    practice_instruction_video_online.pause()&amp;#10;    textbox_keyspract.setText(&quot;Press 'space' to pause or play, and use the left 'arrow' to rewind.&quot;, log=False)" valType="extendedCode" updates="constant" name="Each Frame"/>
         <Param val="var _pj;&amp;#10;function _pj_snippets(container) {&amp;#10;    function in_es6(left, right) {&amp;#10;        if (((right instanceof Array) || ((typeof right) === &quot;string&quot;))) {&amp;#10;            return (right.indexOf(left) &gt; (- 1));&amp;#10;        } else {&amp;#10;            if (((right instanceof Map) || (right instanceof Set) || (right instanceof WeakMap) || (right instanceof WeakSet))) {&amp;#10;                return right.has(left);&amp;#10;            } else {&amp;#10;                return (left in right);&amp;#10;            }&amp;#10;        }&amp;#10;    }&amp;#10;    container[&quot;in_es6&quot;] = in_es6;&amp;#10;    return container;&amp;#10;}&amp;#10;_pj = {};&amp;#10;_pj_snippets(_pj);&amp;#10;keys = psychoJS.eventManager.getKeys({&quot;keyList&quot;: [&quot;space&quot;, &quot;left&quot;]});&amp;#10;if (_pj.in_es6(&quot;space&quot;, keys)) {&amp;#10;    spacePressed = (! spacePressed);&amp;#10;}&amp;#10;if (_pj.in_es6(&quot;left&quot;, keys)) {&amp;#10;    currentTimeValue -= 1;&amp;#10;    practice_instruction_video_online.seek(util.round((practice_instruction_video_online.duration * currentTimeValue)));&amp;#10;}&amp;#10;if (spacePressed) {&amp;#10;    practice_instruction_video_online.play();&amp;#10;    textbox_keyspract.setText(&quot;&quot;, {&quot;log&quot;: false});&amp;#10;} else {&amp;#10;    practice_instruction_video_online.pause();&amp;#10;    textbox_keyspract.setText(&quot;Press 'space' to pause or play, and use the left 'arrow' to rewind.&quot;, {&quot;log&quot;: false});&amp;#10;}&amp;#10;" valType="extendedCode" updates="constant" name="Each JS Frame"/>
@@ -1979,7 +1979,7 @@
         <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
         <Param val="" valType="code" updates="constant" name="stopVal"/>
         <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
-        <Param val="$key_instructions" valType="str" updates="constant" name="text"/>
+        <Param val="Press 'space' to pause or play, and use the left 'arrow' to rewind.&amp;#10;" valType="str" updates="constant" name="text"/>
         <Param val="from exp settings" valType="str" updates="None" name="units"/>
       </TextboxComponent>
     </Routine>
@@ -2012,10 +2012,10 @@
       <CodeComponent name="code_maininstr_online" plugin="None">
         <Param val="" valType="extendedCode" updates="constant" name="Before Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
-        <Param val="key_instructions = &quot; &quot;&amp;#10;" valType="extendedCode" updates="constant" name="Begin Experiment"/>
-        <Param val="key_instructions = &quot; &quot;;&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
-        <Param val="movieIsPlaying = false;&amp;#10;movieWasPaused = false;&amp;#10;movieWasPlayed = false;&amp;#10;timeLimitPerSeek = 1;&amp;#10;currentTimeValue = 0;&amp;#10;spacePressed = false;&amp;#10;movieTimeframe = 0;&amp;#10;movieDuration = 123;&amp;#10;key_instructions = &quot;Press 'space' to pause or play, and use the left 'arrow' to rewind.&quot;;&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
-        <Param val="movieIsPlaying = False&amp;#10;movieWasPaused = False&amp;#10;movieWasPlayed = False&amp;#10;timeLimitPerSeek = 1  # Adjust this as needed&amp;#10;currentTimeValue = 0  # Initialize the timer value&amp;#10;spacePressed = False # To toggle play/pause with space&amp;#10;&amp;#10;movieTimeframe = 0&amp;#10;movieDuration = 123&amp;#10;key_instructions = &quot;Press 'space' to pause or play, and use the left 'arrow' to rewind.&quot;&amp;#10;&amp;#10;&amp;#10;" valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Begin Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
+        <Param val="movieIsPlaying = false;&amp;#10;movieWasPaused = false;&amp;#10;movieWasPlayed = false;&amp;#10;timeLimitPerSeek = 1;&amp;#10;currentTimeValue = 0;&amp;#10;spacePressed = false;&amp;#10;movieTimeframe = 0;&amp;#10;movieDuration = 123;&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
+        <Param val="movieIsPlaying = False&amp;#10;movieWasPaused = False&amp;#10;movieWasPlayed = False&amp;#10;timeLimitPerSeek = 1  # Adjust this as needed&amp;#10;currentTimeValue = 0  # Initialize the timer value&amp;#10;spacePressed = False # To toggle play/pause with space&amp;#10;&amp;#10;movieTimeframe = 0&amp;#10;movieDuration = 123&amp;#10;&amp;#10;" valType="extendedCode" updates="constant" name="Begin Routine"/>
         <Param val="Auto-&gt;JS" valType="str" updates="None" name="Code Type"/>
         <Param val="keys = event.getKeys(keyList=[&quot;space&quot;, &quot;left&quot;,&quot;return&quot;])&amp;#10;&amp;#10;if &quot;space&quot; in keys:&amp;#10;    spacePressed = not spacePressed&amp;#10;&amp;#10;if &quot;left&quot; in keys:&amp;#10;    # Move the video backward by a specific time (adjust the value as needed)&amp;#10;    currentTimeValue -= 1  # Adjust this value to control rewind speed&amp;#10;    main_instruction_video_online.seek(round(main_instruction_video_online.duration * currentTimeValue))&amp;#10;&amp;#10;if spacePressed:&amp;#10;    main_instruction_video_online.play()&amp;#10;    textbox_keysmain.setText('', log=False)&amp;#10;else:&amp;#10;    main_instruction_video_online.pause()&amp;#10;    textbox_keysmain.setText(&quot;Press 'space' to pause or play, and use the left 'arrow' to rewind.&quot;, log=False)&amp;#10;&amp;#10;if t &gt; main_instruction_video_online.duration and &quot;return&quot; in keys:&amp;#10;    continueRoutine = False&amp;#10;" valType="extendedCode" updates="constant" name="Each Frame"/>
         <Param val="var _pj;&amp;#10;function _pj_snippets(container) {&amp;#10;    function in_es6(left, right) {&amp;#10;        if (((right instanceof Array) || ((typeof right) === &quot;string&quot;))) {&amp;#10;            return (right.indexOf(left) &gt; (- 1));&amp;#10;        } else {&amp;#10;            if (((right instanceof Map) || (right instanceof Set) || (right instanceof WeakMap) || (right instanceof WeakSet))) {&amp;#10;                return right.has(left);&amp;#10;            } else {&amp;#10;                return (left in right);&amp;#10;            }&amp;#10;        }&amp;#10;    }&amp;#10;    container[&quot;in_es6&quot;] = in_es6;&amp;#10;    return container;&amp;#10;}&amp;#10;_pj = {};&amp;#10;_pj_snippets(_pj);&amp;#10;keys = psychoJS.eventManager.getKeys({&quot;keyList&quot;: [&quot;space&quot;, &quot;left&quot;, &quot;return&quot;]});&amp;#10;if (_pj.in_es6(&quot;space&quot;, keys)) {&amp;#10;    spacePressed = (! spacePressed);&amp;#10;}&amp;#10;if (_pj.in_es6(&quot;left&quot;, keys)) {&amp;#10;    currentTimeValue -= 1;&amp;#10;    main_instruction_video_online.seek(util.round((main_instruction_video_online.duration * currentTimeValue)));&amp;#10;}&amp;#10;if (spacePressed) {&amp;#10;    main_instruction_video_online.play();&amp;#10;    textbox_keysmain.setText(&quot;&quot;, {&quot;log&quot;: false});&amp;#10;} else {&amp;#10;    main_instruction_video_online.pause();&amp;#10;    textbox_keysmain.setText(&quot;Press 'space' to pause or play, and use the left 'arrow' to rewind.&quot;, {&quot;log&quot;: false});&amp;#10;}&amp;#10;if (((t &gt; main_instruction_video_online.duration) &amp;&amp; _pj.in_es6(&quot;return&quot;, keys))) {&amp;#10;    continueRoutine = false;&amp;#10;}&amp;#10;" valType="extendedCode" updates="constant" name="Each JS Frame"/>
@@ -2063,7 +2063,7 @@
         <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
         <Param val="" valType="code" updates="constant" name="stopVal"/>
         <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
-        <Param val="$key_instructions" valType="str" updates="constant" name="text"/>
+        <Param val="Press 'space' to pause or play, and use the left 'arrow' to rewind.&amp;#10;" valType="str" updates="constant" name="text"/>
         <Param val="from exp settings" valType="str" updates="None" name="units"/>
       </TextboxComponent>
     </Routine>
@@ -2542,8 +2542,56 @@
         <Param val="True" valType="bool" updates="constant" name="syncScreenRefresh"/>
       </KeyboardComponent>
     </Routine>
+    <Routine name="starter_code">
+      <CodeComponent name="code_JS" plugin="None">
+        <Param val="" valType="extendedCode" updates="constant" name="Before Experiment"/>
+        <Param val="util.addInfoFromUrl(expInfo);" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Begin Experiment"/>
+        <Param val="thisExp=psychoJS.experiment;" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="JS" valType="str" updates="None" name="Code Type"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Each Frame"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Each JS Frame"/>
+        <Param val="" valType="extendedCode" updates="constant" name="End Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="End JS Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="End JS Routine"/>
+        <Param val="" valType="extendedCode" updates="constant" name="End Routine"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="code_JS" valType="code" updates="None" name="name"/>
+      </CodeComponent>
+      <CodeComponent name="hide_mouse" plugin="None">
+        <Param val="" valType="extendedCode" updates="constant" name="Before Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
+        <Param val="myMouse = event.Mouse()&amp;#10;myMouse.setPos(newPos=(1,1))&amp;#10;&amp;#10;win.mouseVisible = False&amp;#10;" valType="extendedCode" updates="constant" name="Begin Experiment"/>
+        <Param val="myMouse = new psychoJS.eventManager.Mouse();&amp;#10;myMouse.setPos({&quot;newPos&quot;: [1, 1]});&amp;#10;psychoJS.window.mouseVisible = false;&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="Auto-&gt;JS" valType="str" updates="None" name="Code Type"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Each Frame"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Each JS Frame"/>
+        <Param val="win.mouseVisible = True" valType="extendedCode" updates="constant" name="End Experiment"/>
+        <Param val="psychoJS.window.mouseVisible = true;&amp;#10;" valType="extendedCode" updates="constant" name="End JS Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="End JS Routine"/>
+        <Param val="" valType="extendedCode" updates="constant" name="End Routine"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="hide_mouse" valType="code" updates="None" name="name"/>
+      </CodeComponent>
+    </Routine>
   </Routines>
   <Flow>
+    <Routine name="starter_code"/>
+    <LoopInitiator loopType="TrialHandler" name="overall_loop">
+      <Param name="Selected rows" updates="None" val="" valType="str"/>
+      <Param name="conditions" updates="None" val="None" valType="str"/>
+      <Param name="conditionsFile" updates="None" val="" valType="file"/>
+      <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
+      <Param name="isTrials" updates="None" val="True" valType="bool"/>
+      <Param name="loopType" updates="None" val="random" valType="str"/>
+      <Param name="nReps" updates="None" val="1" valType="num"/>
+      <Param name="name" updates="None" val="overall_loop" valType="code"/>
+      <Param name="random seed" updates="None" val="" valType="code"/>
+    </LoopInitiator>
     <Routine name="Start"/>
     <Routine name="practice_video_online_2"/>
     <LoopInitiator loopType="TrialHandler" name="instruct_slides">
@@ -2660,5 +2708,6 @@
     <Routine name="block_break"/>
     <LoopTerminator name="blocks"/>
     <Routine name="end_video"/>
+    <LoopTerminator name="overall_loop"/>
   </Flow>
 </PsychoPy2experiment>

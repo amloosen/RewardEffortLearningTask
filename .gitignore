@@ -49,3 +49,5 @@ old stuff/.DS_Store
 stim/.DS_Store
 *.asv
 *.mov
+*.js
+*.html
